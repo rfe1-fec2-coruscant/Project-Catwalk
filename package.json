@@ -1,0 +1,33 @@
+{
+  "name": "project-catwalk",
+  "version": "1.0.0",
+  "description": "retail portal",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chai": "^4.3.0",
+    "eslint": "^7.20.0",
+    "express": "^4.17.1",
+    "jquery": "^3.5.1",
+    "mocha": "^8.3.0",
+    "node": "^15.8.0",
+    "nodemon": "^2.0.7",
+    "react": "^17.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "react-dev": "webpack --mode development --watch",
+    "server-dev": "npx nodemon server/index.js",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rfe1-fec2-coruscant/Project-Catwalk.git"
+  },
+  "author": "Team Coruscant",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rfe1-fec2-coruscant/Project-Catwalk/issues"
+  },
+  "homepage": "https://github.com/rfe1-fec2-coruscant/Project-Catwalk#readme"
+}
