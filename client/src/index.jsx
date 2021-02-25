@@ -1,5 +1,6 @@
 import React from 'react';
-import Questions from './components/Questions.jsx'
+import Questions from './components/questions/Questions.jsx';
+import Overview from './components/overview/Overview.jsx';
 
 
 class App extends React.Component {
@@ -14,6 +15,7 @@ class App extends React.Component {
     return(
       <div>
         <div>Hello World</div>
+        <Overview />
         <Questions/>
       </div>
 

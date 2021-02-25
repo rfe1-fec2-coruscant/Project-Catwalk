@@ -8,7 +8,7 @@ class Overview extends React.Component {
 
   render() {
     return(
-      <div id="overview" style="height:100px; width:100vw; background-color:blue">
+      <div id="overview">
         <p>Hello World!</p>
       </div>
     );
