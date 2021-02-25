@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/get', (req, res) => {
-  var endPoint = req.body.path;
+  var endPoint = req.query.path;
   axios.get(api + '/' + endPoint, {
     headers: {
       'Authorization': config.TOKEN

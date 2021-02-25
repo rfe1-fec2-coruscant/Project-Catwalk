@@ -1,7 +1,11 @@
 import React from 'react';
+import ProductCard from './ProductCard.jsx';
 
 var RelatedProducts = () => (
-  <p>Related Products Carousel</p>
+  <div>
+    <p>Related Products Carousel</p>
+    <ProductCard />
+  </div>
 );
 
 export default RelatedProducts;
