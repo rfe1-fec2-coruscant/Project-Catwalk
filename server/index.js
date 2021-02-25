@@ -1,34 +1,39 @@
+const axios = require('axios');
 const express = require('express');
 const bodyParser = require('body-parser')
 const path = require('path');
+const config = require('../config.js');
 
 const PORT = 3000;
 const app = express();
-let temp = `<!DOCTYPE html>
-<html>
-<head>
-  <title>Project Catwalk</title>
-</head>
-<body>
-  <div>Hello</div>
-<div id="app"></div>
 
-</body>
-</html>`
+const api = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe';
 
-
-console.log(path.join(__dirname, '..', '/client/index.html'));
 app.use(express.static(path.join(__dirname, '..', '/client/dist')));
-// console.log('static path', __dirname + './client/index.html');
-// app.use(express.static(__dirname + '/client/index.html'));
 app.use(bodyParser.json());
 
-app.get('/',(req, res) => {
+app.get('/', (req, res) => {
   console.log('hi from app.get');
-  res.send(temp);
   res.end();
 });
 
-app.listen(PORT, () => {
-  console.log(`Server listening at localhost:${3000}!`);
+app.get('/get', (req, res) => {
+  var endPoint = req.body.path;
+  axios.get(api + '/' + endPoint, {
+    headers: {
+      'Authorization': config.TOKEN
+    }
+  })
+    .then(data => {
+      res.send(data.data).end();
+    })
+    .catch(err => {
+      res.send(err).end();
+    });
 });
+
+app.listen(PORT, () => {
+  console.log(`Server listening at localhost:${PORT}!`);
+});
+
+// GET: /products, /reviews, /qa/questions, /qa/questions/:question_id/answers, /cart
