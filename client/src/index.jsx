@@ -1,5 +1,7 @@
 import React from 'react';
-import Reviews from './components/RatingsAndReviews/reviewsidx.jsx'
+import Reviews from './components/Reviews.jsx'
+import Questions from './components/Questions.jsx'
+
 
 class App extends React.Component {
   constructor(props) {
@@ -9,10 +11,14 @@ class App extends React.Component {
   }
   componentDidMount() {}
 
-//
   render() {
     return(
-      <Reviews />
+      <div>
+        <div>Hello World</div>
+        <Questions/>
+        <Reviews/>
+      </div>
+
     )
   }
 }
