@@ -1,6 +1,8 @@
 import React from 'react';
-import Questions from './components/questions/Questions.jsx';
-import Overview from './components/overview/Overview.jsx';
+
+import Overview from './components/Overview.jsx';
+import Reviews from './components/Reviews.jsx'
+import Questions from './components/Questions.jsx'
 
 
 class App extends React.Component {
@@ -17,6 +19,7 @@ class App extends React.Component {
         <div>Hello World</div>
         <Overview />
         <Questions/>
+        <Reviews/>
       </div>
 
     )
