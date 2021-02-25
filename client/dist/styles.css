@@ -1,10 +1,54 @@
+
+/*--------GENERAL PAGE LAYOUT---------------------*/
+
 * {
   margin: 0;
   padding: 0;
 }
 
+
+/*--------END OF GENERAL PAGE LAYOUT---------------------*/
+
+
+
+/*--------OVERVIEW---------------------*/
 #overview {
   height: 100px;
   width: 100vw;
   background-color:#ccf
 }
+
+
+/*--------END OF OVERVIEW---------------------*/
+
+
+
+
+/*--------QUESTIONS & ANSWERS--------------------*/
+
+
+
+
+
+/*--------END OF QUESTIONS & ANSWERS--------------------*/
+
+
+
+
+
+/*--------RELATED ITEMS & COMPARISON---------------------*/
+
+
+
+
+
+/*--------END OF RELATED ITEMS & COMPARISON---------------------*/
+
+
+
+
+/*--------RATINGS & REVIEWS---------------------*/
+
+
+
+/*--------END OF RATINGS & REVIEWS---------------------*/
