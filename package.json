@@ -4,6 +4,7 @@
   "description": "retail portal",
   "main": "index.js",
   "dependencies": {
+    "@babel/core": "^7.13.1",
     "babel": "^6.23.0",
     "babel-loader": "^8.2.2",
     "body-parser": "^1.19.0",
