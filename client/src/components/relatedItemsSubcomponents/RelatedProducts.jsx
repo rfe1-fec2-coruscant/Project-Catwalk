@@ -1,10 +1,10 @@
 import React from 'react';
 import ProductCard from './ProductCard.jsx';
 
-var RelatedProducts = () => (
+var RelatedProducts = ({ products }) => (
   <div>
-    <p>Related Products Carousel</p>
-    <ProductCard />
+    <h3>Related Products Carousel</h3>
+    {products.map(product => <ProductCard product={product} key={product.id} />)}
   </div>
 );
 

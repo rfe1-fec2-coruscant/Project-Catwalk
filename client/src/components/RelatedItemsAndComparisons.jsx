@@ -18,7 +18,6 @@ class RelatedItemsAndComparisons extends React.Component {
 
   fetchProducts() {
     ajaxRequests.get('products', data => {
-      console.log('data:', data);
       this.setState({ products: data });
     });
   }
@@ -27,7 +26,7 @@ class RelatedItemsAndComparisons extends React.Component {
     return (
       <div className="related-items">
         <h2>Related Items and Comparisons</h2>
-        <RelatedProducts />
+        <RelatedProducts products={this.state.products}/>
         <YourOutfit />
       </div>
     );

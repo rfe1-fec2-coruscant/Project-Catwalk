@@ -1,7 +1,7 @@
 import React from 'react';
 
-var ProductCard = () => (
-  <p>Product Card</p>
+var ProductCard = ({ product }) => (
+  <p>{product.name}</p>
 );
 
 export default ProductCard;
