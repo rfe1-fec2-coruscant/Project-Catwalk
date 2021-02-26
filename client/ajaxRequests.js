@@ -3,7 +3,7 @@ import $ from 'jquery';
 const ajaxRequests = {
 
   get: (path, callback) => {
-    $.ajax({
+    return $.ajax({
       type: 'GET',
       url: '/get',
       data: { path },
@@ -13,18 +13,6 @@ const ajaxRequests = {
       }
     });
   },
-
-  getMultiple: (array, callback) => {
-    $.ajax({
-      type: 'GET',
-      url: '/get/multiple',
-      data: { array },
-      success: callback,
-      error: err => {
-        console.log('err from ajaxRequests.getMultiple:', err);
-      }
-    });
-  }
 
 };
 

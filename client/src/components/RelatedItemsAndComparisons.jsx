@@ -15,7 +15,11 @@ class RelatedItemsAndComparisons extends React.Component {
     };
   }
 
-  fetchRelatedProductIds() {
+  componentDidMount() {
+    this.fetchData();
+  }
+
+  fetchData() {
     ajaxRequests.get('products/' + this.state.currentlyViewedProduct + '/related', relatedProductIds => {
       this.setState({ relatedProductIds: relatedProductIds });
       this.fetchProductObjects(relatedProductIds);
@@ -24,21 +28,35 @@ class RelatedItemsAndComparisons extends React.Component {
   }
 
   fetchProductObjects(relatedProductIds) {
-    // send the array of Ids to the server, which will then only send back its data payload once all the API responses have been returned
-    ajaxRequests.getMultiple(relatedProductIds, productObjectsArray => {
-      this.setState({ relatedProducts: productObjectsArray });
+    var productObjects = relatedProductIds.map(productId => {
+      return ajaxRequests.get('products/' + productId, productObject => productObject);
     });
+    Promise.all(productObjects)
+      .then(productObjects => {
+        console.log('productObjects:', productObjects);
+        this.setState({
+          relatedProducts: productObjects
+        });
+      })
+      .catch(err => {
+        console.log('err from fetchProductObjects:', err);
+      });
   }
 
   fetchStylesObjects(relatedProductIds) {
-    ajaxRequests.getMultiple(relatedProductIds, productStylesArray => {
-      this.setState({ relatedStyles: productStylesArray });
+    var styleObjects = relatedProductIds.map(productId => {
+      return ajaxRequests.get('products/' + productId + '/styles', styleObject => styleObject);
     });
-  }
-
-
-  componentDidMount() {
-    this.fetchRelatedProductIds();
+    Promise.all(styleObjects)
+      .then(styleObjects => {
+        console.log('styleObjects:', styleObjects);
+        this.setState({
+          relatedStyles: styleObjects
+        });
+      })
+      .catch(err => {
+        console.log('err from fetchProductObjects:', err);
+      });
   }
 
   render() {
