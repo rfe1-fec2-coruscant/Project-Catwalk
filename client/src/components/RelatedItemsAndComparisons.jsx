@@ -10,8 +10,7 @@ class RelatedItemsAndComparisons extends React.Component {
     this.state = {
       currentlyViewedProduct: 19976,
       relatedProductIds: [],
-      relatedProducts: [],
-      relatedStyles: []
+      relatedProducts: []
     };
   }
 
@@ -22,14 +21,20 @@ class RelatedItemsAndComparisons extends React.Component {
   fetchData() {
     ajaxRequests.get('products/' + this.state.currentlyViewedProduct + '/related', relatedProductIds => {
       this.setState({ relatedProductIds: relatedProductIds });
-      this.fetchProductObjects(relatedProductIds);
-      this.fetchStylesObjects(relatedProductIds);
+      this.fetchProductAndStyleObjects(relatedProductIds);
     });
   }
 
-  fetchProductObjects(relatedProductIds) {
+  fetchProductAndStyleObjects(relatedProductIds) {
     var productObjects = relatedProductIds.map(productId => {
-      return ajaxRequests.get('products/' + productId, productObject => productObject);
+      var relatedProductObject = { id: productId };
+      ajaxRequests.get('products/' + productId, productObject => {
+        relatedProductObject.productObject = productObject;
+      });
+      ajaxRequests.get('products/' + productId + '/styles', stylesObject => {
+        relatedProductObject.stylesObject = stylesObject;
+      });
+      return relatedProductObject;
     });
     Promise.all(productObjects)
       .then(productObjects => {
@@ -42,26 +47,11 @@ class RelatedItemsAndComparisons extends React.Component {
       });
   }
 
-  fetchStylesObjects(relatedProductIds) {
-    var styleObjects = relatedProductIds.map(productId => {
-      return ajaxRequests.get('products/' + productId + '/styles', styleObject => styleObject);
-    });
-    Promise.all(styleObjects)
-      .then(styleObjects => {
-        this.setState({
-          relatedStyles: styleObjects
-        });
-      })
-      .catch(err => {
-        console.log('err from fetchProductObjects:', err);
-      });
-  }
-
   render() {
     return (
       <div className="related-items">
         <h2>Related Items and Comparisons</h2>
-        <RelatedProducts relatedProducts={this.state.relatedProducts} relatedStyles={this.state.relatedStyles}/>
+        <RelatedProducts relatedProducts={this.state.relatedProducts}/>
         <YourOutfit />
       </div>
     );
@@ -100,3 +90,33 @@ export default RelatedItemsAndComparisons;
       //   .catch(err => {
       //     console.log('err from Promise.all():', err);
       //   });
+
+      // fetchProductObjects(relatedProductIds) {
+      //   var productObjects = relatedProductIds.map(productId => {
+      //     return ajaxRequests.get('products/' + productId, productObject => productObject);
+      //   });
+      //   Promise.all(productObjects)
+      //     .then(productObjects => {
+      //       this.setState({
+      //         relatedProducts: productObjects
+      //       });
+      //     })
+      //     .catch(err => {
+      //       console.log('err from fetchProductObjects:', err);
+      //     });
+      // }
+
+      // fetchStylesObjects(relatedProductIds) {
+      //   var styleObjects = relatedProductIds.map(productId => {
+      //     return ajaxRequests.get('products/' + productId + '/styles', styleObject => styleObject);
+      //   });
+      //   Promise.all(styleObjects)
+      //     .then(styleObjects => {
+      //       this.setState({
+      //         relatedStyles: styleObjects
+      //       });
+      //     })
+      //     .catch(err => {
+      //       console.log('err from fetchProductObjects:', err);
+      //     });
+      // }

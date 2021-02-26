@@ -1,7 +1,9 @@
 import React from 'react';
 
 var ProductCard = ({ product }) => (
-  <p>{product.name}</p>
+  <p>Placeholder</p>
 );
 
 export default ProductCard;
+
+// {product.productObject.name ? product.productObject.name : ''}
