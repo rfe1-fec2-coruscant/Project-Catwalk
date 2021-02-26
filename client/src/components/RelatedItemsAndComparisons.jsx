@@ -8,17 +8,21 @@ class RelatedItemsAndComparisons extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: []
+      currentlyViewedProduct: 19976,
+      relatedProducts: []
     };
   }
 
   componentDidMount() {
-    this.fetchProducts();
+    this.fetchRelatedProducts();
   }
 
-  fetchProducts() {
-    ajaxRequests.get('products', data => {
-      this.setState({ products: data });
+  fetchRelatedProducts() {
+    ajaxRequests.get('products/' + this.state.currentlyViewedProduct + '/related', data => {
+      // for each id of data array, make an ajax request for the product. create new object that has id property and a product property, set to the returned product object
+      // THEN, make an ajax request for the associated styles object. add the returned object to a styles property on new object. push new object to the state array somehow
+      this.setState({ relatedProducts: data });
+      console.log('this.state.relatedProducts:', this.state.relatedProducts);
     });
   }
 
@@ -26,7 +30,7 @@ class RelatedItemsAndComparisons extends React.Component {
     return (
       <div className="related-items">
         <h2>Related Items and Comparisons</h2>
-        <RelatedProducts products={this.state.products}/>
+        <RelatedProducts relatedProducts={this.state.relatedProducts}/>
         <YourOutfit />
       </div>
     );

@@ -3,7 +3,7 @@ import ProductCard from './ProductCard.jsx';
 
 var YourOutfit = () => (
   <div>
-    <p>Your Outfit Carousel</p>
+    <h3>Your Outfit Carousel</h3>
   </div>
 );
 
