@@ -32,6 +32,13 @@ app.get('/get', (req, res) => {
     });
 });
 
+app.get('/get/multiple', (req, res) => {
+  // make an axios get request for each endpoint
+  console.log('req.query.array:', req.query.array);
+  // call the API on each item of array
+  res.send(['just', 'so', 'you', 'have', 'something']);
+});
+
 app.listen(PORT, () => {
   console.log(`Server listening at localhost:${PORT}!`);
 });
