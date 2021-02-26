@@ -33,7 +33,6 @@ class RelatedItemsAndComparisons extends React.Component {
     });
     Promise.all(productObjects)
       .then(productObjects => {
-        console.log('productObjects:', productObjects);
         this.setState({
           relatedProducts: productObjects
         });
@@ -49,7 +48,6 @@ class RelatedItemsAndComparisons extends React.Component {
     });
     Promise.all(styleObjects)
       .then(styleObjects => {
-        console.log('styleObjects:', styleObjects);
         this.setState({
           relatedStyles: styleObjects
         });
@@ -63,7 +61,7 @@ class RelatedItemsAndComparisons extends React.Component {
     return (
       <div className="related-items">
         <h2>Related Items and Comparisons</h2>
-        <RelatedProducts relatedProductIds={this.state.relatedProductIds}/>
+        <RelatedProducts relatedProducts={this.state.relatedProducts} relatedStyles={this.state.relatedStyles}/>
         <YourOutfit />
       </div>
     );
