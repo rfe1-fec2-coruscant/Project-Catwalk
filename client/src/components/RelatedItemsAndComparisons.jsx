@@ -9,7 +9,6 @@ class RelatedItemsAndComparisons extends React.Component {
     super(props);
     this.state = {
       currentlyViewedProduct: 19976,
-      relatedProductIds: [],
       relatedProducts: []
     };
   }
@@ -20,14 +19,13 @@ class RelatedItemsAndComparisons extends React.Component {
 
   fetchData() {
     ajaxRequests.get('products/' + this.state.currentlyViewedProduct + '/related', relatedProductIds => {
-      this.setState({ relatedProductIds: relatedProductIds });
       this.fetchProductAndStyleObjects(relatedProductIds);
     });
   }
 
   fetchProductAndStyleObjects(relatedProductIds) {
     var productObjects = relatedProductIds.map(productId => {
-      var relatedProductObject = { id: productId };
+      var relatedProductObject = { id: productId, productObject: { name: 'LOL' }, stylesObject: {} };
       ajaxRequests.get('products/' + productId, productObject => {
         relatedProductObject.productObject = productObject;
       });
@@ -36,8 +34,10 @@ class RelatedItemsAndComparisons extends React.Component {
       });
       return relatedProductObject;
     });
+
     Promise.all(productObjects)
       .then(productObjects => {
+        console.log('productObjects:', productObjects);
         this.setState({
           relatedProducts: productObjects
         });
@@ -58,7 +58,6 @@ class RelatedItemsAndComparisons extends React.Component {
   }
 
 }
-
 
 export default RelatedItemsAndComparisons;
 

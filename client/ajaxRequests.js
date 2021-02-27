@@ -12,7 +12,7 @@ const ajaxRequests = {
         console.log('err from ajaxRequests.get:', err);
       }
     });
-  },
+  }
 
 };
 
