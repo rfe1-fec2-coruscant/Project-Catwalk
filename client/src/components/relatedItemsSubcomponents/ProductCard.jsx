@@ -35,9 +35,16 @@ class ProductCard extends React.Component {
     return (
       <div className='product-card' onClick={this.handleProductCardClick.bind(this)}>
         <ProductCardImg relatedProductId={relatedProductId} key={relatedProductId} />
+        <br></br>
         <span>{this.state.category || 'category'}&nbsp;|&nbsp;</span>
         <span>{this.state.name || 'name'}&nbsp;|&nbsp;</span>
-        <span>{this.state.price || 'price'}</span>
+        <span>${this.state.price || '(price)'}</span>
+        <br></br>
+        <span className='star-icon full'>&#9734;</span>
+        <span className='star-icon full'>&#9734;</span>
+        <span className='star-icon half'>&#9734;</span>
+        <span className='star-icon'>&#9734;</span>
+        <span className='star-icon'>&#9734;</span>
       </div>
     );
   }

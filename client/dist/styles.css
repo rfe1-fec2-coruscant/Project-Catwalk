@@ -17,3 +17,27 @@
 .product-card {
   cursor: pointer;
 }
+
+.star-icon {
+  color: #ddd;
+  font-size: 24px;
+  position: relative;
+}
+
+.star-icon.full:before {
+  color: #FDE16D;
+  content: '\2605'; /* Full star in UTF8 */
+  position: absolute;
+  left: 0;
+  text-shadow: 0 0 2px rgba(0,0,0,0.7);
+}
+
+.star-icon.half:before {
+  color: #FDE16D;
+  content: '\2605'; /* Full star in UTF8 */
+  position: absolute;
+  left: 0;
+  width: 50%;
+  overflow: hidden;
+  text-shadow: 0 0 2px rgba(0,0,0,0.7);
+}
