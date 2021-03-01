@@ -14,8 +14,20 @@
 }
 
 /* RelatedItemsAndComparisons */
+img {
+  height: 200px;
+}
+
+.items-carousel {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
 .product-card {
+  display: inline-block;
   cursor: pointer;
+  width: 300px;
+  height: 400px;
 }
 
 .star-icon {

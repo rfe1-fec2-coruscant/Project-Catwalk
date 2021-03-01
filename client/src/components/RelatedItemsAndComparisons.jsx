@@ -29,7 +29,9 @@ class RelatedItemsAndComparisons extends React.Component {
     return (
       <div className="related-items">
         <h2>Related Items and Comparisons</h2>
-        <RelatedProducts relatedProductIds={this.state.relatedProductIds}/>
+        <div className='items-carousel'>
+          <RelatedProducts relatedProductIds={this.state.relatedProductIds}/>
+        </div>
         <YourOutfit />
       </div>
     );

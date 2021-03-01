@@ -14,7 +14,7 @@ class ProductCardImg extends React.Component {
       var imageUrl;
       for (var obj of data.results) {
         if (obj['default?'] === true) {
-          imageUrl = obj.photos[0].thumbnail_url;
+          imageUrl = obj.photos[0].url;
           break;
         }
       }
