@@ -8,7 +8,8 @@ class RelatedItemsAndComparisons extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentlyViewedProduct: 19976,
+      currentProduct: 19976,
+      currentProductFeatures: [{"feature": "Cut", "value": "\"Skinny\""}, {"feature": "Cut", "value": "\"Loose\""}],
       relatedProductIds: []
     };
   }
@@ -18,7 +19,7 @@ class RelatedItemsAndComparisons extends React.Component {
   }
 
   fetchData() {
-    ajaxRequests.get('products/' + this.state.currentlyViewedProduct + '/related', relatedProductIds => {
+    ajaxRequests.get('products/' + this.state.currentProduct + '/related', relatedProductIds => {
       this.setState({
         relatedProductIds: relatedProductIds
       });
@@ -30,7 +31,7 @@ class RelatedItemsAndComparisons extends React.Component {
       <div className="related-items">
         <h2>Related Items and Comparisons</h2>
         <div className='items-carousel'>
-          <RelatedProducts relatedProductIds={this.state.relatedProductIds}/>
+          <RelatedProducts relatedProductIds={this.state.relatedProductIds} currentProductFeatures={this.state.currentProductFeatures}/>
         </div>
         <YourOutfit />
       </div>

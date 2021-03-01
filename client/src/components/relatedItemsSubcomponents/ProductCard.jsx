@@ -12,6 +12,7 @@ class ProductCard extends React.Component {
     this.state = {
       show: false,
       productObject: {},
+      currentProductFeatures: this.props.currentProductFeatures,
       productFeatures: [],
       category: null,
       name: null,
@@ -47,7 +48,7 @@ class ProductCard extends React.Component {
 
     return (
       <div className='product-card' onClick={this.handleProductCardClick}>
-        <ComparisonModal show={this.state.show} handleCloseModal={this.handleCloseModal} productFeatures={this.state.productFeatures}/>
+        <ComparisonModal show={this.state.show} handleCloseModal={this.handleCloseModal} productFeatures={this.state.productFeatures} currentProductFeatures={this.state.currentProductFeatures}/>
         <ProductCardImg relatedProductId={relatedProductId} key={relatedProductId} />
         <br></br>
         <br></br>
