@@ -12,7 +12,7 @@
 /* RelatedItemsAndComparisons */
 
 .related-items {
-  color: darkgreen;
+  color: darkslategrey;
 }
 
 img.product-card-image {
@@ -27,7 +27,6 @@ img.product-card-image {
   overflow-x: hidden;
   white-space: nowrap;
 }
-
 
 .product-card {
   display: inline-block;
@@ -71,6 +70,8 @@ img.product-card-image {
 
 .close-button {
   float: right;
+  color: floralwhite;
+  background-color: darkslategray;
   /* margin: 5px; */
 }
 
