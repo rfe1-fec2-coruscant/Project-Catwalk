@@ -2,7 +2,7 @@ import React from 'react';
 const Characteristics = () => {
   return (
     <div>Characteristics
-      <div>Size:
+      <div required>Size:
               <input type="radio" className="size-rating" />Poor
               <input type="radio" className="size-rating" />Fair
               <input type="radio" className="size-rating" />Average
@@ -10,7 +10,7 @@ const Characteristics = () => {
               <input type="radio" className="size-rating" />Great
             </div>
 
-      <div>Width:
+      <div required>Width:
               <input type="radio" className="size-rating" />Poor
               <input type="radio" className="size-rating" />Fair
               <input type="radio" className="size-rating" />Average
@@ -18,7 +18,7 @@ const Characteristics = () => {
               <input type="radio" className="size-rating" />Great
           </div>
 
-      <div>Comfort:
+      <div required>Comfort:
               <input type="radio" className="size-rating" />Poor
               <input type="radio" className="size-rating" />Fair
               <input type="radio" className="size-rating" />Average
@@ -26,7 +26,7 @@ const Characteristics = () => {
               <input type="radio" className="size-rating" />Great
           </div>
 
-      <div>Quality:
+      <div required>Quality:
               <input type="radio" className="size-rating" />Poor
               <input type="radio" className="size-rating" />Fair
               <input type="radio" className="size-rating" />Average
@@ -34,7 +34,7 @@ const Characteristics = () => {
               <input type="radio" className="size-rating" />Great
           </div>
 
-      <div>Length:
+      <div required>Length:
               <input type="radio" className="size-rating" />Poor
               <input type="radio" className="size-rating" />Fair
               <input type="radio" className="size-rating" />Average
@@ -42,7 +42,7 @@ const Characteristics = () => {
               <input type="radio" className="size-rating" />Great
           </div>
 
-      <div>Fit:
+      <div required>Fit:
               <input type="radio" className="size-rating" />Poor
               <input type="radio" className="size-rating" />Fair
               <input type="radio" className="size-rating" />Average
