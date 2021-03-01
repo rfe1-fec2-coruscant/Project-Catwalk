@@ -2,7 +2,7 @@ import React from 'react';
 
 var RatingsBreakdown = () => (
   <div>
-
+    <div>RatingsBreakdown</div>
   </div>
 )
 

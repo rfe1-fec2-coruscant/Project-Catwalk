@@ -9,10 +9,9 @@ class WriteNewReview extends React.Component {
   }
   componentDidMount() { }
 
-  //
   render() {
     return (
-      <div>Here are some reviews</div>
+      <div>Here are some new reviews</div>
     )
   }
 }

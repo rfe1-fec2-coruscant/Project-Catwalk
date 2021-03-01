@@ -9,7 +9,7 @@ class KeyWordSearch extends React.Component {
   }
   componentDidMount() { }
 
-  //
+
   render() {
     return (
       <div>key word search</div>

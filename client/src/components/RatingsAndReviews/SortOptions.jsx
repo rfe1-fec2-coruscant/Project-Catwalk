@@ -9,7 +9,6 @@ class SortOptions extends React.Component {
   }
   componentDidMount() { }
 
-  //
   render() {
     return (
       <div>Here are some sorts</div>
