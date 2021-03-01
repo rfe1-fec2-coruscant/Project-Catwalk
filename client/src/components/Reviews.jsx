@@ -26,7 +26,6 @@ class Reviews extends React.Component {
     })
   }
 
-
     render() {
       return (
         <div>
@@ -47,11 +46,5 @@ class Reviews extends React.Component {
     }
   }
 
-
-//hello
-
-
-
-/// goodbye
 
 export default Reviews;
