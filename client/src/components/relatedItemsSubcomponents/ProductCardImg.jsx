@@ -14,7 +14,7 @@ class ProductCardImg extends React.Component {
       var imageUrl;
       for (var obj of data.results) {
         if (obj['default?'] === true) {
-          imageUrl = obj.photos[0].url;
+          imageUrl = obj.photos[0].thumbnail_url;
           break;
         }
       }
@@ -26,7 +26,7 @@ class ProductCardImg extends React.Component {
 
   render() {
     return (
-      <img src={this.state.image || 'https://images.unsplash.com/11/converse-fields.jpg?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80'}></img>
+      <img className='product-card-image' src={this.state.image || 'https://images.unsplash.com/11/converse-fields.jpg?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80'}></img>
       // <p>{this.state.image || 'image'}</p>
     )
   }

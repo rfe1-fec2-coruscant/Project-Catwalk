@@ -3,7 +3,7 @@ import $ from 'jquery';
 const ajaxRequests = {
 
   get: (path, callback) => {
-    return $.ajax({
+    $.ajax({
       type: 'GET',
       url: '/get',
       data: { path },
