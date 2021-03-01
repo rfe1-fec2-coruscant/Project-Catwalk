@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductCardInfo from './ProductCardInfo.jsx';
+import ProductCardImg from './ProductCardImg.jsx';
 import ajaxRequests from '../../../ajaxRequests.js';
 
 class ProductCard extends React.Component {
@@ -8,8 +8,9 @@ class ProductCard extends React.Component {
     super(props);
     this.state = {
       productObject: {},
-      stylesObject: {},
-      name: null
+      category: null,
+      name: null,
+      price: null
     }
   }
 
@@ -17,15 +18,23 @@ class ProductCard extends React.Component {
     ajaxRequests.get('products/' + this.props.relatedProductId, data => {
       this.setState({
         productObject: data,
-        name: data.name
+        category: data.category,
+        name: data.name,
+        price: data.default_price
       });
     });
   }
 
   render() {
+    var { relatedProductId } = this.props;
 
     return (
-      <p>{this.state.name || 'placeholder'}</p>
+      <div>
+        <ProductCardImg relatedProductId={relatedProductId} key={relatedProductId}/>
+        <span>{this.state.category || 'category'}&nbsp;|&nbsp;</span>
+        <span>{this.state.name || 'name'}&nbsp;|&nbsp;</span>
+        <span>{this.state.price || 'price'}</span>
+      </div>
     );
   }
 
