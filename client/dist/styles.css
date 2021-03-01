@@ -22,18 +22,11 @@ img.product-card-image {
 
 .related-products {
   width: 975px;
-  /* float: left; */
   height: auto;
   overflow-y: hidden;
   overflow-x: hidden;
   white-space: nowrap;
-  /* overflow: scroll; */
 }
-
-/* .items-carousel {
-  display: flex;
-  flex-flow: row nowrap;
-} */
 
 
 .product-card {
@@ -72,6 +65,14 @@ img.product-card-image {
   text-shadow: 0 0 2px rgba(0,0,0,0.7);
 }
 
-.more-button {
-  z-index: 1;
+.modal {
+  position: fixed;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
 }

@@ -1,12 +1,16 @@
 import React from 'react';
 import ProductCardImg from './ProductCardImg.jsx';
+import ComparisonModal from './ComparisonModal.jsx';
 import ajaxRequests from '../../../ajaxRequests.js';
 
 class ProductCard extends React.Component {
 
   constructor(props) {
     super(props);
+    this.handleProductCardClick = this.handleProductCardClick.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
     this.state = {
+      show: false,
       productObject: {},
       category: null,
       name: null,
@@ -15,7 +19,14 @@ class ProductCard extends React.Component {
   }
 
   handleProductCardClick() {
-    console.log(`you\'ve clicked ${this.props.relatedProductId}!`);
+    if (this.state.show) {
+      return;
+    }
+    this.setState({ show: true });
+  }
+
+  handleCloseModal() {
+    this.setState({ show: false });
   }
 
   componentDidMount() {
@@ -33,7 +44,8 @@ class ProductCard extends React.Component {
     var { relatedProductId } = this.props;
 
     return (
-      <div className='product-card' onClick={this.handleProductCardClick.bind(this)}>
+      <div className='product-card' onClick={this.handleProductCardClick}>
+        <ComparisonModal show={this.state.show} handleCloseModal={this.handleCloseModal}/>
         <ProductCardImg relatedProductId={relatedProductId} key={relatedProductId} />
         <br></br>
         <br></br>
