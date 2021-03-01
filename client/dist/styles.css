@@ -41,6 +41,10 @@ img.product-card-image {
   padding-left: 10px;
 }
 
+.product-card-name {
+  font-weight: bold;
+}
+
 .star-icon {
   color: #ddd;
   font-size: 24px;
@@ -68,6 +72,20 @@ img.product-card-image {
 .close-button {
   float: right;
   /* margin: 5px; */
+}
+
+.current-product-header {
+  float: left;
+  color: darkslategray;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.compared-product-header {
+  float: right;
+  color: darkslategray;
+  font-size: larger;
+  font-weight: bold;
 }
 
 .modal {

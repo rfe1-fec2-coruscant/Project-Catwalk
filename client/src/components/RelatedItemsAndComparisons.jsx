@@ -9,7 +9,8 @@ class RelatedItemsAndComparisons extends React.Component {
     super(props);
     this.state = {
       currentProduct: 19976,
-      currentProductFeatures: [{"feature": "Cut", "value": "\"Skinny\""}, {"feature": "Cut", "value": "\"Loose\""}],
+      currentProductFeatures: [{'feature': 'Cut', 'value': '\"Skinny\"'}, {'feature': 'Cut', 'value': '\"Loose\"'}],
+      currentProductName: 'Colten 150 Slacks',
       relatedProductIds: []
     };
   }
@@ -31,7 +32,7 @@ class RelatedItemsAndComparisons extends React.Component {
       <div className="related-items">
         <h2>Related Items and Comparisons</h2>
         <div className='items-carousel'>
-          <RelatedProducts relatedProductIds={this.state.relatedProductIds} currentProductFeatures={this.state.currentProductFeatures}/>
+          <RelatedProducts relatedProductIds={this.state.relatedProductIds} currentProductFeatures={this.state.currentProductFeatures} currentProductName={this.state.currentProductName}/>
         </div>
         <YourOutfit />
       </div>

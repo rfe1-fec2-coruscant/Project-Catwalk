@@ -44,17 +44,17 @@ class ProductCard extends React.Component {
   }
 
   render() {
-    var { relatedProductId } = this.props;
+    var { relatedProductId, currentProductName } = this.props;
 
     return (
       <div className='product-card' onClick={this.handleProductCardClick}>
-        <ComparisonModal show={this.state.show} handleCloseModal={this.handleCloseModal} productFeatures={this.state.productFeatures} currentProductFeatures={this.state.currentProductFeatures}/>
+        <ComparisonModal show={this.state.show} handleCloseModal={this.handleCloseModal} productFeatures={this.state.productFeatures} currentProductFeatures={this.state.currentProductFeatures} comparedName={this.state.name} currentProductName={currentProductName}/>
         <ProductCardImg relatedProductId={relatedProductId} key={relatedProductId} />
         <br></br>
         <br></br>
         <span className='product-card-text'>{this.state.category || 'category'}</span>
         <br></br>
-        <span className='product-card-text'>{this.state.name || 'name'}</span>
+        <span className='product-card-text product-card-name'>{this.state.name || 'name'}</span>
         <br></br>
         <span className='product-card-text'>${this.state.price || '(price)'}</span>
         <div className='star-container'>
