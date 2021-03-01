@@ -14,6 +14,10 @@ class ProductCard extends React.Component {
     }
   }
 
+  handleProductCardClick() {
+    console.log(`you\'ve clicked ${this.props.relatedProductId}!`);
+  }
+
   componentDidMount() {
     ajaxRequests.get('products/' + this.props.relatedProductId, data => {
       this.setState({
@@ -29,8 +33,8 @@ class ProductCard extends React.Component {
     var { relatedProductId } = this.props;
 
     return (
-      <div>
-        <ProductCardImg relatedProductId={relatedProductId} key={relatedProductId}/>
+      <div className='product-card' onClick={this.handleProductCardClick.bind(this)}>
+        <ProductCardImg relatedProductId={relatedProductId} key={relatedProductId} />
         <span>{this.state.category || 'category'}&nbsp;|&nbsp;</span>
         <span>{this.state.name || 'name'}&nbsp;|&nbsp;</span>
         <span>{this.state.price || 'price'}</span>

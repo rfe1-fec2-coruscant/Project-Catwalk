@@ -9,8 +9,7 @@ class RelatedItemsAndComparisons extends React.Component {
     super(props);
     this.state = {
       currentlyViewedProduct: 19976,
-      relatedProductIds: [],
-      relatedProducts: []
+      relatedProductIds: []
     };
   }
 
@@ -25,6 +24,21 @@ class RelatedItemsAndComparisons extends React.Component {
       });
     });
   }
+
+  render() {
+    return (
+      <div className="related-items">
+        <h2>Related Items and Comparisons</h2>
+        <RelatedProducts relatedProductIds={this.state.relatedProductIds}/>
+        <YourOutfit />
+      </div>
+    );
+  }
+
+}
+
+export default RelatedItemsAndComparisons;
+
 
   // fetchProductAndStyleObjects(relatedProductIds) {
   //   var productObjects = relatedProductIds.map(productId => {
@@ -49,20 +63,6 @@ class RelatedItemsAndComparisons extends React.Component {
   //       console.log('err from fetchProductObjects:', err);
   //     });
   // }
-
-  render() {
-    return (
-      <div className="related-items">
-        <h2>Related Items and Comparisons</h2>
-        <RelatedProducts relatedProductIds={this.state.relatedProductIds}/>
-        <YourOutfit />
-      </div>
-    );
-  }
-
-}
-
-export default RelatedItemsAndComparisons;
 
 // ajaxRequests.get('products/' + this.state.currentlyViewedProduct + '/related', data => {
 //   // for each id of data array, make an ajax request for the product. create new object that has id property and a product property, set to the returned product object

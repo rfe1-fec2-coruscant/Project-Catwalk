@@ -12,3 +12,8 @@
 .related-items {
   color: darkgreen;
 }
+
+/* RelatedItemsAndComparisons */
+.product-card {
+  cursor: pointer;
+}
