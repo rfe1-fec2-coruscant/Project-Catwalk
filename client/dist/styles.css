@@ -15,7 +15,8 @@
 
 /* RelatedItemsAndComparisons */
 img {
-  height: 200px;
+  height: 180px;
+  width: 220px;
 }
 
 .items-carousel {
@@ -26,8 +27,17 @@ img {
 .product-card {
   display: inline-block;
   cursor: pointer;
-  width: 300px;
+  border: 1px solid black;
+  /* border-radius: 10px; */
+  /* width: 250px; */
   height: 400px;
+  margin: 10px 10px;
+  padding: 2px;
+  justify-items: center;
+}
+
+.product-card-text {
+  justify-content: center;
 }
 
 .star-icon {
