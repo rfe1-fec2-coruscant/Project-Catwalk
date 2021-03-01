@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import ajaxRequests from '../../ajaxRequests.js';
-import IndividualReviewTile from './RatingsAndReviews/IndividualReviewTile.jsx';
+
 import KeyWordSearch from './RatingsAndReviews/KeyWordSearch.jsx';
 import ProductBreakdown from './RatingsAndReviews/ProductBreakdown.jsx';
 import RatingBreakdown from './RatingsAndReviews/RatingBreakdown.jsx';
@@ -22,24 +22,27 @@ class Reviews extends React.Component {
   componentDidMount() {
     return ajaxRequests.get(`reviews?product_id=${this.tempid}`, (results) => {
       this.setState({ curProduct: results });
-
     })
+      .catch((error) => {
+        console.log(error)
+      })
+
   }
 
     render() {
+      console.log(this.state.curProduct)
       return (
         <div>
-          <IndividualReviewTile />
-          <KeyWordSearch />
+          {/* <KeyWordSearch />
           <ProductBreakdown />
-          <RatingBreakdown />
+          <RatingBreakdown /> */}
           <ReviewsList
             curProduct={this.state.curProduct}
             curProductId={this.state.curProduct.product}
             curProductCount={this.state.curProduct.count}
             curProductReviews={this.state.curProduct.results}
           />
-          <SortOptions />
+          {/* <SortOptions /> */}
           <WriteNewReview />
         </div>
       )

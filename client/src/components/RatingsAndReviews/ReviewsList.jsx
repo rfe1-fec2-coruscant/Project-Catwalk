@@ -1,5 +1,5 @@
 import React from 'react';
-import ReviewsListItem from './ReviewsListItem.jsx';
+import IndividualReviewTile from './IndividualReviewTile.jsx';
 
 class ReviewsList extends React.Component {
   constructor(props) {
@@ -11,10 +11,10 @@ class ReviewsList extends React.Component {
   render() {
     if (this.props.curProductReviews) {
       return (
-        <div>
+        <div>A bunch of Reviews, sorted by Nothing rn.
 
           {this.props.curProductReviews.map((review) => {
-            return ( <ReviewsListItem
+            return (<IndividualReviewTile
               key={review.review_id}
               reviewId={review.review_id}
               rating={review.rating}
