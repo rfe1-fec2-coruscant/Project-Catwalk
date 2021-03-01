@@ -6,13 +6,12 @@ class RelatedProducts extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      relatedProducts: this.props.relatedProducts
+      relatedProductIds: this.props.relatedProductIds
     };
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps !== this.props) {
-      console.log('resetting state!:', this.props);
       this.setState({
         relatedProducts: this.props.relatedProducts
       });
@@ -20,7 +19,22 @@ class RelatedProducts extends React.Component {
   }
 
   render() {
+    var { relatedProductIds } = this.props;
     return (
+      <div>
+        {this.props.relatedProductIds.map(relatedProductId => {
+          return (
+            <ProductCard relatedProductId={relatedProductId} key={relatedProductId}/>
+          );
+        })}
+      </div>
+    );
+  }
+}
+
+export default RelatedProducts;
+
+    {/* return (
       <div>
         <h3>Related Products Carousel</h3>
         {this.state.relatedProducts.map(product => {
@@ -30,56 +44,4 @@ class RelatedProducts extends React.Component {
           );
         })}
       </div>
-    );
-  }
-}
-
-// ({ relatedProducts }) => {
-
-//   console.log('relatedProducts:', relatedProducts);
-
-//   return (
-//     <div>
-//       <h3>Related Products Carousel</h3>
-//       {relatedProducts.map(product => {
-//         console.log('product:', product);
-//         return (
-//           <ProductCard productObject={product.productObject} stylesObject={product.stylesObject} key={product.id} />
-//         );
-//       })}
-//     </div>
-//   );
-
-// }
-
-export default RelatedProducts;
-
-// var RelatedProducts = ({ relatedProducts }) => {
-
-//   console.log('relatedProducts:', relatedProducts);
-
-//   return (
-//     <div>
-//       <h3>Related Products Carousel</h3>
-//       {relatedProducts.map(product => {
-//         console.log('product:', product);
-//         return (
-//           <ProductCard productObject={product.productObject} stylesObject={product.stylesObject} key={product.id} />
-//         );
-//       })}
-//     </div>
-//   );
-
-// }
-
-// var RelatedProducts = ({ relatedProducts }) => (
-//   <div>
-//     <h3>Related Products Carousel</h3>
-//     {relatedProducts.map(product => {
-//       console.log('product:', product);
-//       return (
-//         <ProductCard product={product} key={product.id} />
-//       );
-//     })}
-//   </div>
-// );
+    ); */}

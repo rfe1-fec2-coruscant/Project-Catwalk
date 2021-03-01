@@ -9,6 +9,7 @@ class RelatedItemsAndComparisons extends React.Component {
     super(props);
     this.state = {
       currentlyViewedProduct: 19976,
+      relatedProductIds: [],
       relatedProducts: []
     };
   }
@@ -19,39 +20,41 @@ class RelatedItemsAndComparisons extends React.Component {
 
   fetchData() {
     ajaxRequests.get('products/' + this.state.currentlyViewedProduct + '/related', relatedProductIds => {
-      this.fetchProductAndStyleObjects(relatedProductIds);
+      this.setState({
+        relatedProductIds: relatedProductIds
+      });
     });
   }
 
-  fetchProductAndStyleObjects(relatedProductIds) {
-    var productObjects = relatedProductIds.map(productId => {
-      var relatedProductObject = { id: productId, productObject: { name: 'LOL' }, stylesObject: {} };
-      ajaxRequests.get('products/' + productId, productObject => {
-        relatedProductObject.productObject = productObject;
-      });
-      ajaxRequests.get('products/' + productId + '/styles', stylesObject => {
-        relatedProductObject.stylesObject = stylesObject;
-      });
-      return relatedProductObject;
-    });
+  // fetchProductAndStyleObjects(relatedProductIds) {
+  //   var productObjects = relatedProductIds.map(productId => {
+  //     var relatedProductObject = { id: productId, productObject: { name: '' }, stylesObject: {} };
+  //     ajaxRequests.get('products/' + productId, productObject => {
+  //       relatedProductObject.productObject = productObject;
+  //     });
+  //     ajaxRequests.get('products/' + productId + '/styles', stylesObject => {
+  //       relatedProductObject.stylesObject = stylesObject;
+  //     });
+  //     return relatedProductObject;
+  //   });
 
-    Promise.all(productObjects)
-      .then(productObjects => {
-        console.log('productObjects:', productObjects);
-        this.setState({
-          relatedProducts: productObjects
-        });
-      })
-      .catch(err => {
-        console.log('err from fetchProductObjects:', err);
-      });
-  }
+  //   Promise.all(productObjects)
+  //     .then(productObjects => {
+  //       console.log('productObjects:', productObjects);
+  //       this.setState({
+  //         relatedProducts: productObjects
+  //       });
+  //     })
+  //     .catch(err => {
+  //       console.log('err from fetchProductObjects:', err);
+  //     });
+  // }
 
   render() {
     return (
       <div className="related-items">
         <h2>Related Items and Comparisons</h2>
-        <RelatedProducts relatedProducts={this.state.relatedProducts}/>
+        <RelatedProducts relatedProductIds={this.state.relatedProductIds}/>
         <YourOutfit />
       </div>
     );

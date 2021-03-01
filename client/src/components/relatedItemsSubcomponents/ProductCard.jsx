@@ -1,4 +1,6 @@
 import React from 'react';
+import ProductCardInfo from './ProductCardInfo.jsx';
+import ajaxRequests from '../../../ajaxRequests.js';
 
 class ProductCard extends React.Component {
 
@@ -7,25 +9,23 @@ class ProductCard extends React.Component {
     this.state = {
       productObject: {},
       stylesObject: {},
-      name: 'placeholder'
+      name: null
     }
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps !== this.props) {
+  componentDidMount() {
+    ajaxRequests.get('products/' + this.props.relatedProductId, data => {
       this.setState({
-        productObject: this.props.productObject,
-        stylesObject: this.props.stylesObject,
-        name: this.props.productObject.name
+        productObject: data,
+        name: data.name
       });
-    }
+    });
   }
 
   render() {
-    // var { productObject, stylesObject } = this.props;
 
     return (
-      <p>{this.state.name}</p>
+      <p>{this.state.name || 'placeholder'}</p>
     );
   }
 
@@ -51,3 +51,13 @@ export default ProductCard;
 //     );
 //   }
 // }
+
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps !== this.props) {
+  //     this.setState({
+  //       productObject: this.props.productObject,
+  //       stylesObject: this.props.stylesObject,
+  //       name: this.props.productObject.name
+  //     });
+  //   }
+  // }
