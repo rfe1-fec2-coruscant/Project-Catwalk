@@ -5,8 +5,10 @@ const ComparisonModal = ({ show, handleCloseModal }) => {
 
   return (
     <div className={showHideClassName}>
-      <h3>Comparing</h3>
-      <button type="button" onClick={handleCloseModal}>Close</button>
+      <div className='modal-main'>
+        <h3>Comparing</h3>
+        <button type="button" onClick={handleCloseModal}>Close</button>
+      </div>
     </div>
   );
 }
