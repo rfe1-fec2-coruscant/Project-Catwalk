@@ -12,6 +12,7 @@ class ProductCard extends React.Component {
     this.state = {
       show: false,
       productObject: {},
+      productFeatures: [],
       category: null,
       name: null,
       price: null
@@ -33,6 +34,7 @@ class ProductCard extends React.Component {
     ajaxRequests.get('products/' + this.props.relatedProductId, data => {
       this.setState({
         productObject: data,
+        productFeatures: data.features,
         category: data.category,
         name: data.name,
         price: data.default_price
@@ -45,7 +47,7 @@ class ProductCard extends React.Component {
 
     return (
       <div className='product-card' onClick={this.handleProductCardClick}>
-        <ComparisonModal show={this.state.show} handleCloseModal={this.handleCloseModal}/>
+        <ComparisonModal show={this.state.show} handleCloseModal={this.handleCloseModal} productFeatures={this.state.productFeatures}/>
         <ProductCardImg relatedProductId={relatedProductId} key={relatedProductId} />
         <br></br>
         <br></br>
