@@ -26,14 +26,22 @@ class QuestionList extends React.Component {
 
 
   render() {
-  return (
-    <div>
-      <div>Questions and Answers Module</div>
-      <Question
-      question={this.state.questions[0]}/>
-    </div>
+    if(this.state.questions !== null) {
+      return (
+        <div>
+          <Question
+          question={this.state.questions[0]}/>
+          <Question
+          question={this.state.questions[1]}/>
+        </div>
 
-    );
+        );
+    } else {
+    return (
+      <div>
+      </div>
+     )
+    }
   }
 };
 
@@ -41,12 +49,6 @@ export default QuestionList;
 
 
 // export default function QuestionList(props) {
-//   return (
-//     <div>
-//       <div>Questions and Answers Module</div>
-//       <Question/>
-//     </div>
 
-//   )
 
 // };

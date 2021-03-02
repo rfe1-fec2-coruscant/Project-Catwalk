@@ -42,10 +42,16 @@ const Answers = (props) => {
 
     return (
       <div>
-        <div>
-          <b>A: </b>
-          <span><Answer
-          answer={answersArray[0]}/></span>
+        <div className="answers">
+          <div>
+            <b>A: </b>
+          </div>
+          <div>
+            <span><Answer
+            answer={answersArray[0]}/>
+            </span>
+            <button className="moreAnswers">LOAD MORE ANSWERS</button>
+          </div>
         </div>
       </div>
       );
