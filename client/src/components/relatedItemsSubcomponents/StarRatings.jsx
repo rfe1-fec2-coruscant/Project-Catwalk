@@ -9,7 +9,7 @@ const halfStarElement = <FontAwesomeIcon icon={faStarHalf} />
 class StarRatings extends React.Component {
   constructor(props) {
     super(props);
-    this.renderFullStar = this.renderFullStar.bind(this);
+    this.renderStars = this.renderStars.bind(this);
     this.state = {
       relatedProductId: this.props.relatedProductId,
       starRating: 5
@@ -27,59 +27,35 @@ class StarRatings extends React.Component {
       var averageRating = scoresTotal / reviewsTotal;
       var starRating = ((Math.round(averageRating * 4)) / 4).toFixed(2);
       this.setState({
-        starRating: Number(starRating)
+        starRating: starRating
       });
     });
   }
 
-  renderFullStar(num) {
-    var starString = [];
-    for (var i = 0; i < num; i++) {
-      starString.push(<span key={i} className="star-icon">{fullStarElement}</span>);
+  renderStars(num) {
+    var numOfFullStars = num[0];
+    var fullStars = [];
+    for (var i = 0; i < numOfFullStars; i++) {
+      fullStars.push(<span key={i} className="star-icon">{fullStarElement}</span>);
     }
-    return (starString);
+    if (num[2] === '2') {
+      fullStars.push(<span key={i} className="star-icon">1/4</span>);
+    } else if (num[2] === '5') {
+      fullStars.push(<span key={i} className="star-icon">{halfStarElement}</span>);
+    } else if (num[2] === '7') {
+      fullStars.push(<span key={i} className="star-icon">3/4</span>);
+    }
+    return (fullStars);
   }
 
   render() {
-    if (this.state.starRating === 5) {
-      return (
-        <div className='star-container'>
-          <span>&nbsp;&nbsp;</span>
-          <span className="star-icon"></span>
-          <span className="star-icon"></span>
-          <span className="star-icon"></span>
-          <span className="star-icon"></span>
-          <span className="star-icon"></span>
-        </div>
-      );
-    } else if (this.state.starRating === 3.25 || this.state.starRating === 3.5 || this.state.starRating === 3.75) {
-      return (
-        <div className='star-container'>
-          <span>&nbsp;&nbsp;</span>
-          {this.renderFullStar(3)}
-          <span className="star-icon">{halfStarElement}</span>
-          <span className="star-icon"></span>
-        </div>
-      );
-    } else if (this.state.starRating === 3) {
-      return (
-        <div className='star-container'>
-          <span>&nbsp;&nbsp;</span>
-          {this.renderFullStar(3)}
-          <span className="star-icon"></span>
-          <span className="star-icon"></span>
-        </div>
-      );
-    } else {
-      return (
-        <div className='star-container'>
-          <span>&nbsp;&nbsp;</span>
-          {this.renderFullStar(5)}
-        </div>
-      )
-    }
+    return (
+      <div className='star-container'>
+        <span>&nbsp;&nbsp;</span>
+        {this.renderStars(this.state.starRating)}
+      </div>
+    );
   };
-
 }
 
 export default StarRatings;
