@@ -1,5 +1,10 @@
 import React from 'react';
 import ajaxRequests from '../../../ajaxRequests.js';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons';
+
+const fullStarElement = <FontAwesomeIcon icon={faStar} />
+const halfStarElement = <FontAwesomeIcon icon={faStarHalf} />
 
 class StarRatings extends React.Component {
   constructor(props) {
@@ -30,11 +35,11 @@ class StarRatings extends React.Component {
     return (
       <div className='star-container'>
         <span>&nbsp;&nbsp;</span>
-        <span className='star-icon full'>&#9734;</span>
-        <span className='star-icon full'>&#9734;</span>
-        <span className='star-icon half'>&#9734;</span>
-        <span className='star-icon'>&#9734;</span>
-        <span className='star-icon'>&#9734;</span>
+        <span className="star-icon">{fullStarElement}</span>
+        <span className="star-icon">{fullStarElement}</span>
+        <span className="star-icon">{fullStarElement}</span>
+        <span className="star-icon">{fullStarElement}</span>
+        <span className="star-icon">{halfStarElement}</span>
       </div>
     );
   };

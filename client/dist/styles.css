@@ -50,15 +50,19 @@
 
 /* ProductCard: Stars */
 
+.star-container {
+  margin-top: 5px;
+}
+
 .star-icon {
-  color: #ddd;
-  font-size: 24px;
+  color: #383628;
+  font-size: 20px;
   position: relative;
 }
 
-.star-icon.full:before {
+/* .star-icon.full:before {
   color: #383628;
-  content: '\2605'; /* Full star in UTF8 */
+  content: '\2605';
   position: absolute;
   left: 0;
   text-shadow: 0 0 2px rgba(0,0,0,0.7);
@@ -66,13 +70,13 @@
 
 .star-icon.half:before {
   color: #383628;
-  content: '\2605'; /* Full star in UTF8 */
+  content: '\2605';
   position: absolute;
   left: 0;
   width: 50%;
   overflow: hidden;
   text-shadow: 0 0 2px rgba(0,0,0,0.7);
-}
+} */
 
 /* ProductCardImg */
 
