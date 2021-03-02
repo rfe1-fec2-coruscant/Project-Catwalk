@@ -15,10 +15,7 @@
   color: darkslategrey;
 }
 
-img.product-card-image {
-  height: 180px;
-  width: 220px;
-}
+/* RelatedProducts */
 
 .related-products {
   width: 975px;
@@ -28,12 +25,19 @@ img.product-card-image {
   white-space: nowrap;
 }
 
+/* ProductCard */
+
 .product-card {
   display: inline-block;
-  cursor: pointer;
   border: 1px solid black;
   height: 315px;
   margin: 10px 10px;
+  /* z-index: -2; */
+}
+
+.product-card-text-box {
+  cursor: pointer;
+  padding: 15px 10px 25px 10px;
 }
 
 .product-card-text {
@@ -44,6 +48,8 @@ img.product-card-image {
   font-weight: bold;
 }
 
+/* ProductCard: Stars */
+
 .star-icon {
   color: #ddd;
   font-size: 24px;
@@ -51,7 +57,7 @@ img.product-card-image {
 }
 
 .star-icon.full:before {
-  color: #FDE16D;
+  color: #383628;
   content: '\2605'; /* Full star in UTF8 */
   position: absolute;
   left: 0;
@@ -59,13 +65,67 @@ img.product-card-image {
 }
 
 .star-icon.half:before {
-  color: #FDE16D;
+  color: #383628;
   content: '\2605'; /* Full star in UTF8 */
   position: absolute;
   left: 0;
   width: 50%;
   overflow: hidden;
   text-shadow: 0 0 2px rgba(0,0,0,0.7);
+}
+
+/* ProductCardImg */
+
+.product-image-container {
+  position: relative;
+  z-index: 1;
+}
+
+img.product-card-image {
+  height: 185px;
+  width: 220px;
+}
+
+.star-action {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 24px;
+  color: #FDE16D;
+  text-shadow: 0 0 2px rgba(0,0,0,0.7);
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* ComparisonModal */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 3;
+}
+
+.modal-main {
+  position: fixed;
+  background: white;
+  width: 60%;
+  height: auto;
+  top: 35%;
+  left: 50%;
+  padding: 5px;
+  transform: translate(-50%,-50%);
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
 }
 
 .close-button {
@@ -89,33 +149,7 @@ img.product-card-image {
   font-weight: bold;
 }
 
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width:100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-}
-
-.modal-main {
-  position: fixed;
-  background: white;
-  width: 60%;
-  height: auto;
-  top: 35%;
-  left: 50%;
-  padding: 5px;
-  transform: translate(-50%,-50%);
-}
-
-.display-block {
-  display: block;
-}
-
-.display-none {
-  display: none;
-}
+/* ComparisonModalTable */
 
 #features-table {
   margin: auto;
@@ -128,4 +162,4 @@ img.product-card-image {
 
 .features-table-data-name {
   text-align: center;
-}
+}.

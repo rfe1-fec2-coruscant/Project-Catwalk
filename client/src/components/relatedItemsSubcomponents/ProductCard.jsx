@@ -47,23 +47,25 @@ class ProductCard extends React.Component {
     var { relatedProductId, currentProductName } = this.props;
 
     return (
-      <div className='product-card' onClick={this.handleProductCardClick}>
-        <ComparisonModal show={this.state.show} handleCloseModal={this.handleCloseModal} productFeatures={this.state.productFeatures} currentProductFeatures={this.state.currentProductFeatures} comparedName={this.state.name} currentProductName={currentProductName}/>
+      <div className='product-card'>
+        <ComparisonModal show={this.state.show} handleCloseModal={this.handleCloseModal} productFeatures={this.state.productFeatures} currentProductFeatures={this.state.currentProductFeatures} comparedName={this.state.name} currentProductName={currentProductName} />
         <ProductCardImg relatedProductId={relatedProductId} key={relatedProductId} />
-        <br></br>
-        <br></br>
-        <span className='product-card-text'>{this.state.category || 'category'}</span>
-        <br></br>
-        <span className='product-card-text product-card-name'>{this.state.name || 'name'}</span>
-        <br></br>
-        <span className='product-card-text'>${this.state.price || '(price)'}</span>
-        <div className='star-container'>
-          <span>&nbsp;&nbsp;</span>
-          <span className='star-icon full'>&#9734;</span>
-          <span className='star-icon full'>&#9734;</span>
-          <span className='star-icon half'>&#9734;</span>
-          <span className='star-icon'>&#9734;</span>
-          <span className='star-icon'>&#9734;</span>
+        {/* <br></br>
+        <br></br> */}
+        <div className='product-card-text-box' onClick={this.handleProductCardClick}>
+          <span className='product-card-text'>{this.state.category || 'category'}</span>
+          <br></br>
+          <span className='product-card-text product-card-name'>{this.state.name || 'name'}</span>
+          <br></br>
+          <span className='product-card-text'>${this.state.price || '(price)'}</span>
+          <div className='star-container'>
+            <span>&nbsp;&nbsp;</span>
+            <span className='star-icon full'>&#9734;</span>
+            <span className='star-icon full'>&#9734;</span>
+            <span className='star-icon half'>&#9734;</span>
+            <span className='star-icon'>&#9734;</span>
+            <span className='star-icon'>&#9734;</span>
+          </div>
         </div>
       </div>
     );
