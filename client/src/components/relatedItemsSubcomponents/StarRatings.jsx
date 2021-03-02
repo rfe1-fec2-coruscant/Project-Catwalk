@@ -12,8 +12,14 @@ class StarRatings extends React.Component {
 
   componentDidMount() {
     ajaxRequests.get('reviews/meta?product_id=' + this.state.relatedProductId, reviewObject => {
-      var starRating = 10;
-      console.log('reviewObject.ratings:', reviewObject.ratings);
+      var scoresTotal = 0;
+      var reviewsTotal = 0;
+      for (var rating in reviewObject.ratings) {
+        reviewsTotal += Number(reviewObject.ratings[rating]);
+        scoresTotal += rating * reviewObject.ratings[rating];
+      }
+      var averageRating = scoresTotal / reviewsTotal;
+      var starRating = ((Math.round(averageRating * 4)) / 4).toFixed(2);
       this.setState({
         starRating: starRating
       });
