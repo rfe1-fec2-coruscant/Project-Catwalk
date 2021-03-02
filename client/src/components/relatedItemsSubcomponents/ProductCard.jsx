@@ -1,6 +1,7 @@
 import React from 'react';
 import ProductCardImg from './ProductCardImg.jsx';
 import ComparisonModal from './ComparisonModal.jsx';
+import StarRatings from './StarRatings.jsx';
 import ajaxRequests from '../../../ajaxRequests.js';
 
 class ProductCard extends React.Component {
@@ -61,14 +62,7 @@ class ProductCard extends React.Component {
           <span className='product-card-text product-card-name'>{this.state.name || 'name'}</span>
           <br></br>
           <span className='product-card-text'>${this.state.price || '(price)'}</span>
-          <div className='star-container'>
-            <span>&nbsp;&nbsp;</span>
-            <span className='star-icon full'>&#9734;</span>
-            <span className='star-icon full'>&#9734;</span>
-            <span className='star-icon half'>&#9734;</span>
-            <span className='star-icon'>&#9734;</span>
-            <span className='star-icon'>&#9734;</span>
-          </div>
+          <StarRatings relatedProductId={relatedProductId}/>
         </div>
       </div>
     );
