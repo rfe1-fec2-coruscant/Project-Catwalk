@@ -33,7 +33,7 @@ class ProductCard extends React.Component {
   }
 
   handleProductCardTextBoxClick(e) {
-    console.log('id of product you clicked:', e.target.id);
+    console.log('id of product you clicked:', e.target.id || e.target.parentNode.id || e.target.parentNode.parentNode.id);
   }
 
   componentDidMount() {
