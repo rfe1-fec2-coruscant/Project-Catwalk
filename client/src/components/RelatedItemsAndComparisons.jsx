@@ -8,8 +8,8 @@ class RelatedItemsAndComparisons extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentProduct: 19976,
-      currentProductFeatures: [{'feature': 'Cut', 'value': '\"Skinny\"'}, {'feature': 'Cut', 'value': '\"Loose\"'}],
+      currentProduct: 19735,
+      currentProductFeatures: [{"feature": "5 Year Warranty", "value": null}, {"feature": "Satisfaction Guaranteed", "value": null}, {"feature": "Frame", "value": "\"DuraResin\""}, {"feature": "5 Year Warranty", "value": null}],
       currentProductName: 'Colten 150 Slacks',
       relatedProductIds: []
     };
