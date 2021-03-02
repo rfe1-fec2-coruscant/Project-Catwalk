@@ -27,14 +27,14 @@ const ComparisonModalTable = ({ productFeatures, currentProductFeatures }) => {
   var featuresArray = Object.keys(featuresObject);
 
   return (
-    <table>
+    <table id="features-table">
       <tbody>
       {featuresArray.map((feature, index) => {
         return (
           <tr className="features-table-row" key={index}>
             <td className="features-table-data" >{featuresObject[feature] === 'inOriginal' || featuresObject[feature] === 'inBoth' ? '\u2713' : ''}</td>
-            <td>{feature}</td>
-            <td>{featuresObject[feature] === 'inBoth' || featuresObject[feature] === 'inRelated' ? '\u2713' : ''}</td>
+            <td className="features-table-data features-table-data-name">{feature}</td>
+            <td className="features-table-data">{featuresObject[feature] === 'inBoth' || featuresObject[feature] === 'inRelated' ? '\u2713' : ''}</td>
           </tr>
         );
         })}

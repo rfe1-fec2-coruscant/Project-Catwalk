@@ -117,8 +117,15 @@ img.product-card-image {
   display: none;
 }
 
+#features-table {
+  margin: auto;
+  width: 100%;
+}
+
 .feature {
   color: darkslategray;
-  margin: auto;
-  width: 50%;
+}
+
+.features-table-data-name {
+  text-align: center;
 }
