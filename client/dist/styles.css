@@ -132,6 +132,7 @@ img.product-card-image {
   float: right;
   color: floralwhite;
   background-color: darkslategray;
+  cursor: pointer;
   /* margin: 5px; */
 }
 

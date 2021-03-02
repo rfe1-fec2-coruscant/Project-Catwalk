@@ -7,8 +7,9 @@ class ProductCard extends React.Component {
 
   constructor(props) {
     super(props);
-    this.handleProductCardClick = this.handleProductCardClick.bind(this);
+    this.handleStarActionClick = this.handleStarActionClick.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
+    this.handleProductCardTextBoxClick = this.handleProductCardTextBoxClick.bind(this);
     this.state = {
       show: false,
       productObject: {},
@@ -20,7 +21,7 @@ class ProductCard extends React.Component {
     }
   }
 
-  handleProductCardClick() {
+  handleStarActionClick() {
     if (this.state.show) {
       return;
     }
@@ -29,6 +30,10 @@ class ProductCard extends React.Component {
 
   handleCloseModal() {
     this.setState({ show: false });
+  }
+
+  handleProductCardTextBoxClick(e) {
+    console.log('id of product you clicked:', e.target.id);
   }
 
   componentDidMount() {
@@ -49,10 +54,8 @@ class ProductCard extends React.Component {
     return (
       <div className='product-card'>
         <ComparisonModal show={this.state.show} handleCloseModal={this.handleCloseModal} productFeatures={this.state.productFeatures} currentProductFeatures={this.state.currentProductFeatures} comparedName={this.state.name} currentProductName={currentProductName} />
-        <ProductCardImg relatedProductId={relatedProductId} key={relatedProductId} />
-        {/* <br></br>
-        <br></br> */}
-        <div className='product-card-text-box' onClick={this.handleProductCardClick}>
+        <ProductCardImg handleStarActionClick={this.handleStarActionClick} relatedProductId={relatedProductId} key={relatedProductId} />
+        <div className='product-card-text-box' id={this.state.productObject.id} onClick={this.handleProductCardTextBoxClick}>
           <span className='product-card-text'>{this.state.category || 'category'}</span>
           <br></br>
           <span className='product-card-text product-card-name'>{this.state.name || 'name'}</span>
