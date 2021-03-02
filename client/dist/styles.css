@@ -60,6 +60,42 @@
   position: relative;
 }
 
+.star-icon-quarter {
+  display: inline-block;
+  color: white;
+  font-size: 20px;
+  position: relative;
+}
+
+.star-icon-quarter:after {
+  content: "\f005";
+  width: 37%;
+  left: 0;
+  top: 0;
+  color: #383628;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+}
+
+.star-icon-three-quarters {
+  display: inline-block;
+  color: white;
+  font-size: 20px;
+  position: relative;
+}
+
+.star-icon-three-quarters:after {
+  content: "\f005";
+  width: 73%;
+  left: 0;
+  top: 0;
+  color: #383628;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+}
+
 /* .star-icon.full:before {
   color: #383628;
   content: '\2605';

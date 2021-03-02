@@ -12,7 +12,7 @@ class StarRatings extends React.Component {
     this.renderStars = this.renderStars.bind(this);
     this.state = {
       relatedProductId: this.props.relatedProductId,
-      starRating: 5
+      starRating: 0
     };
   }
 
@@ -39,11 +39,11 @@ class StarRatings extends React.Component {
       fullStars.push(<span key={i} className="star-icon">{fullStarElement}</span>);
     }
     if (num[2] === '2') {
-      fullStars.push(<span key={i} className="star-icon">1/4</span>);
+      fullStars.push(<span key={i}><i className="fa fa-star star-icon-quarter"></i></span>);
     } else if (num[2] === '5') {
       fullStars.push(<span key={i} className="star-icon">{halfStarElement}</span>);
     } else if (num[2] === '7') {
-      fullStars.push(<span key={i} className="star-icon">3/4</span>);
+      fullStars.push(<span key={i}><i className="fa fa-star star-icon-three-quarters"></i></span>);
     }
     return (fullStars);
   }
