@@ -2,43 +2,66 @@ import React from 'react'
 import Answer from './Answer.jsx'
 
 
-
-const Answers = (props) => {
+class Answers extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      length: 2,
+      answersArray: [],
+    };
+  }
+//const Answers = (props) => {
 //answers are an object of objects. we want to take that and make it a sorted array of objects
-  if (props.answers) {
-// //NEXT STEP: sort answers by helpfulness and seller
-    var sellerAnswers = [];
-    var otherAnswers = [];
-    for (var id in props.answers) {
-      var answer = props.answers[id];
 
-      //separate the seller answers into their own array
-      if (answer.answerer_name === "Seller") {
-        sellerArray.push(answer);
-      } else {
-        otherAnswers.push(answer);
+componentDidMount() {
+  this.sortAnswers();
+}
+
+loadMoreAnswers() {
+  this.setState({length: this.state.answersArray.length, renderArray: this.state.answersArray.slice(0, length)});
+}
+  sortAnswers () {
+    // (function() {
+    if (this.props.answers) {
+      var sellerAnswers = [];
+      var otherAnswers = [];
+      for (var id in this.props.answers) {
+        var answer = this.props.answers[id];
+        //separate the seller answers into their own array
+        if (answer.answerer_name === "Seller") {
+          sellerArray.push(answer);
+        } else {
+          otherAnswers.push(answer);
+        }
       }
-    }
 
-    //helper function sorts by helpfulness
-    function compareHelpful(a, b) {
-      // Use toUpperCase() to ignore character casing
-      const helpfulA = a.helpfulness;
-      const helpfulB = b.helpfulness
+      //helper function sorts by helpfulness
+      function compareHelpful(a, b) {
+        // Use toUpperCase() to ignore character casing
+        const helpfulA = a.helpfulness;
+        const helpfulB = b.helpfulness
 
-      let comparison = 0;
-      if (helpfulA < helpfulB) {
-        comparison = 1;
-      } else if (helpfulA > helpfulB) {
-        comparison = -1;
+        let comparison = 0;
+        if (helpfulA < helpfulB) {
+          comparison = 1;
+        } else if (helpfulA > helpfulB) {
+          comparison = -1;
+        }
+        return comparison;
       }
-      return comparison;
+      sellerAnswers.sort(compareHelpful);
+      otherAnswers.sort(compareHelpful);
+  //now answersArray is a correctly sorted array of objects, with sellers answers first, followed by other answers in order of helpfulness
+      this.setState({answersArray: sellerAnswers.concat(otherAnswers)
+      });
     }
-    sellerAnswers.sort(compareHelpful);
-    otherAnswers.sort(compareHelpful);
-//now answersArray is a correctly sorted array of objects, with sellers answers first, followed by other answers in order of helpfulness
-    var answersArray = sellerAnswers.concat(otherAnswers);
-    console.log(answersArray[0]);
+  }
+
+
+
+
+
+  render() {
 
     return (
       <div>
@@ -47,10 +70,14 @@ const Answers = (props) => {
             <b>A: </b>
           </div>
           <div>
-            <span><Answer
-            answer={answersArray[0]}/>
+            <span>{this.state.answersArray.slice(0,this.state.length).map((answer) => (<Answer
+            answer={answer}/> ))}
             </span>
-            <button className="moreAnswers">LOAD MORE ANSWERS</button>
+            {/* <span><Answer
+            answer={this.state.answersArray[1]}/>
+            </span> */}
+            <button className="moreAnswers"
+            onClick={this.loadMoreAnswers.bind(this)}>LOAD MORE ANSWERS</button>
           </div>
         </div>
       </div>

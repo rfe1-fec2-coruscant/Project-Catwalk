@@ -18,9 +18,9 @@ const Question = (props) => {
             <b>{props.question["question_body"]}</b>
           </div>
           <div >
-            <helpful className="helpful">Helpful?</helpful>
+            <span className="helpful">Helpful?</span>
             <button className="smallButton">Yes</button>
-            <count className="count">(25)</count>
+            <span className="count">(25)</span>
             <span className="divide">|</span>
             <button className="smallButton">Add Answer</button>
 
