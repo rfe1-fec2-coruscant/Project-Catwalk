@@ -36,7 +36,7 @@ class RelatedItemsAndComparisons extends React.Component {
           <RelatedProducts relatedProductIds={this.state.relatedProductIds} currentProductFeatures={this.state.currentProductFeatures} currentProductName={this.state.currentProductName}/>
         </div>
         <h2>Your Outfit</h2>
-        <YourOutfit yourOutfits={this.state.yourOutfits}/>
+        <YourOutfit currentProduct={this.state.currentProduct} yourOutfits={this.state.yourOutfits}/>
       </div>
     );
   }

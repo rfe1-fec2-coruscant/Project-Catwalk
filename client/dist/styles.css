@@ -209,9 +209,9 @@ img.product-card-image {
 .add-outfit {
   width: 220px;
   text-align: center;
-  /* vertical-align: middle; */
   border-radius: 5px;
   position: relative;
+  cursor: pointer;
 }
 
 .plus-icon {
@@ -219,9 +219,6 @@ img.product-card-image {
   position: absolute;
   top: 28%;
   left: 37%;
-  /* margin: auto; */
-  /* margin: auto; */
-  /* width: 100%; */
 }
 
 .add-outfit-text {
@@ -229,6 +226,4 @@ img.product-card-image {
   position: absolute;
   top: 53%;
   left: 22%;
-  /* display: inline-block; */
-  /* vertical-align: middle; */
 }
