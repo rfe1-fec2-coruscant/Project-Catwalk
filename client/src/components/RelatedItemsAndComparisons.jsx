@@ -11,7 +11,8 @@ class RelatedItemsAndComparisons extends React.Component {
       currentProduct: 19735,
       currentProductFeatures: [{"feature": "5 Year Warranty", "value": null}, {"feature": "Satisfaction Guaranteed", "value": null}, {"feature": "Frame", "value": "\"DuraResin\""}, {"feature": "5 Year Warranty", "value": null}],
       currentProductName: 'Colten 150 Slacks',
-      relatedProductIds: []
+      relatedProductIds: [],
+      yourOutfits: []
     };
   }
 
@@ -34,8 +35,8 @@ class RelatedItemsAndComparisons extends React.Component {
         <div className='items-carousel'>
           <RelatedProducts relatedProductIds={this.state.relatedProductIds} currentProductFeatures={this.state.currentProductFeatures} currentProductName={this.state.currentProductName}/>
         </div>
-        <h2>Your Outfit Carousel</h2>
-        <YourOutfit />
+        <h2>Your Outfit</h2>
+        <YourOutfit yourOutfits={this.state.yourOutfits}/>
       </div>
     );
   }
