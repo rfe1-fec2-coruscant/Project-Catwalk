@@ -14,7 +14,7 @@ class YourOutfit extends React.Component {
     this.state = {
       yourOutfitIds: this.props.yourOutfitIds,
       // currentProductId: this.props.currentProductId,
-      isCurrentProductAdded: false
+      isCurrentProductAdded: this.props.isCurrentProductAdded
     }
   }
 
@@ -28,8 +28,12 @@ class YourOutfit extends React.Component {
     }
   }
 
-  componentDidUpdate() {
-    console.log('hiii');
+  componentDidUpdate(prevProps) {
+    if (this.props.isCurrentProductAdded !== prevProps.isCurrentProductAdded) {
+      this.setState({
+        isCurrentProductAdded: this.props.isCurrentProductAdded
+      });
+    }
   }
 
   render() {

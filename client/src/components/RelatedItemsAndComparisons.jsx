@@ -14,7 +14,8 @@ class RelatedItemsAndComparisons extends React.Component {
       currentProductFeatures: [{"feature": "5 Year Warranty", "value": null}, {"feature": "Satisfaction Guaranteed", "value": null}, {"feature": "Frame", "value": "\"DuraResin\""}, {"feature": "5 Year Warranty", "value": null}],
       currentProductName: 'Kathlyn Pants',
       relatedProductIds: [],
-      yourOutfitIds: []
+      yourOutfitIds: [],
+      isCurrentProductAdded: false
     };
   }
 
@@ -34,14 +35,23 @@ class RelatedItemsAndComparisons extends React.Component {
     if (!this.state.yourOutfitIds.includes(this.state.currentProductId)) {
       var yourOutfitIdsUpdated = this.state.yourOutfitIds;
       yourOutfitIdsUpdated.unshift(this.state.currentProductId);
-      this.setState({ yourOutfitIds: yourOutfitIdsUpdated });
+      this.setState({
+        yourOutfitIds: yourOutfitIdsUpdated,
+        isCurrentProductAdded: true
+      });
     } else {
       console.log('top component says this is already added!');
     }
   }
 
   handleOutfitRemove(yourOutfitId) {
-    console.log('looks like you are trying to get rid of:', yourOutfitId);
+    var yourOutfitIdsUpdated = this.state.yourOutfitIds;
+    var index = yourOutfitIdsUpdated.indexOf(yourOutfitId);
+    yourOutfitIdsUpdated.splice(index, 1);
+    this.setState({
+      yourOutfitIds: yourOutfitIdsUpdated,
+      isCurrentProductAdded: false
+     });
   }
 
   render() {
@@ -51,7 +61,7 @@ class RelatedItemsAndComparisons extends React.Component {
           <RelatedProducts relatedProductIds={this.state.relatedProductIds} currentProductFeatures={this.state.currentProductFeatures} currentProductName={this.state.currentProductName}/>
         <br></br>
         <h2>Your Outfit</h2>
-        <YourOutfit yourOutfitIds={this.state.yourOutfitIds} handleAddOutfit={this.handleAddOutfit} handleOutfitRemove={this.handleOutfitRemove}/>
+        <YourOutfit isCurrentProductAdded={this.state.isCurrentProductAdded} yourOutfitIds={this.state.yourOutfitIds} handleAddOutfit={this.handleAddOutfit} handleOutfitRemove={this.handleOutfitRemove}/>
       </div>
     );
   }
