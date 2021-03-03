@@ -7,12 +7,13 @@ class RelatedItemsAndComparisons extends React.Component {
 
   constructor(props) {
     super(props);
+    this.handleAddOutfit = this.handleAddOutfit.bind(this);
     this.state = {
-      currentProduct: 19735,
+      currentProductId: 19735,
       currentProductFeatures: [{"feature": "5 Year Warranty", "value": null}, {"feature": "Satisfaction Guaranteed", "value": null}, {"feature": "Frame", "value": "\"DuraResin\""}, {"feature": "5 Year Warranty", "value": null}],
       currentProductName: 'Colten 150 Slacks',
       relatedProductIds: [],
-      yourOutfits: []
+      yourOutfitIds: []
     };
   }
 
@@ -21,11 +22,21 @@ class RelatedItemsAndComparisons extends React.Component {
   }
 
   fetchData() {
-    ajaxRequests.get('products/' + this.state.currentProduct + '/related', relatedProductIds => {
+    ajaxRequests.get('products/' + this.state.currentProductId + '/related', relatedProductIds => {
       this.setState({
         relatedProductIds: relatedProductIds
       });
     });
+  }
+
+  handleAddOutfit() {
+    if (!this.state.yourOutfitIds.includes(this.state.currentProductId)) {
+      var yourOutfitIdsUpdated = this.state.yourOutfitIds;
+      yourOutfitIdsUpdated.push(this.state.currentProductId);
+      this.setState({ yourOutfitIds: yourOutfitIdsUpdated });
+    } else {
+      console.log('top component says this is already added!');
+    }
   }
 
   render() {
@@ -36,7 +47,7 @@ class RelatedItemsAndComparisons extends React.Component {
           <RelatedProducts relatedProductIds={this.state.relatedProductIds} currentProductFeatures={this.state.currentProductFeatures} currentProductName={this.state.currentProductName}/>
         </div>
         <h2>Your Outfit</h2>
-        <YourOutfit currentProduct={this.state.currentProduct} yourOutfits={this.state.yourOutfits}/>
+        <YourOutfit yourOutfitIds={this.state.yourOutfitIds} handleAddOutfit={this.handleAddOutfit}/>
       </div>
     );
   }

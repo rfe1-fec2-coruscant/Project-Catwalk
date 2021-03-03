@@ -9,18 +9,29 @@ class YourOutfit extends React.Component {
   constructor(props) {
     super(props);
     this.handleAddOutfitClick = this.handleAddOutfitClick.bind(this);
+    this.handleAddOutfit = this.props.handleAddOutfit;
     this.state = {
-      yourOutfits: this.props.yourOutfits,
-      currentProduct: this.props.currentProduct
+      yourOutfitIds: this.props.yourOutfitIds,
+      // currentProductId: this.props.currentProductId,
+      isCurrentProductAdded: false
     }
   }
 
   handleAddOutfitClick() {
-    console.log('trying to add:', this.state.currentProduct);
+    if (this.state.isCurrentProductAdded) {
+      console.log('already added!');
+    } else {
+      // send current product id up to top component so that it can add it to the id array
+      this.handleAddOutfit();
+      this.setState({ isCurrentProductAdded: true });
+    }
+  }
+
+  componentDidUpdate() {
+    console.log('hiii');
   }
 
   render() {
-    // var { yourOutfits } = this.props;
     return (
       <div>
         <div className='product-card add-outfit' onClick={this.handleAddOutfitClick}>
