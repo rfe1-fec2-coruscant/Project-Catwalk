@@ -96,6 +96,10 @@
   margin-left: 5px;
 }
 
+.seller {
+  font-weight: bold;
+}
+
 .date {
   margin-left: 10px;
 }

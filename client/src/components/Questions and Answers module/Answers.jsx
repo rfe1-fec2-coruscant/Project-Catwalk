@@ -1,5 +1,6 @@
 import React from 'react'
 import Answer from './Answer.jsx'
+import ajaxRequests from '../../../ajaxRequests.js';
 
 
 class Answers extends React.Component {
@@ -8,6 +9,7 @@ class Answers extends React.Component {
     this.state = {
       length: 2,
       answersArray: [],
+      loadMoreVisible: false
     };
   }
 //const Answers = (props) => {
@@ -15,10 +17,38 @@ class Answers extends React.Component {
 
 componentDidMount() {
   this.sortAnswers();
+
 }
 
 loadMoreAnswers() {
   this.setState({length: this.state.answersArray.length, renderArray: this.state.answersArray.slice(0, length)});
+}
+
+helpfulAnswerClick(e, answer) {
+  //post to helpful count
+  console.log('answerID', answer.id);
+  var path = 'qa/answers/' + answer.id + '/helpful';
+  console.log('path', path);
+  ajaxRequests.put(path, (error, results) => {
+    console.log(results);
+  });
+  //update state with new helpful count
+  answer.helpfulness++;
+
+  //make it so you can't click it again
+  answer.helpfulDisabled = true;
+  this.setState({answersArray: this.state.answersArray});
+}
+
+reportedClick(e, answer) {
+  //PUT to reported url
+  var path = 'qa/answers/' + answer.id + '/report';
+  ajaxRequests.put(path, (error, results) => {
+    console.log(results);
+  });
+  //make it so you can't click it again
+  answer.reportedDisabled = true;
+  this.setState({answersArray: this.state.answersArray});
 }
   sortAnswers () {
     // (function() {
@@ -52,8 +82,13 @@ loadMoreAnswers() {
       sellerAnswers.sort(compareHelpful);
       otherAnswers.sort(compareHelpful);
   //now answersArray is a correctly sorted array of objects, with sellers answers first, followed by other answers in order of helpfulness
-      this.setState({answersArray: sellerAnswers.concat(otherAnswers)
+      var sortedArray = sellerAnswers.concat(otherAnswers);
+      this.setState({answersArray: sortedArray
       });
+      //set state for whether load more answers button is visible
+      if (sortedArray.length > 2) {
+        this.setState({loadMoreVisible: true});
+      }
     }
   }
 
@@ -62,6 +97,14 @@ loadMoreAnswers() {
 
 
   render() {
+    const loadMoreVisible = this.state.loadMoreVisible;
+    let button;
+    if(loadMoreVisible) {
+      button= <button className="moreAnswers"
+      onClick={this.loadMoreAnswers.bind(this)}>LOAD MORE ANSWERS</button>;
+    } else {
+      button = <div></div>;
+    }
 
     return (
       <div>
@@ -71,13 +114,13 @@ loadMoreAnswers() {
           </div>
           <div>
             <span>{this.state.answersArray.slice(0,this.state.length).map((answer) => (<Answer
-            answer={answer}/> ))}
+            answer={answer}
+            helpfulAnswerClick={this.helpfulAnswerClick.bind(this)}
+            reportedClick={this.reportedClick.bind(this)}/> ))}
             </span>
-            {/* <span><Answer
-            answer={this.state.answersArray[1]}/>
-            </span> */}
-            <button className="moreAnswers"
-            onClick={this.loadMoreAnswers.bind(this)}>LOAD MORE ANSWERS</button>
+            <span>{button}</span>
+            {/* <button className="moreAnswers"
+            onClick={this.loadMoreAnswers.bind(this)}>LOAD MORE ANSWERS</button> */}
           </div>
         </div>
       </div>

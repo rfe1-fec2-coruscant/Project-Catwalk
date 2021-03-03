@@ -24,15 +24,36 @@ class QuestionList extends React.Component {
 
   }
 
+  helpfulQuestionClick(e, question) {
+    //post to helpful count
+    // alert('helpful!');
+    // console.log(question);
+    console.log('questionID', question.question_id);
+    var path = 'qa/answers/' + question.question_id + '/helpful';
+    console.log('path', path);
+    ajaxRequests.put(path, (error, results) => {
+      console.log(results);
+    });
+    //update state with new helpful count
+    question.helpfulness++;
+
+    //make it so you can't click it again
+    question.helpfulDisabled = true;
+    this.setState({questions: this.state.questions});
+  }
+
 
   render() {
     if(this.state.questions !== null) {
       return (
         <div>
           <Question
-          question={this.state.questions[0]}/>
+           question={this.state.questions[0]}
+           helpfulQuestionClick={this.helpfulQuestionClick.bind(this)}/>
           <Question
-          question={this.state.questions[1]}/>
+          question={this.state.questions[1]}
+          helpfulQuestionClick={this.helpfulQuestionClick.bind(this)}
+          />
         </div>
 
         );
@@ -43,6 +64,7 @@ class QuestionList extends React.Component {
      )
     }
   }
+
 };
 
 export default QuestionList;

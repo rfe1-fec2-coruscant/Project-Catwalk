@@ -9,6 +9,12 @@ const Question = (props) => {
 
 
     console.log(props.question["question_body"]);
+     //helpful link disabled after one use
+     if (props.question.helpfulDisabled === true) {
+      var helpfulness = <span>Yes</span>;
+    } else {
+      var helpfulness = <button className="smallButton" onClick={(e) => props.helpfulQuestionClick(e, props.question)}>Yes</button>
+    }
 
     return (
       <div>
@@ -19,8 +25,8 @@ const Question = (props) => {
           </div>
           <div >
             <span className="helpful">Helpful?</span>
-            <button className="smallButton">Yes</button>
-            <span className="count">(25)</span>
+            <span>{helpfulness}</span>
+            <span className="count">{props.question.question_helpfulness}</span>
             <span className="divide">|</span>
             <button className="smallButton">Add Answer</button>
 
