@@ -34,6 +34,7 @@ class RelatedItemsAndComparisons extends React.Component {
         <div className='items-carousel'>
           <RelatedProducts relatedProductIds={this.state.relatedProductIds} currentProductFeatures={this.state.currentProductFeatures} currentProductName={this.state.currentProductName}/>
         </div>
+        <h2>Your Outfit Carousel</h2>
         <YourOutfit />
       </div>
     );
