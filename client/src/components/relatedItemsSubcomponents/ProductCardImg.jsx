@@ -25,14 +25,26 @@ class ProductCardImg extends React.Component {
   }
 
   render() {
-    return (
-      <div className='product-image-container'>
-        <img className='product-card-image' src={this.state.image || 'https://images.unsplash.com/11/converse-fields.jpg?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80'}></img>
-        <div>
-          <span className='star-action'><a onClick={this.props.handleStarActionClick}>&#9733;</a></span>
+    var { isRelatedProduct, relatedProductId } = this.props;
+    if (isRelatedProduct) {
+      return (
+        <div className='product-image-container'>
+          <img className='product-card-image' src={this.state.image || 'https://miro.medium.com/max/880/0*H3jZONKqRuAAeHnG.jpg'}></img>
+          <div>
+            <span className='star-action'><a onClick={this.props.handleStarActionClick}>&#9733;</a></span>
+          </div>
         </div>
-      </div>
-    )
+      )
+    } else {
+      return (
+        <div className='product-image-container'>
+          <img className='product-card-image' src={this.state.image ||'https://miro.medium.com/max/880/0*H3jZONKqRuAAeHnG.jpg'}></img>
+          <div>
+            <span className='x-action'><a onClick={() => this.props.handleOutfitRemove(relatedProductId) }>&#9447;</a></span>
+          </div>
+        </div>
+      )
+    }
   }
 }
 

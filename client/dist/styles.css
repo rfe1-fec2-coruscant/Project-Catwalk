@@ -32,6 +32,9 @@
   border: 1px solid black;
   height: 315px;
   margin: 10px 10px;
+  text-align: center;
+  vertical-align: top;
+  /* position: relative; */
   /* z-index: -2; */
 }
 
@@ -137,6 +140,18 @@ img.product-card-image {
   cursor: pointer;
 }
 
+.x-action {
+  position: absolute;
+  top: 2px;
+  right: 3px;
+  font-size: 24px;
+  color: white;
+  background-color: black;
+  text-shadow: 0 0 2px rgba(0,0,0,0.7);
+  z-index: 2;
+  cursor: pointer;
+}
+
 /* ComparisonModal */
 
 .modal {
@@ -206,6 +221,22 @@ img.product-card-image {
 }
 
 /* Your Outfit */
+
+.your-outfit-cards {
+  width: 975px;
+  height: auto;
+  overflow-y: hidden;
+  /* overflow-x: hidden; */
+  white-space: nowrap;
+}
+
+/* .product-card {
+  display: inline-block;
+  border: 1px solid black;
+  height: 315px;
+  margin: 10px 10px;
+} */
+
 .add-outfit {
   width: 220px;
   text-align: center;
@@ -227,3 +258,6 @@ img.product-card-image {
   top: 53%;
   left: 22%;
 }
+
+/* .your-outfit-card {
+} */

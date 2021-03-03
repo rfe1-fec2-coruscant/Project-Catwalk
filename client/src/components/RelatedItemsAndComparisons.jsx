@@ -8,10 +8,11 @@ class RelatedItemsAndComparisons extends React.Component {
   constructor(props) {
     super(props);
     this.handleAddOutfit = this.handleAddOutfit.bind(this);
+    this.handleOutfitRemove = this.handleOutfitRemove.bind(this);
     this.state = {
       currentProductId: 19735,
       currentProductFeatures: [{"feature": "5 Year Warranty", "value": null}, {"feature": "Satisfaction Guaranteed", "value": null}, {"feature": "Frame", "value": "\"DuraResin\""}, {"feature": "5 Year Warranty", "value": null}],
-      currentProductName: 'Colten 150 Slacks',
+      currentProductName: 'Kathlyn Pants',
       relatedProductIds: [],
       yourOutfitIds: []
     };
@@ -32,22 +33,25 @@ class RelatedItemsAndComparisons extends React.Component {
   handleAddOutfit() {
     if (!this.state.yourOutfitIds.includes(this.state.currentProductId)) {
       var yourOutfitIdsUpdated = this.state.yourOutfitIds;
-      yourOutfitIdsUpdated.push(this.state.currentProductId);
+      yourOutfitIdsUpdated.unshift(this.state.currentProductId);
       this.setState({ yourOutfitIds: yourOutfitIdsUpdated });
     } else {
       console.log('top component says this is already added!');
     }
   }
 
+  handleOutfitRemove(yourOutfitId) {
+    console.log('looks like you are trying to get rid of:', yourOutfitId);
+  }
+
   render() {
     return (
       <div className="related-items">
         <h2>Related Items and Comparisons</h2>
-        <div className='items-carousel'>
           <RelatedProducts relatedProductIds={this.state.relatedProductIds} currentProductFeatures={this.state.currentProductFeatures} currentProductName={this.state.currentProductName}/>
-        </div>
+        <br></br>
         <h2>Your Outfit</h2>
-        <YourOutfit yourOutfitIds={this.state.yourOutfitIds} handleAddOutfit={this.handleAddOutfit}/>
+        <YourOutfit yourOutfitIds={this.state.yourOutfitIds} handleAddOutfit={this.handleAddOutfit} handleOutfitRemove={this.handleOutfitRemove}/>
       </div>
     );
   }

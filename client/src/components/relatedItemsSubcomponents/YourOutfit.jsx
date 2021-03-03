@@ -1,4 +1,5 @@
 import React from 'react';
+import ProductCard from './ProductCard.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
@@ -33,11 +34,12 @@ class YourOutfit extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='your-outfit-cards'>
         <div className='product-card add-outfit' onClick={this.handleAddOutfitClick}>
           <span className='plus-icon'>{PlusElement}</span>
           <span className='add-outfit-text'>Add to Outfit</span>
         </div>
+        {this.state.yourOutfitIds.map(yourOutfitId => <ProductCard isYourOutfit={true} relatedProductId={yourOutfitId} key={yourOutfitId} handleOutfitRemove={this.props.handleOutfitRemove} />)}
       </div>
     );
   }
