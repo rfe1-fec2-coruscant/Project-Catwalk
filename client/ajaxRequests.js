@@ -8,8 +8,8 @@ const ajaxRequests = {
       url: '/get',
       data: { path },
       success: callback,
-      error: (err) => {
-        console.log(err);
+      error: err => {
+        console.log('err from ajaxRequests.get:', err);
       }
     });
   },
