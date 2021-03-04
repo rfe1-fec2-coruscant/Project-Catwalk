@@ -5,6 +5,7 @@ const path = require('path');
 const config = require('../config.js');
 // var cookieParser = require('cookie-parser');
 var session = require('express-session');
+const { v4: uuidv4 } = require('uuid');
 
 const PORT = 3000;
 const app = express();
@@ -32,8 +33,8 @@ app.get('/get', (req, res) => {
   if (req.session.user_id) {
     console.log('already existant req.session');
   } else {
-    req.session.user_id = 'unique new york';
-    console.log('req.session:', req.session);
+    req.session.user_id = uuidv4();
+    console.log('req.session.user_id:', req.session.user_id);
   }
   axios.get(api + '/' + endPoint, {
     headers: {
