@@ -12,7 +12,7 @@ const api = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe';
 app.use(express.static(path.join(__dirname, '..', '/client/dist')));
 app.use(bodyParser.json());
 app.use(sessionConfig.mySession);
-app.use(sessionConfig.addSession)
+app.use(sessionConfig.addSession);
 
 app.get('/', (req, res) => {
   console.log('hi from app.get');
@@ -37,5 +37,3 @@ app.get('/get', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server listening at localhost:${PORT}!`);
 });
-
-// GET: /products, /reviews, /qa/questions, /qa/questions/:question_id/answers, /cart
