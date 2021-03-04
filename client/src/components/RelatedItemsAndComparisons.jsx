@@ -64,7 +64,6 @@ class RelatedItemsAndComparisons extends React.Component {
   }
 
   setYourOutfitIdsOnInitialMount(arrayFromSession) {
-    console.log('arrayFromSession:', arrayFromSession);
     this.setState({ yourOutfitIds: arrayFromSession || [] });
   }
 

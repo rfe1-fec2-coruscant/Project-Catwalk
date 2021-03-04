@@ -87,7 +87,6 @@ class ProductCard extends React.Component {
 
 }
 
-
 export default ProductCard;
 
 // {product.productObject.name ? product.productObject.name : ''}

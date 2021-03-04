@@ -41,7 +41,6 @@ const ajaxRequests = {
   },
 
   putYourOutfitItem: (path, callback) => {
-    console.log('addToYourOutfit req to:', path);
     $.ajax({
       type: 'PUT',
       url: '/addToYourOutfit',
