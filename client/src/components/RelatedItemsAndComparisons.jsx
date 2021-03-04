@@ -39,6 +39,10 @@ class RelatedItemsAndComparisons extends React.Component {
         yourOutfitIds: yourOutfitIdsUpdated,
         isCurrentProductAdded: true
       });
+      // send the outfit to server
+      ajaxRequests.putYourOutfitItem(this.state.currentProductId, () => {
+        console.log('successfully PUT your outfit item to database');
+      });
     } else {
       console.log('top component says this is already added!');
     }
