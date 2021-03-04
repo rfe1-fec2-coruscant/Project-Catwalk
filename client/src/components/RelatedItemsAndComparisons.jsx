@@ -57,6 +57,10 @@ class RelatedItemsAndComparisons extends React.Component {
       yourOutfitIds: yourOutfitIdsUpdated,
       isCurrentProductAdded: false
      });
+    // make a delete request to server
+    ajaxRequests.deleteFromYourOutfit(yourOutfitId, () => {
+      console.log('successfully deleted!');
+    });
   }
 
   setYourOutfitIdsOnInitialMount(arrayFromSession) {

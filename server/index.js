@@ -79,6 +79,17 @@ app.put('/addToYourOutfit', (req, res) => {
   // });
 });
 
+app.put('/deleteFromYourOutfit', (req, res) => {
+  console.log('attempting to delete:', req.body.data);
+  var yourOutfitsUpdated = req.session.yourOutfits;
+  var index = yourOutfitsUpdated.indexOf(req.body.data);
+  console.log('index:', index);
+  yourOutfitsUpdated.splice(index, 1);
+  console.log('yourOutfitsUpdated:', yourOutfitsUpdated);
+  req.session.yourOutfits = yourOutfitsUpdated;
+  res.sendStatus(200);
+})
+
 app.listen(PORT, () => {
   console.log(`Server listening at localhost:${PORT}!`);
 });

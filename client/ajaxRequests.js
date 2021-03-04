@@ -52,6 +52,19 @@ const ajaxRequests = {
         console.log(err);
       }
     });
+  },
+
+  deleteFromYourOutfit: (id, callback) => {
+    $.ajax({
+      type: 'PUT',
+      url: '/deleteFromYourOutfit',
+      contentType: 'application/json',
+      data: JSON.stringify({ data: id }),
+      success: callback,
+      error: err => {
+        console.log(err);
+      }
+    });
   }
 
 };
