@@ -24,7 +24,7 @@ var newYourOutfitsStorage = data => {
 var insertOutfit = (outfitId, id, cb) => {
   console.log('trying to insert:', outfitId);
   console.log('into id:', id);
-  YourOutfits.findByIdAndUpdate(id, { yourOutfits: outfitId }, query => {
+  YourOutfits.findByIdAndUpdate(id, { yourOutfits: [outfitId] }, query => {
     cb(query);
   });
 };

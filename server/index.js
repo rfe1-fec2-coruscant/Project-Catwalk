@@ -35,6 +35,12 @@ app.get('/get', (req, res) => {
     });
 });
 
+app.get('/getYourOutfits', (req, res) => {
+  var yourOutfits = req.session.yourOutfits;
+  console.log('yourOutfits:', yourOutfits);
+  res.send(yourOutfits);
+})
+
 app.put('/put', (req, res) => {
   console.log('hi from app.put');
   console.log(req.body.data);
@@ -55,14 +61,22 @@ app.put('/put', (req, res) => {
 });
 
 app.put('/addToYourOutfit', (req, res) => {
-  db.insertOutfit(req.body.data, req.session.user_id, (err, data) => {
-    if (err) {
-      res.send(err);
-    } else {
-      console.log('data from db:', data);
-      res.sendStatus(200);
-    }
-  });
+  // console.log('from the client:', req.body.data);
+  var yourOutfitsUpdated = req.session.yourOutfits;
+  // console.log('yourOutfitsUpdated:', yourOutfitsUpdated);
+  yourOutfitsUpdated.unshift(req.body.data);
+  // console.log('yourOutfitsUpdated after unshift:', yourOutfitsUpdated);
+  req.session.yourOutfits = yourOutfitsUpdated;
+  // console.log('updated session:', req.session);
+  res.sendStatus(200);
+  // db.insertOutfit(req.body.data, req.session.user_id, (err, data) => {
+  //   if (err) {
+  //     res.send(err);
+  //   } else {
+  //     console.log('data from db:', data);
+  //     res.sendStatus(200);
+  //   }
+  // });
 });
 
 app.listen(PORT, () => {

@@ -2,6 +2,7 @@ import React from 'react';
 import ProductCard from './ProductCard.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import ajaxRequests from '../../../ajaxRequests.js';
 
 const PlusElement = <FontAwesomeIcon icon={faPlus} />
 
@@ -11,6 +12,7 @@ class YourOutfit extends React.Component {
     super(props);
     this.handleAddOutfitClick = this.handleAddOutfitClick.bind(this);
     this.handleAddOutfit = this.props.handleAddOutfit;
+    this.setYourOutfitIdsOnInitialMount = this.props.setYourOutfitIdsOnInitialMount;
     this.state = {
       yourOutfitIds: this.props.yourOutfitIds,
       // currentProductId: this.props.currentProductId,
@@ -28,10 +30,19 @@ class YourOutfit extends React.Component {
     }
   }
 
+  componentDidMount() {
+    // request session data from server (yourOutfit array)
+    ajaxRequests.getYourOutfits(yourOutfits => {
+      // send it up to main component
+      this.setYourOutfitIdsOnInitialMount(yourOutfits);
+    });
+  }
+
   componentDidUpdate(prevProps) {
-    if (this.props.isCurrentProductAdded !== prevProps.isCurrentProductAdded) {
+    if (this.props.isCurrentProductAdded !== prevProps.isCurrentProductAdded || this.props.yourOutfitIds !== prevProps.yourOutfitIds) {
       this.setState({
-        isCurrentProductAdded: this.props.isCurrentProductAdded
+        isCurrentProductAdded: this.props.isCurrentProductAdded,
+        yourOutfitIds: this.props.yourOutfitIds
       });
     }
   }

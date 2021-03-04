@@ -9,6 +9,7 @@ class RelatedItemsAndComparisons extends React.Component {
     super(props);
     this.handleAddOutfit = this.handleAddOutfit.bind(this);
     this.handleOutfitRemove = this.handleOutfitRemove.bind(this);
+    this.setYourOutfitIdsOnInitialMount = this.setYourOutfitIdsOnInitialMount.bind(this);
     this.state = {
       currentProductId: 19735,
       currentProductFeatures: [{"feature": "5 Year Warranty", "value": null}, {"feature": "Satisfaction Guaranteed", "value": null}, {"feature": "Frame", "value": "\"DuraResin\""}, {"feature": "5 Year Warranty", "value": null}],
@@ -58,6 +59,11 @@ class RelatedItemsAndComparisons extends React.Component {
      });
   }
 
+  setYourOutfitIdsOnInitialMount(arrayFromSession) {
+    console.log('arrayFromSession:', arrayFromSession);
+    this.setState({ yourOutfitIds: arrayFromSession || [] });
+  }
+
   render() {
     return (
       <div className="related-items">
@@ -65,7 +71,7 @@ class RelatedItemsAndComparisons extends React.Component {
           <RelatedProducts relatedProductIds={this.state.relatedProductIds} currentProductFeatures={this.state.currentProductFeatures} currentProductName={this.state.currentProductName}/>
         <br></br>
         <h2>Your Outfit</h2>
-        <YourOutfit isCurrentProductAdded={this.state.isCurrentProductAdded} yourOutfitIds={this.state.yourOutfitIds} handleAddOutfit={this.handleAddOutfit} handleOutfitRemove={this.handleOutfitRemove}/>
+        <YourOutfit isCurrentProductAdded={this.state.isCurrentProductAdded} yourOutfitIds={this.state.yourOutfitIds} handleAddOutfit={this.handleAddOutfit} handleOutfitRemove={this.handleOutfitRemove} setYourOutfitIdsOnInitialMount={this.setYourOutfitIdsOnInitialMount}/>
       </div>
     );
   }
