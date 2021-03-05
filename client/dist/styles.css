@@ -25,6 +25,14 @@
   white-space: nowrap;
 }
 
+.next-product-button {
+  float: right;
+  color: floralwhite;
+  background-color: darkslategray;
+  cursor: pointer;
+  /* margin: 5px; */
+}
+
 /* ProductCard */
 
 .product-card {
@@ -49,6 +57,10 @@
 
 .product-card-name {
   font-weight: bold;
+}
+
+.hidden-product-card {
+  display: none;
 }
 
 /* ProductCard: Stars */
