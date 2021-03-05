@@ -50,6 +50,14 @@ class ProductCard extends React.Component {
     });
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.currentProductFeatures !== prevProps.currentProductFeatures) {
+      this.setState({
+        currentProductFeatures: this.props.currentProductFeatures
+      });
+    }
+  }
+
   render() {
     var { relatedProductId, currentProductName, isRelatedProduct, isAddCard } = this.props;
 
