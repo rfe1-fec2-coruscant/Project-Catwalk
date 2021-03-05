@@ -32,7 +32,8 @@ class RelatedProducts extends React.Component {
         shownProducts: updatedShownProducts,
         hiddenProductsRight: updatedHiddenProductsRight,
         hiddenProductsLeft: updatedHiddenProductsLeft,
-        isNothingHiddenRight: true
+        isNothingHiddenRight: true,
+        isNothingHiddenLeft: false
       });
     } else {
       this.setState({
@@ -70,7 +71,6 @@ class RelatedProducts extends React.Component {
   }
 
   componentDidMount() {
-    // get current product from server; set state with features property of result
     ajaxRequests.get('products/' + this.props.currentProductId, data => {
       this.setState({
         currentProductName: data.name,
@@ -84,6 +84,8 @@ class RelatedProducts extends React.Component {
       this.setState({
         allProducts: this.props.relatedProductIds,
         shownProducts: this.props.relatedProductIds.slice(0, 4),
+        hiddenProductsLeft: [],
+        isNothingHiddenLeft: true,
         hiddenProductsRight: this.props.relatedProductIds.slice(4),
         isNothingHiddenRight: this.props.relatedProductIds.length > 4 ? false : true
       });
@@ -139,26 +141,3 @@ class RelatedProducts extends React.Component {
 }
 
 export default RelatedProducts;
-
-// var RelatedProducts = ({ relatedProductIds, currentProductFeatures, currentProductName }) => {
-
-//   if (relatedProductIds.length === 0) {
-//     return (
-//       <div className='related-products'>
-//       </div>
-//     );
-//   }
-
-//   var firstFourProductCards = relatedProductIds.slice(0, 4);
-//   var remainingProductCards = relatedProductIds.slice(4);
-//   console.log('firstFourProductCards:', firstFourProductCards);
-//   console.log('remainingProductCards:', remainingProductCards);
-
-//   return (
-//     <div className='related-products'>
-//       {firstFourProductCards.map(relatedProductId => <ProductCard isShown={true} isRelatedProduct={true} relatedProductId={relatedProductId} key={relatedProductId} currentProductFeatures={currentProductFeatures} currentProductName={currentProductName} />)}
-//       {remainingProductCards.map(relatedProductId => <ProductCard isShown={false} isRelatedProduct={true} relatedProductId={relatedProductId} key={relatedProductId} currentProductFeatures={currentProductFeatures} currentProductName={currentProductName} />)}
-//     </div>
-//   );
-
-// };
