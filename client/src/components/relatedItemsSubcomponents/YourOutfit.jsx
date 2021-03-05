@@ -15,7 +15,7 @@ class YourOutfit extends React.Component {
     this.setYourOutfitIdsOnInitialMount = this.props.setYourOutfitIdsOnInitialMount;
     this.state = {
       yourOutfitIds: this.props.yourOutfitIds,
-      // currentProductId: this.props.currentProductId,
+      // yourOufitIds: [19828, 19405, 20069, 19741, 19788],
       isCurrentProductAdded: this.props.isCurrentProductAdded
     }
   }

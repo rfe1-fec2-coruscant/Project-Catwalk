@@ -15,6 +15,10 @@
   color: darkslategrey;
 }
 
+.related-items-header {
+  margin-left: 10px;
+}
+
 /* RelatedProducts */
 
 .related-products {

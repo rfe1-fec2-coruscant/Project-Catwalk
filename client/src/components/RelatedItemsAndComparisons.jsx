@@ -70,10 +70,10 @@ class RelatedItemsAndComparisons extends React.Component {
   render() {
     return (
       <div className="related-items">
-        <h2>Related Items and Comparisons</h2>
+        <h2 className="related-items-header">Related Items and Comparisons</h2>
           <RelatedProducts relatedProductIds={this.state.relatedProductIds} currentProductFeatures={this.state.currentProductFeatures} currentProductName={this.state.currentProductName}/>
         <br></br>
-        <h2>Your Outfit</h2>
+        <h2 className="related-items-header">Your Outfit</h2>
         <YourOutfit isCurrentProductAdded={this.state.isCurrentProductAdded} yourOutfitIds={this.state.yourOutfitIds} handleAddOutfit={this.handleAddOutfit} handleOutfitRemove={this.handleOutfitRemove} setYourOutfitIdsOnInitialMount={this.setYourOutfitIdsOnInitialMount}/>
       </div>
     );
