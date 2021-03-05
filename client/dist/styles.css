@@ -20,13 +20,19 @@
 .related-products {
   width: 975px;
   height: auto;
-  overflow-y: hidden;
+  position: relative;
+  /* overflow-y: hidden; */
   /* overflow-x: hidden; */
   white-space: nowrap;
 }
 
 .next-product-button {
-  float: right;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  height: 20px;
+  margin-top: -20px;
+  z-index: 1;
   color: floralwhite;
   background-color: darkslategray;
   cursor: pointer;

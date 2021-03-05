@@ -8,12 +8,27 @@ class RelatedProducts extends React.Component {
     this.state = {
       allProducts: [],
       shownProducts: [],
-      hiddenProducts: []
+      hiddenProductsRight: [],
+      hiddenProductsLeft: []
     }
   }
 
-  handleNextProductClick() {
+  handleNextProductClick(e) {
     console.log('trying to go right');
+    // first ID in shownProducts gets shifted and pushed to hiddenProductsLeft
+    var updatedShownProducts = this.state.shownProducts;
+    var newHidden = updatedShownProducts.shift();
+    // first ID in hiddenProductsRight gets shifted and pushed to shownProducts
+    var updatedHiddenProductsRight = this.state.hiddenProductsRight;
+    var newShown = updatedHiddenProductsRight.shift();
+    var updatedHiddenProductsLeft = this.state.hiddenProductsLeft;
+    updatedHiddenProductsLeft.push(newHidden);
+    updatedShownProducts.push(newShown);
+    this.setState({
+      shownProducts: updatedShownProducts,
+      hiddenProductsRight: updatedHiddenProductsRight,
+      hiddenProductsLeft: updatedHiddenProductsLeft
+    });
   }
 
   componentDidUpdate(prevProps) {
@@ -21,7 +36,7 @@ class RelatedProducts extends React.Component {
       this.setState({
         allProducts: this.props.relatedProductIds,
         shownProducts: this.props.relatedProductIds.slice(0, 4),
-        hiddenProducts: this.props.relatedProductIds.slice(4)
+        hiddenProductsRight: this.props.relatedProductIds.slice(4)
       });
     }
   }
@@ -39,8 +54,8 @@ class RelatedProducts extends React.Component {
     return (
       <div className='related-products'>
         {this.state.shownProducts.map(relatedProductId => <ProductCard isShown={true} isRelatedProduct={true} relatedProductId={relatedProductId} key={relatedProductId} currentProductFeatures={currentProductFeatures} currentProductName={currentProductName} />)}
-        <button type='button' className='next-product-button' onClick={this.handleNextProductClick}>&#10006;</button>
-        {this.state.hiddenProducts.map(relatedProductId => <ProductCard isShown={false} isRelatedProduct={true} relatedProductId={relatedProductId} key={relatedProductId} currentProductFeatures={currentProductFeatures} currentProductName={currentProductName} />)}
+        <button type='button' className='next-product-button' onClick={this.handleNextProductClick}>&#62;</button>
+        {this.state.hiddenProductsRight.map(relatedProductId => <ProductCard isShown={false} isRelatedProduct={true} relatedProductId={relatedProductId} key={relatedProductId} currentProductFeatures={currentProductFeatures} currentProductName={currentProductName} />)}
       </div>
     );
   }
