@@ -54,7 +54,7 @@ class YourOutfit extends React.Component {
           <span className='plus-icon'>{PlusElement}</span>
           <span className='add-outfit-text'>Add to Outfit</span>
         </div>
-        {this.state.yourOutfitIds.map(yourOutfitId => <ProductCard isYourOutfit={true} relatedProductId={yourOutfitId} key={yourOutfitId} handleOutfitRemove={this.props.handleOutfitRemove} />)}
+        {this.state.yourOutfitIds.map(yourOutfitId => <ProductCard isYourOutfit={true} relatedProductId={yourOutfitId} key={yourOutfitId} handleOutfitRemove={this.props.handleOutfitRemove} handleProductDetailRender={this.props.handleProductDetailRender}/>)}
       </div>
     );
   }

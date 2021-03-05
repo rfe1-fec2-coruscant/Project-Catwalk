@@ -10,6 +10,7 @@ class RelatedItemsAndComparisons extends React.Component {
     this.handleAddOutfit = this.handleAddOutfit.bind(this);
     this.handleOutfitRemove = this.handleOutfitRemove.bind(this);
     this.setYourOutfitIdsOnInitialMount = this.setYourOutfitIdsOnInitialMount.bind(this);
+    this.handleProductDetailRender = this.handleProductDetailRender.bind(this);
     this.state = {
       currentProductId: 19735,
       // currentProductFeatures: [{"feature": "5 Year Warranty", "value": null}, {"feature": "Satisfaction Guaranteed", "value": null}, {"feature": "Frame", "value": "\"DuraResin\""}, {"feature": "5 Year Warranty", "value": null}],
@@ -30,6 +31,21 @@ class RelatedItemsAndComparisons extends React.Component {
         relatedProductIds: relatedProductIds
       });
     });
+  }
+
+  handleProductDetailRender(id) {
+    console.log('id sent up to top component:', id);
+    if (id === this.state.currentProductId) {
+      console.log('you\'re already on this product\'s page!');
+    } else {
+      this.setState({ currentProductId: id });
+      ajaxRequests.get('products/' + id + '/related', relatedProductIds => {
+        this.setState({
+          relatedProductIds: relatedProductIds,
+          isCurrentProductAdded: false
+        });
+      });
+    }
   }
 
   handleAddOutfit() {
@@ -71,10 +87,10 @@ class RelatedItemsAndComparisons extends React.Component {
     return (
       <div className="related-items">
         <h2 className="related-items-header">Related Items and Comparisons</h2>
-          <RelatedProducts relatedProductIds={this.state.relatedProductIds} currentProductId={this.state.currentProductId}/>
+          <RelatedProducts relatedProductIds={this.state.relatedProductIds} currentProductId={this.state.currentProductId} handleProductDetailRender={this.handleProductDetailRender}/>
         <br></br>
         <h2 className="related-items-header">Your Outfit</h2>
-        <YourOutfit isCurrentProductAdded={this.state.isCurrentProductAdded} yourOutfitIds={this.state.yourOutfitIds} handleAddOutfit={this.handleAddOutfit} handleOutfitRemove={this.handleOutfitRemove} setYourOutfitIdsOnInitialMount={this.setYourOutfitIdsOnInitialMount}/>
+        <YourOutfit isCurrentProductAdded={this.state.isCurrentProductAdded} yourOutfitIds={this.state.yourOutfitIds} handleAddOutfit={this.handleAddOutfit} handleOutfitRemove={this.handleOutfitRemove} setYourOutfitIdsOnInitialMount={this.setYourOutfitIdsOnInitialMount} handleProductDetailRender={this.handleProductDetailRender}/>
       </div>
     );
   }

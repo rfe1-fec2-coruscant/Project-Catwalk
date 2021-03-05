@@ -87,11 +87,17 @@ class RelatedProducts extends React.Component {
         hiddenProductsRight: this.props.relatedProductIds.slice(4),
         isNothingHiddenRight: this.props.relatedProductIds.length > 4 ? false : true
       });
+      ajaxRequests.get('products/' + this.props.currentProductId, data => {
+        this.setState({
+          currentProductName: data.name,
+          currentProductFeatures: data.features
+        });
+      });
     }
   }
 
   render() {
-    var { currentProductName } = this.props;
+    // var { currentProductName } = this.props;
 
     if (this.state.allProducts.length === 0) {
       return (
@@ -104,14 +110,14 @@ class RelatedProducts extends React.Component {
       return (
         <div className='related-products'>
           <button type='button' className='change-product-button ' onClick={this.handlePreviousProductClick}>&#60;</button>
-          {this.state.shownProducts.map(relatedProductId => <ProductCard isRelatedProduct={true} relatedProductId={relatedProductId} key={relatedProductId} currentProductFeatures={this.state.currentProductFeatures} currentProductName={this.state.currentProductName} />)}
+          {this.state.shownProducts.map(relatedProductId => <ProductCard isRelatedProduct={true} relatedProductId={relatedProductId} key={relatedProductId} currentProductFeatures={this.state.currentProductFeatures} currentProductName={this.state.currentProductName} handleProductDetailRender={this.props.handleProductDetailRender}/>)}
           <button type='button' className='change-product-button' onClick={this.handleNextProductClick}>&#62;</button>
         </div>
       );
     } else if (!this.state.isNothingHiddenRight) {
       return (
         <div className='related-products'>
-          {this.state.shownProducts.map(relatedProductId => <ProductCard isRelatedProduct={true} relatedProductId={relatedProductId} key={relatedProductId} currentProductFeatures={this.state.currentProductFeatures} currentProductName={this.state.currentProductName} />)}
+          {this.state.shownProducts.map(relatedProductId => <ProductCard isRelatedProduct={true} relatedProductId={relatedProductId} key={relatedProductId} currentProductFeatures={this.state.currentProductFeatures} currentProductName={this.state.currentProductName} handleProductDetailRender={this.props.handleProductDetailRender}/>)}
           <button type='button' className='change-product-button' onClick={this.handleNextProductClick}>&#62;</button>
         </div>
       );
@@ -119,13 +125,13 @@ class RelatedProducts extends React.Component {
       return (
         <div className='related-products'>
           <button type='button' className='change-product-button' onClick={this.handlePreviousProductClick}>&#60;</button>
-          {this.state.shownProducts.map(relatedProductId => <ProductCard isRelatedProduct={true} relatedProductId={relatedProductId} key={relatedProductId} currentProductFeatures={this.state.currentProductFeatures} currentProductName={this.state.currentProductName} />)}
+          {this.state.shownProducts.map(relatedProductId => <ProductCard isRelatedProduct={true} relatedProductId={relatedProductId} key={relatedProductId} currentProductFeatures={this.state.currentProductFeatures} currentProductName={this.state.currentProductName} handleProductDetailRender={this.props.handleProductDetailRender}/>)}
         </div>
       );
     } else {
       return (
         <div className='related-products'>
-          {this.state.shownProducts.map(relatedProductId => <ProductCard isRelatedProduct={true} relatedProductId={relatedProductId} key={relatedProductId} currentProductFeatures={this.state.currentProductFeatures} currentProductName={this.state.currentProductName} />)}
+          {this.state.shownProducts.map(relatedProductId => <ProductCard isRelatedProduct={true} relatedProductId={relatedProductId} key={relatedProductId} currentProductFeatures={this.state.currentProductFeatures} currentProductName={this.state.currentProductName} handleProductDetailRender={this.props.handleProductDetailRender}/>)}
         </div>
       );
     }

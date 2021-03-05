@@ -24,6 +24,11 @@ class ComparisonModal extends React.Component {
         comparedName: this.props.comparedName,
         currentProductName: this.props.currentProductName
       });
+    } else if (this.props.currentProductFeatures !== prevProps.currentProductFeatures) {
+      this.setState({
+        currentProductFeatures: this.props.currentProductFeatures,
+        currentProductName: this.props.currentProductName
+      });
     }
   }
 

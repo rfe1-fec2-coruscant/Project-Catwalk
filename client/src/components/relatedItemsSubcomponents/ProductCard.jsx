@@ -35,7 +35,7 @@ class ProductCard extends React.Component {
   }
 
   handleProductCardTextBoxClick(productId) {
-    console.log('productId:', productId);
+    this.props.handleProductDetailRender(productId);
   }
 
   componentDidMount() {
