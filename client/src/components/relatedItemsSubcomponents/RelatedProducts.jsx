@@ -67,7 +67,7 @@ class RelatedProducts extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.relatedProductIds !== prevProps.relatedProductIds) {
+    if (this.props.relatedProductIds !== prevProps.relatedProductIds && this.props.relatedProductIds.length !== 0) {
       this.setState({
         allProducts: this.props.relatedProductIds,
         shownProducts: this.props.relatedProductIds.slice(0, 4),
@@ -90,7 +90,7 @@ class RelatedProducts extends React.Component {
     if (!this.state.isNothingHiddenLeft && !this.state.isNothingHiddenRight) {
       return (
         <div className='related-products'>
-          <button type='button' className='change-product-button' onClick={this.handlePreviousProductClick}>&#60;</button>
+          <button type='button' className='change-product-button ' onClick={this.handlePreviousProductClick}>&#60;</button>
           {this.state.shownProducts.map(relatedProductId => <ProductCard isRelatedProduct={true} relatedProductId={relatedProductId} key={relatedProductId} currentProductFeatures={currentProductFeatures} currentProductName={currentProductName} />)}
           <button type='button' className='change-product-button' onClick={this.handleNextProductClick}>&#62;</button>
         </div>
