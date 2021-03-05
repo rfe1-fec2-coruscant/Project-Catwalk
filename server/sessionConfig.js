@@ -7,7 +7,10 @@ const mySession = session({
   secret: "Shh, its a secret!",
   resave: false,
   saveUninitialized: true,
-  cookie: { expires: farFuture }
+  cookie: {
+    expires: farFuture,
+    SameSite: 'Strict'
+  }
 });
 
 const addSession = (req, res, next) => {
