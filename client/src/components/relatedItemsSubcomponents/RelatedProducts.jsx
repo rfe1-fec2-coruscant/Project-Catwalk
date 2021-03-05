@@ -5,30 +5,65 @@ class RelatedProducts extends React.Component {
   constructor(props) {
     super(props);
     this.handleNextProductClick = this.handleNextProductClick.bind(this);
+    this.handlePreviousProductClick = this.handlePreviousProductClick.bind(this);
     this.state = {
       allProducts: [],
       shownProducts: [],
       hiddenProductsRight: [],
-      hiddenProductsLeft: []
+      hiddenProductsLeft: [],
+      isNothingHiddenRight: false,
+      isNothingHiddenLeft: true
     }
   }
 
-  handleNextProductClick(e) {
-    console.log('trying to go right');
-    // first ID in shownProducts gets shifted and pushed to hiddenProductsLeft
+  handleNextProductClick() {
     var updatedShownProducts = this.state.shownProducts;
     var newHidden = updatedShownProducts.shift();
-    // first ID in hiddenProductsRight gets shifted and pushed to shownProducts
     var updatedHiddenProductsRight = this.state.hiddenProductsRight;
     var newShown = updatedHiddenProductsRight.shift();
     var updatedHiddenProductsLeft = this.state.hiddenProductsLeft;
     updatedHiddenProductsLeft.push(newHidden);
     updatedShownProducts.push(newShown);
-    this.setState({
-      shownProducts: updatedShownProducts,
-      hiddenProductsRight: updatedHiddenProductsRight,
-      hiddenProductsLeft: updatedHiddenProductsLeft
-    });
+    if (updatedHiddenProductsRight.length === 0) {
+      this.setState({
+        shownProducts: updatedShownProducts,
+        hiddenProductsRight: updatedHiddenProductsRight,
+        hiddenProductsLeft: updatedHiddenProductsLeft,
+        isNothingHiddenRight: true
+      });
+    } else {
+      this.setState({
+        shownProducts: updatedShownProducts,
+        hiddenProductsRight: updatedHiddenProductsRight,
+        hiddenProductsLeft: updatedHiddenProductsLeft,
+        isNothingHiddenLeft: false
+      });
+    }
+  }
+
+  handlePreviousProductClick() {
+    var updatedShownProducts = this.state.shownProducts;
+    var updatedHiddenProductsLeft = this.state.hiddenProductsLeft;
+    var newShown = updatedHiddenProductsLeft.pop();
+    updatedShownProducts.unshift(newShown);
+    var updatedHiddenProductsRight = this.state.hiddenProductsRight;
+    updatedHiddenProductsRight.unshift(updatedShownProducts.pop());
+    if (updatedHiddenProductsLeft.length === 0) {
+      this.setState({
+        shownProducts: updatedShownProducts,
+        hiddenProductsLeft: updatedHiddenProductsLeft,
+        hiddenProductsRight: updatedHiddenProductsRight,
+        isNothingHiddenLeft: true,
+        isNothingHiddenRight: false
+      });
+    } else {
+      this.setState({
+        shownProducts: updatedShownProducts,
+        hiddenProductsLeft: updatedHiddenProductsLeft,
+        hiddenProductsRight: updatedHiddenProductsRight,
+        isNothingHiddenRight: false
+      });
+    }
   }
 
   componentDidUpdate(prevProps) {
@@ -36,7 +71,8 @@ class RelatedProducts extends React.Component {
       this.setState({
         allProducts: this.props.relatedProductIds,
         shownProducts: this.props.relatedProductIds.slice(0, 4),
-        hiddenProductsRight: this.props.relatedProductIds.slice(4)
+        hiddenProductsRight: this.props.relatedProductIds.slice(4),
+        isNothingHiddenRight: this.props.relatedProductIds.length > 4 ? false : true
       });
     }
   }
@@ -51,13 +87,35 @@ class RelatedProducts extends React.Component {
       );
     }
 
-    return (
-      <div className='related-products'>
-        {this.state.shownProducts.map(relatedProductId => <ProductCard isShown={true} isRelatedProduct={true} relatedProductId={relatedProductId} key={relatedProductId} currentProductFeatures={currentProductFeatures} currentProductName={currentProductName} />)}
-        <button type='button' className='next-product-button' onClick={this.handleNextProductClick}>&#62;</button>
-        {this.state.hiddenProductsRight.map(relatedProductId => <ProductCard isShown={false} isRelatedProduct={true} relatedProductId={relatedProductId} key={relatedProductId} currentProductFeatures={currentProductFeatures} currentProductName={currentProductName} />)}
-      </div>
-    );
+    if (!this.state.isNothingHiddenLeft && !this.state.isNothingHiddenRight) {
+      return (
+        <div className='related-products'>
+          <button type='button' className='change-product-button' onClick={this.handlePreviousProductClick}>&#60;</button>
+          {this.state.shownProducts.map(relatedProductId => <ProductCard isRelatedProduct={true} relatedProductId={relatedProductId} key={relatedProductId} currentProductFeatures={currentProductFeatures} currentProductName={currentProductName} />)}
+          <button type='button' className='change-product-button' onClick={this.handleNextProductClick}>&#62;</button>
+        </div>
+      );
+    } else if (!this.state.isNothingHiddenRight) {
+      return (
+        <div className='related-products'>
+          {this.state.shownProducts.map(relatedProductId => <ProductCard isRelatedProduct={true} relatedProductId={relatedProductId} key={relatedProductId} currentProductFeatures={currentProductFeatures} currentProductName={currentProductName} />)}
+          <button type='button' className='change-product-button' onClick={this.handleNextProductClick}>&#62;</button>
+        </div>
+      );
+    } else if (!this.state.isNothingHiddenLeft) {
+      return (
+        <div className='related-products'>
+          <button type='button' className='change-product-button' onClick={this.handlePreviousProductClick}>&#60;</button>
+          {this.state.shownProducts.map(relatedProductId => <ProductCard isRelatedProduct={true} relatedProductId={relatedProductId} key={relatedProductId} currentProductFeatures={currentProductFeatures} currentProductName={currentProductName} />)}
+        </div>
+      );
+    } else {
+      return (
+        <div className='related-products'>
+          {this.state.shownProducts.map(relatedProductId => <ProductCard isRelatedProduct={true} relatedProductId={relatedProductId} key={relatedProductId} currentProductFeatures={currentProductFeatures} currentProductName={currentProductName} />)}
+        </div>
+      );
+    }
   }
 }
 
