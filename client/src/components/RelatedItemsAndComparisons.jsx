@@ -33,16 +33,17 @@ class RelatedItemsAndComparisons extends React.Component {
 
   handleProductDetailRender(id) {
     if (id === this.state.currentProductId) {
-      console.log('you\'re already on this product\'s page!');
-    } else {
-      this.setState({ currentProductId: id });
-      ajaxRequests.get('products/' + id + '/related', relatedProductIds => {
-        this.setState({
-          relatedProductIds: relatedProductIds,
-          isCurrentProductAdded: false
-        });
-      });
+      return console.log('you\'re already on this product\'s page!');
     }
+    // check if id passed up is in yourOutfitIds
+    var updatedIsCurrentProductAdded = this.state.yourOutfitIds.indexOf(id) === -1 ? false : true;
+    this.setState({
+      currentProductId: id,
+      isCurrentProductAdded: updatedIsCurrentProductAdded
+    });
+    ajaxRequests.get('products/' + id + '/related', relatedProductIds => {
+      this.setState({ relatedProductIds: relatedProductIds });
+    });
   }
 
   handleAddOutfit() {

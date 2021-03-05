@@ -12,7 +12,6 @@ class ProductCardImg extends React.Component {
   componentDidMount() {
     ajaxRequests.get('products/' + this.props.relatedProductId + '/styles', data => {
       var imageUrl;
-      console.log('data.results:', data.results);
       for (var obj of data.results) {
         if (obj['default?'] === true) {
           imageUrl = obj.photos[0].thumbnail_url;

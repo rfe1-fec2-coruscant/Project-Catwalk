@@ -37,6 +37,7 @@ class ProductCard extends React.Component {
   handleProductCardTextBoxClick(productId) {
     if (productId[0] === 'Y') {
       productId = productId.slice(3);
+      console.log('productId:', productId);
     }
     this.props.handleProductDetailRender(productId);
   }
