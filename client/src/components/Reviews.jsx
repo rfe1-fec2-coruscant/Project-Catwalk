@@ -33,8 +33,8 @@ class Reviews extends React.Component {
       console.log(this.state.curProduct)
       return (
         <div>
-          {/* <KeyWordSearch /> */}
-          {/* <ProductBreakdown /> */}
+          <KeyWordSearch />
+          <ProductBreakdown />
           <RatingBreakdown
             curProduct={this.state.curProduct}
             curProductId={this.state.curProduct.product}
