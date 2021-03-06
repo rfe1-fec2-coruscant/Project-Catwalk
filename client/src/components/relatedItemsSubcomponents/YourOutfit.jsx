@@ -73,6 +73,7 @@ class YourOutfit extends React.Component {
   }
 
   componentDidMount() {
+    console.log('inside youroufit componentdidmount');
     // request session data from server (yourOutfit array)
     ajaxRequests.getYourOutfits(yourOutfits => {
       // send it up to main component
@@ -81,10 +82,13 @@ class YourOutfit extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    console.log('inside youroufit componentDidUpdate');
     if (this.props.isCurrentProductAdded !== prevProps.isCurrentProductAdded || this.props.yourOutfitIds !== prevProps.yourOutfitIds) {
       var updatedIsNothingHiddenRight = this.state.isNothingHiddenRight;
-      var updatedShownProducts = this.props.yourOutfitIds;
       var updatedHiddenProductsRight = this.state.hiddenProductsRight;
+      var updatedShownProducts = this.props.yourOutfitIds;
+      // var updatedIsNothingHiddenLeft = this.state.isNothingHiddenLeft;
+      // var updatedHiddenProductsLeft = this.state.hiddenProductsLeft;
       if (this.props.yourOutfitIds.length > 3) {
         updatedIsNothingHiddenRight = false;
         updatedShownProducts = this.props.yourOutfitIds.slice(0, 3);
@@ -95,12 +99,15 @@ class YourOutfit extends React.Component {
         yourOutfitIds: this.props.yourOutfitIds,
         isNothingHiddenRight: updatedIsNothingHiddenRight,
         shownProducts: updatedShownProducts,
-        hiddenProductsRight: updatedHiddenProductsRight
+        hiddenProductsRight: updatedHiddenProductsRight,
+        isNothingHiddenLeft: true,
+        hiddenProductsLeft: []
       });
     }
   }
 
   render() {
+    console.log('youroutfit is rendering');
     if (this.state.isNothingHiddenRight && this.state.isNothingHiddenLeft) {
       return (
         <div className='your-outfit-cards'>
