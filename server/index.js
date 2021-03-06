@@ -51,6 +51,29 @@ app.put('/put', (req, res) => {
     });
 });
 
+app.post('/post', (req, res) => {
+  console.log('hi from app.post');
+
+  // console.log(req.body.data);
+  // console.log(req.body.path);
+  // res.end();
+  var data = req.body.data;
+  var endPoint = req.body.path;
+  var url = api + '/' + endPoint;
+  console.log(url);
+  axios.post(url, data, {
+    headers: {
+      'Authorization': config.TOKEN
+    }
+  })
+    .then(data => {
+      res.end();
+    })
+    .catch(err => {
+      res.send(err).end();
+    });
+});
+
 app.listen(PORT, () => {
   console.log(`Server listening at localhost:${PORT}!`);
 });

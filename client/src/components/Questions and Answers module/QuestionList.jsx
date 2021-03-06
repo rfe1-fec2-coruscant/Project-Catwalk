@@ -10,6 +10,7 @@ class QuestionList extends React.Component {
     };
   }
 
+
   //sample query parameter: https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews?product_id=20031
 
   //GET /qa/questions Retrieves a list of questions for a particular product.
@@ -41,18 +42,27 @@ class QuestionList extends React.Component {
     question.helpfulDisabled = true;
     this.setState({questions: this.state.questions});
   }
+  // handleAddAnswerSubmit() {
+  //   alert('submitted!');
+  // }
 
 
   render() {
+
     if(this.state.questions !== null) {
       return (
         <div>
           <Question
            question={this.state.questions[0]}
-           helpfulQuestionClick={this.helpfulQuestionClick.bind(this)}/>
+           helpfulQuestionClick={this.helpfulQuestionClick.bind(this)}
+           productName="Albert Romper"
+          //  handleAddAnswerSubmit={this.handleAddAnswerSubmit.bind(this)}
+           />
           <Question
           question={this.state.questions[1]}
           helpfulQuestionClick={this.helpfulQuestionClick.bind(this)}
+          productName="Albert Romper"
+          handleAddAnswerSubmit={this.handleAddAnswerSubmit.bind(this)}
           />
         </div>
 
