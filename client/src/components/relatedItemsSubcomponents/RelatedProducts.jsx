@@ -99,7 +99,6 @@ class RelatedProducts extends React.Component {
   }
 
   render() {
-    // var { currentProductName } = this.props;
 
     if (this.state.allProducts.length === 0) {
       return (
