@@ -9,10 +9,10 @@ export default function Questions(props) {
       <h2 className= "header">QUESTIONS AND ANSWERS</h2>
       <Searchbar/>
       <QuestionList/>
-      <div>
+      {/* <div>
         <button className="largeButton">MORE ANSWERED QUESTIONS</button>
         <button className="largeButton">ADD A QUESTION +</button>
-      </div>
+      </div> */}
      </div>
   )
 

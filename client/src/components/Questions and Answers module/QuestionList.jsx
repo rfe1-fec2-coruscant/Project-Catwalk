@@ -6,29 +6,48 @@ class QuestionList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      questions: null
+      questions: [],
+      length: 2,
+      moreQuestionsVisible: true
     };
   }
 
-
-  //sample query parameter: https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews?product_id=20031
-
-  //GET /qa/questions Retrieves a list of questions for a particular product.
-
-  //takes params product_id, page, and count
   componentDidMount() {
+    //sample product ID is arbitrary at this stage
     ajaxRequests.get('qa/questions?product_id=19378', (results) => {
       console.log(results);
 
-    this.setState({questions: results.results});
+    this.sortQuestions(results.results);
     })
-
   }
 
+  sortQuestions(array) {
+    console.log('calling sortQuestions on ', array);
+    //sorts questions in order of helpfulness
+        //helper function sorts by helpfulness
+        function compareHelpful(a, b) {
+          const helpfulA = a.question_helpfulness;
+          const helpfulB = b.question_helpfulness
+
+          let comparison = 0;
+          if (helpfulA < helpfulB) {
+            comparison = 1;
+          } else if (helpfulA > helpfulB) {
+            comparison = -1;
+          }
+          return comparison;
+        }
+        array.sort(compareHelpful);
+
+        this.setState({questions: array});
+        //set state for whether load more answers button is visible
+        if (array.length > 2) {
+          this.setState({moreQuestionsVisible: true});
+        }
+      }
+
+
   helpfulQuestionClick(e, question) {
-    //post to helpful count
-    // alert('helpful!');
-    // console.log(question);
     console.log('questionID', question.question_id);
     var path = 'qa/answers/' + question.question_id + '/helpful';
     console.log('path', path);
@@ -42,34 +61,45 @@ class QuestionList extends React.Component {
     question.helpfulDisabled = true;
     this.setState({questions: this.state.questions});
   }
-  // handleAddAnswerSubmit() {
-  //   alert('submitted!');
-  // }
 
+  loadMoreQuestions() {
+    this.setState({length: this.state.length +=2});
+  }
 
   render() {
+    const moreQuestionsVisible = this.state.moreQuestionsVisible;
+    let moreQuestions;
+    if(moreQuestionsVisible && this.state.length <= this.state.questions.length) {
+      moreQuestions = <button type="button" className="largeButton" onClick={this.loadMoreQuestions.bind(this)}>MORE ANSWERED QUESTIONS</button>
+    } else {
+      moreQuestions = <div></div>;
+    }
 
-    if(this.state.questions !== null) {
+    if(this.state.questions !== []) {
       return (
         <div>
-          <Question
-           question={this.state.questions[0]}
+            <span>{this.state.questions.slice(0,this.state.length).map((question) => (<Question
+           question={question}
            helpfulQuestionClick={this.helpfulQuestionClick.bind(this)}
            productName="Albert Romper"
-          //  handleAddAnswerSubmit={this.handleAddAnswerSubmit.bind(this)}
-           />
-          <Question
+            /> ))}
+            </span>
+          {/* <Question
           question={this.state.questions[1]}
           helpfulQuestionClick={this.helpfulQuestionClick.bind(this)}
           productName="Albert Romper"
-          handleAddAnswerSubmit={this.handleAddAnswerSubmit.bind(this)}
-          />
+          /> */}
+          <div>
+            <div>{moreQuestions}</div>
+            <button className="largeButton">ADD A QUESTION +</button>
+         </div>
         </div>
 
         );
     } else {
     return (
       <div>
+        <button className="largeButton">ADD A QUESTION +</button>
       </div>
      )
     }
@@ -78,9 +108,3 @@ class QuestionList extends React.Component {
 };
 
 export default QuestionList;
-
-
-// export default function QuestionList(props) {
-
-
-// };
