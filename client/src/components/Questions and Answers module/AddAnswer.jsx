@@ -33,17 +33,6 @@ class AddAnswer extends React.Component {
   hideModal () {
     this.setState({show: false});
   };
-  // showPhoto () {
-  //   this.setState({show: false});
-  //   this.setState({photo: true});
-  // };
-  // hidePhoto () {
-  //   this.setState({photo: false});
-  // };
-
-  // handlePhotoUpload () {
-  //   alert('upload!');
-  // }
 
   handleEmailInput (e) {
     this.setState({emailInput: e.target.value});
@@ -82,8 +71,6 @@ class AddAnswer extends React.Component {
           handleClose={this.hideModal.bind(this)}
           productName={this.props.productName}
           question={this.props.question}
-          // handleAddAnswerSubmit={this.props.handleAddAnswerSubmit}
-          // showPhoto={this.showPhoto.bind(this)}
           emailInput={this.state.emailInput}
           handleEmailInput={this.handleEmailInput.bind(this)}
           nicknameInput={this.state.nicknameInput}
@@ -91,14 +78,7 @@ class AddAnswer extends React.Component {
           handleAnswerInput={this.handleAnswerInput.bind(this)}
           handlePhotoSelect={this.handlePhotoSelect.bind(this)}
           photo={this.state.photo}
-          // handleClose={this.hidePhoto.bind(this)}
           handleAddAnswerSubmit={this.handleAddAnswerSubmit.bind(this)}/>
-
-        {/* <UploadPhotoModal
-          handlePhotoSelect={this.handlePhotoSelect.bind(this)}
-          photo={this.state.photo}
-          handleClose={this.hidePhoto.bind(this)}
-        /> */}
         <button className="smallButton" onClick={this.showModal.bind(this)}>
           Add Answer
         </button>

@@ -1,6 +1,7 @@
 import React from 'react'
 import Question from './Question.jsx'
 import ajaxRequests from '../../../ajaxRequests.js';
+import AddQuestion from './AddQuestion.jsx'
 
 class QuestionList extends React.Component {
   constructor(props) {
@@ -91,7 +92,7 @@ class QuestionList extends React.Component {
           /> */}
           <div>
             <div>{moreQuestions}</div>
-            <button className="largeButton">ADD A QUESTION +</button>
+            <AddQuestion/>
          </div>
         </div>
 
