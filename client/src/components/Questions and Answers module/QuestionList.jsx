@@ -2,14 +2,12 @@ import React from 'react'
 import Question from './Question.jsx'
 import ajaxRequests from '../../../ajaxRequests.js';
 import AddQuestion from './AddQuestion.jsx'
-import Searchbar from './Searchbar.jsx'
 
 class QuestionList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // questions: [],
-      // questions: props.questions,
+      questions: [],
       length: 2,
       moreQuestionsVisible: true,
     };
@@ -23,48 +21,6 @@ componentDidUpdate(prevProps) {
     this.setState({questions: this.props.questions});
   }
 }
-  // componentDidMount() {
-  //   //sample product ID is arbitrary at this stage
-  //   ajaxRequests.get('qa/questions?product_id=19378', (results) => {
-  //     console.log(results);
-
-  //   this.sortQuestions(results.results);
-  //   })
-  // }
-
-  // sortQuestions(array) {
-  //   console.log('calling sortQuestions on ', array);
-  //   //sorts questions in order of helpfulness
-  //       //helper function sorts by helpfulness
-  //       function compareHelpful(a, b) {
-  //         const helpfulA = a.question_helpfulness;
-  //         const helpfulB = b.question_helpfulness
-
-  //         let comparison = 0;
-  //         if (helpfulA < helpfulB) {
-  //           comparison = 1;
-  //         } else if (helpfulA > helpfulB) {
-  //           comparison = -1;
-  //         }
-  //         return comparison;
-  //       }
-  //       array.sort(compareHelpful);
-
-  //       this.setState({questions: array});
-  //       //set state for whether load more answers button is visible
-  //       if (array.length > 2) {
-  //         this.setState({moreQuestionsVisible: true});
-  //       }
-  //     }
-
-  editSearchTerm(e) {
-    this.setState({searchTerm: e.target.value});
-  }
-
-  dynamicSearch() {
-    return this.state.questions.filter(question => question.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
-  }
-
 
   helpfulQuestionClick(e, question) {
     console.log('questionID', question.question_id);
@@ -88,11 +44,11 @@ componentDidUpdate(prevProps) {
   render() {
     const moreQuestionsVisible = this.state.moreQuestionsVisible;
     let moreQuestions;
-    // if(moreQuestionsVisible && this.state.length <= this.state.questions.length) {
-    //   moreQuestions = <button type="button" className="largeButton" onClick={this.loadMoreQuestions.bind(this)}>MORE ANSWERED QUESTIONS</button>
-    // } else {
-    //   moreQuestions = <div></div>;
-    // }
+    if(moreQuestionsVisible && this.state.length <= this.state.questions.length) {
+      moreQuestions = <button type="button" className="largeButton" onClick={this.loadMoreQuestions.bind(this)}>MORE ANSWERED QUESTIONS</button>
+    } else {
+      moreQuestions = <div></div>;
+    }
 
     if(this.state.questions !== undefined) {
       return (

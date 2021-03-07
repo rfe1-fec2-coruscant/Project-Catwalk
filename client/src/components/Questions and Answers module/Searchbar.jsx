@@ -40,10 +40,6 @@ class Searchbar extends React.Component {
         array.sort(compareHelpful);
 
         this.setState({questions: array});
-        //set state for whether load more answers button is visible
-        if (array.length > 2) {
-          this.setState({moreQuestionsVisible: true});
-        }
       }
 
       editSearchTerm(e) {
@@ -51,7 +47,11 @@ class Searchbar extends React.Component {
       }
 
       dynamicSearch() {
-        return this.state.questions.filter(question => question.question_body.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+        if (this.state.searchTerm.length >= 3) {
+          return this.state.questions.filter(question => question.question_body.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+        } else {
+          return this.state.questions
+        }
       }
 
   render() {

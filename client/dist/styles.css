@@ -9,9 +9,309 @@
   background-color:#ccf
 }
 
+/* RelatedItemsAndComparisons */
+
 .related-items {
-  color: darkgreen;
+  color: darkslategrey;
 }
+
+.related-items-header {
+  margin-left: 10px;
+}
+
+/* RelatedProducts */
+
+.related-products {
+  width: 975px;
+  height: auto;
+  position: relative;
+  padding-left: 5px;
+  margin-left: 5px;
+  /* overflow-y: hidden; */
+  /* overflow-x: hidden; */
+  white-space: nowrap;
+}
+
+.change-product-button {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  height: 20px;
+  margin-top: -20px;
+  margin-left: -5px;
+  margin-right: -5px;
+  /* margin-right: 10px; */
+  /* z-index: 1; */
+  color: floralwhite;
+  background-color: darkslategray;
+  cursor: pointer;
+  /* margin: 5px; */
+}
+
+/* ProductCard */
+
+.product-card {
+  display: inline-block;
+  border: 1px solid black;
+  height: 315px;
+  margin: 10px 10px;
+  text-align: center;
+  vertical-align: top;
+  /* position: relative; */
+  /* z-index: -2; */
+}
+
+.product-card-text-box {
+  cursor: pointer;
+  padding: 15px 10px 25px 10px;
+}
+
+.product-card-text {
+  padding-left: 10px;
+}
+
+.product-card-name {
+  font-weight: bold;
+}
+
+/* .hidden-product-card {
+  display: none;
+} */
+
+/* ProductCard: Stars */
+
+.star-container {
+  margin-top: 5px;
+}
+
+.star-icon {
+  color: #383628;
+  font-size: 20px;
+  position: relative;
+}
+
+.star-icon-quarter {
+  display: inline-block;
+  color: white;
+  font-size: 20px;
+  position: relative;
+}
+
+.star-icon-quarter:after {
+  content: "\f005";
+  width: 35%;
+  left: 0;
+  top: 0;
+  color: #383628;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+}
+
+.star-icon-three-quarters {
+  display: inline-block;
+  color: white;
+  font-size: 20px;
+  position: relative;
+}
+
+.star-icon-three-quarters:after {
+  content: "\f005";
+  width: 71%;
+  left: 0;
+  top: 0;
+  color: #383628;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+}
+
+/* .star-icon.full:before {
+  color: #383628;
+  content: '\2605';
+  position: absolute;
+  left: 0;
+  text-shadow: 0 0 2px rgba(0,0,0,0.7);
+}
+
+.star-icon.half:before {
+  color: #383628;
+  content: '\2605';
+  position: absolute;
+  left: 0;
+  width: 50%;
+  overflow: hidden;
+  text-shadow: 0 0 2px rgba(0,0,0,0.7);
+} */
+
+/* ProductCardImg */
+
+.product-image-container {
+  position: relative;
+  z-index: 1;
+}
+
+img.product-card-image {
+  height: 185px;
+  width: 220px;
+}
+
+.star-action {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 24px;
+  color: #FDE16D;
+  text-shadow: 0 0 2px rgba(0,0,0,0.7);
+  z-index: 2;
+  cursor: pointer;
+}
+
+.x-action {
+  position: absolute;
+  top: 2px;
+  right: 3px;
+  font-size: 24px;
+  color: white;
+  background-color: black;
+  text-shadow: 0 0 2px rgba(0,0,0,0.7);
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* ComparisonModal */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 3;
+}
+
+.modal-main {
+  position: fixed;
+  background: white;
+  width: 60%;
+  height: auto;
+  top: 35%;
+  left: 50%;
+  padding: 5px;
+  transform: translate(-50%,-50%);
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
+.close-button {
+  float: right;
+  color: floralwhite;
+  background-color: darkslategray;
+  cursor: pointer;
+  /* margin: 5px; */
+}
+
+.current-product-header {
+  float: left;
+  color: darkslategray;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.compared-product-header {
+  float: right;
+  color: darkslategray;
+  font-size: larger;
+  font-weight: bold;
+}
+
+/* ComparisonModalTable */
+
+#features-table {
+  margin: auto;
+  width: 100%;
+}
+
+.feature {
+  color: darkslategray;
+}
+
+.features-table-data-name {
+  text-align: center;
+}
+
+/* Your Outfit */
+
+/* .your-outfit-cards {
+  width: 975px;
+  height: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+} */
+
+.your-outfit-cards {
+  width: 975px;
+  height: auto;
+  /* overflow-y: hidden; */
+  position: relative;
+  padding-left: 5px;
+  margin-left: 5px;
+  white-space: nowrap;
+}
+
+/* .product-card {
+  display: inline-block;
+  border: 1px solid black;
+  height: 315px;
+  margin: 10px 10px;
+} */
+
+.add-outfit {
+  width: 220px;
+  text-align: center;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+.plus-icon {
+  font-size: 64px;
+  position: absolute;
+  top: 28%;
+  left: 37%;
+}
+
+.add-outfit-text {
+  font-size: 24px;
+  position: absolute;
+  top: 53%;
+  left: 22%;
+}
+
+.change-your-outfit-button {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  height: 20px;
+  margin-top: -20px;
+  margin-left: -5px;
+  margin-right: -5px;
+  /* margin-right: 10px; */
+  /* z-index: 1; */
+  color: floralwhite;
+  background-color: darkslategray;
+  cursor: pointer;
+  /* margin: 5px; */
+}
+/* .your-outfit-card {
+} */
 
 .q-and-a {
   padding: 10px;

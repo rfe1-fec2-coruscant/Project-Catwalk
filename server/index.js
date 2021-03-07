@@ -66,7 +66,8 @@ app.post('/post', (req, res) => {
       'Authorization': config.TOKEN
     }
   })
-    .then(data => {
+    .then(response => {
+      console.log(response);
       res.end();
     })
     .catch(err => {
