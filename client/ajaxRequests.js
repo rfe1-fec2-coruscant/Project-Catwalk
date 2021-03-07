@@ -40,6 +40,18 @@ const ajaxRequests = {
     });
   },
 
+  post: (path, data, callback) => {
+    $.ajax({
+      type: 'POST',
+      url: '/post',
+      contentType: 'application/json',
+      data: JSON.stringify({path: path, data: data}),
+      success: callback,
+      error: (err) => {
+        console.log(err);
+      }
+    });
+  },
   putYourOutfitItem: (path, callback) => {
     $.ajax({
       type: 'PUT',

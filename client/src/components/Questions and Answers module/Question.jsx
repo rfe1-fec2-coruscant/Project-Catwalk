@@ -1,5 +1,6 @@
 import React from 'react'
 import Answers from './Answers.jsx'
+import AddAnswer from './AddAnswer.jsx'
 
 const Question = (props) => {
 
@@ -28,7 +29,12 @@ const Question = (props) => {
             <span>{helpfulness}</span>
             <span className="count">{props.question.question_helpfulness}</span>
             <span className="divide">|</span>
-            <button className="smallButton">Add Answer</button>
+            <span><AddAnswer
+            productName={props.productName}
+            question={props.question}
+            // handleAddAnswerSubmit={props.handleAddAnswerSubmit}
+            /></span>
+            {/* <button className="smallButton">Add Answer</button> */}
 
            </div>
          </div>
