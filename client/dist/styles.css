@@ -835,7 +835,7 @@ img.product-card-image {
   grid-row-end: 2;
   margin-left: 10px
 }
-
+/*
 #one-star{
   width: 5%;
 }
@@ -854,11 +854,12 @@ img.product-card-image {
 
 #five-star{
   width: 25%;
-}
+} */
 
 .bar-graph{
-  height: 4px;
-  background-color: black;
+  width: 60%;
+  height: 15px;
+  background-color: white;
 }
 
 .rev-star {
