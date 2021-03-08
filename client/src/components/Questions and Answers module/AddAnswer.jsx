@@ -17,7 +17,6 @@ class AddAnswer extends React.Component {
  }
 
  handlePhotoSelect(event) {
-  alert('setState!');
   var newArray = this.state.fileArray.slice();
   newArray.push(URL.createObjectURL(event.target.files[0]));
   console.log('newArray', newArray);
@@ -47,7 +46,6 @@ class AddAnswer extends React.Component {
   }
 
   handleAddAnswerSubmit() {
-    alert('submitting!')
     var data = {
       body: this.state.answerInput,
       name: this.state.nicknameInput,

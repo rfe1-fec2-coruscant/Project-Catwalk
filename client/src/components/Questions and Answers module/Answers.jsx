@@ -10,6 +10,7 @@ class Answers extends React.Component {
       length: 2,
       answersArray: [],
       loadMoreVisible: false
+      // allAnswers: false
     };
   }
 //const Answers = (props) => {
@@ -21,6 +22,9 @@ componentDidMount() {
 }
 
 loadMoreAnswers() {
+  // if (!this.state.allAnswers) {
+
+  // }
   this.setState({length: this.state.answersArray.length, renderArray: this.state.answersArray.slice(0, length)});
 }
 
