@@ -11,11 +11,10 @@ class ReviewsList extends React.Component {
     this.count = 2;
 
     this.boundRenderTwoMoreTiles = this.renderTwoMoreTiles.bind(this)
-    // this.allReviewsCopy = this.props.curProductReviews.slice()
+    this.allReviewsCopy = this.props.curProductReviews.slice()
   }
 
   componentDidMount() {
-    console.log('heres my props', this.props)
     let startingTwo = [];
     let i = 0
     for (let review of this.props.curProductReviews) {
@@ -24,9 +23,10 @@ class ReviewsList extends React.Component {
       }
       startingTwo.push(review);
       i++;
-    }
 
+    }
     this.setState({reviews: startingTwo})
+
   }
 
   renderTwoMoreTiles() {
@@ -44,11 +44,13 @@ class ReviewsList extends React.Component {
 
 
   render() {
-    if (this.props.curProductReviews) {
+    if (this.state.reviews.length > 0) {
+      console.log('more state', this.state.reviews)
+      // console.log('my props again', this.props)
       return (
-        <div id="reviews-list">A bunch of Reviews.
+        <div id="reviews-list">
           <SortOptions count={this.props.curProductCount}/>
-          {this.state.reviews.each((review) => {
+          {this.state.reviews.map((review) => {
             return (
               <IndividualReviewTile
                 key={review.review_id}

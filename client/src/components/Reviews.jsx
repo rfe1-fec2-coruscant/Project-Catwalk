@@ -20,37 +20,46 @@ class Reviews extends React.Component {
   }
 
   componentDidMount() {
-    return ajaxRequests.get(`reviews?product_id=${this.tempid}`, (results) => {
+    ajaxRequests.get(`reviews?product_id=${this.tempid}`, (results) => {
       this.setState({ curProduct: results });
     })
-      .catch((error) => {
-        console.log(error)
-      })
+      // .catch((error) => {
+      //   console.log(error)
+      // })
 
   }
 
     render() {
-      console.log('cur product on my reviews', this.state.curProduct)
-      return (
-        <div id="reviews-outer-div">
-          <h2 id="reviews-outer-title">Ratings and Reviews</h2>
-          {/* <KeyWordSearch /> */}
-          <RatingBreakdown
+
+      if (Object.keys(this.state.curProduct).length > 0) {
+        console.log('state here', this.state.curProduct)
+        return (
+          <div id="reviews-outer-div">
+            <h2 id="reviews-outer-title">Ratings and Reviews</h2>
+            {/* <KeyWordSearch /> */}
+            <RatingBreakdown
+              curProduct={this.state.curProduct}
+              curProductId={this.state.curProduct.product}
+              curProductCount={this.state.curProduct.count}
+              curProductReviews={this.state.curProduct.results}
+            /><br></br>
+            <ProductBreakdown />
+            <ReviewsList
             curProduct={this.state.curProduct}
             curProductId={this.state.curProduct.product}
             curProductCount={this.state.curProduct.count}
             curProductReviews={this.state.curProduct.results}
           /><br></br>
-          <ProductBreakdown />
-          {/* <ReviewsList
-            curProduct={this.state.curProduct}
-            curProductId={this.state.curProduct.product}
-            curProductCount={this.state.curProduct.count}
-            curProductReviews={this.state.curProduct.results}
-          /><br></br> */}
-          <WriteNewReview />
-        </div>
-      )
+            <WriteNewReview />
+          </div>
+        )
+
+      } else {
+          return (
+            <div></div>
+          )
+      }
+
     }
   }
 

@@ -39,7 +39,7 @@ class RatingsBreakdown extends React.Component {
     var stars = [];
     if (this.averageRating % 1 === 0) {
       for(let i = 0; i < this.averageRating; i++) {
-        stars.push(<span class="rev-star fa fa-star"></span>)
+        stars.push(<span className="rev-star fa fa-star"></span>)
       }
     }
     return stars
@@ -66,7 +66,6 @@ class RatingsBreakdown extends React.Component {
          <div></div>
 
           </div><br></br>
-
           <div id="bar-graph-container">Rating Breakdown
           <br></br>
             One Star: <hr className="bar-graph" id="one-star"></hr>
