@@ -429,6 +429,7 @@ img.product-card-image {
 }
 
 #rev-product-breakdown {
+  margin-left: 5px;
   margin-top: 30px;
   grid-column-start: 1;
   grid-column-end: 1;
@@ -461,6 +462,38 @@ img.product-card-image {
 
 /* General Review Layout */
 
+/* Products Breakdown */
+  .prod-bar-graph {
+    background-color: blanchedalmond;
+    border: dotted;
+    width: 400px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+  }
+
+  #size-table{
+    width: 100%;
+  }
+
+  #sth2 {
+    position: relative;
+    left :110px
+  }
+
+  #sth3 {
+    position: relative;
+    left :220px
+  }
+
+  #cth2 {
+    position: relative;
+    left: 300px
+  }
+
+/* Products Breakdown */
+
+
 /* Ratings Breakdown */
 #average-rating-container {
   display: grid;
@@ -474,7 +507,7 @@ img.product-card-image {
   grid-row-start: 1;
   grid-row-end: 1;
   font-size: 60px;
-  margin-left: 5px
+  margin-left: 10px
 }
 
 #rev-star-rating {
@@ -491,26 +524,27 @@ img.product-card-image {
   grid-column-end: 1;
   grid-row-start: 2;
   grid-row-end: 2;
-  margin-left: 5px
+  margin-left: 10px
 }
+
 #one-star{
-  width: 20%;
+  width: 5%;
 }
 
 #two-star{
-  width: 40%;
+  width: 10%;
 }
 
 #three-star{
-  width: 60%;
+  width: 40%;
 }
 
 #four-star{
-  width: 80%;
+  width: 30%;
 }
 
 #five-star{
-  width: 100%;
+  width: 25%;
 }
 
 .bar-graph{

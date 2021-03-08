@@ -13,7 +13,7 @@ class RatingsBreakdown extends React.Component {
     };
 
     this.count;
-    this.averageRating = 5
+    this.averageRating = 3
     this.everyPostive = 0;
     this.averageRecommendation
     this.starRating;
