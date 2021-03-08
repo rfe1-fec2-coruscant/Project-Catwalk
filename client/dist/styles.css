@@ -401,9 +401,176 @@ img.product-card-image {
 
 
 /* Reviews css */
+
+
+/* General Review Layout */
 #reviews-outer-div {
   background-color: beige;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(5, 100px);
+  row-gap: 8px
 }
+
+#reviews-outer-title {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 1;
+
+}
+#ratings-breakdown {
+  margin-top: 50px;
+  margin-bottom: 10px;
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+#rev-product-breakdown {
+  margin-top: 30px;
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+
+#recommendation {
+  margin-left: 5px
+}
+
+#reviews-list {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 4;
+  margin-top: 10px;
+}
+
+#rev-new-review {
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 5;
+  grid-row-end: 5;
+}
+
+
+
+
+
+/* General Review Layout */
+
+/* Ratings Breakdown */
+#average-rating-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 50px)
+}
+
+#rev-num-rating {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  font-size: 60px;
+  margin-left: 5px
+}
+
+#rev-star-rating {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  margin-left: 40px;
+
+}
+
+#bar-graph-container {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  margin-left: 5px
+}
+#one-star{
+  width: 20%;
+}
+
+#two-star{
+  width: 40%;
+}
+
+#three-star{
+  width: 60%;
+}
+
+#four-star{
+  width: 80%;
+}
+
+#five-star{
+  width: 100%;
+}
+
+.bar-graph{
+  height: 4px;
+  background-color: black;
+}
+
+.rev-star {
+  display: inline-block;
+  position: relative;
+  font-size: 20px;
+  color:black;
+}
+
+
+.rev-star-icon {
+  color: #383628;
+  font-size: 20px;
+  position: relative;
+}
+
+.rev-star-icon-quarter {
+  display: inline-block;
+  color: white;
+  font-size: 20px;
+  position: relative;
+}
+
+.rev-star-icon-quarter:after {
+  content: "\f005";
+  width: 35%;
+  left: 0;
+  top: 0;
+  color: #383628;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+}
+
+.rev-star-icon-three-quarters {
+  display: inline-block;
+  color: white;
+  font-size: 20px;
+  position: relative;
+}
+
+.rev-star-icon-three-quarters:after {
+  content: "\f005";
+  width: 71%;
+  left: 0;
+  top: 0;
+  color: #383628;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+}
+
+
+
+/* Ratings Breakdown */
 
 /* Reviews Modal */
 
@@ -419,8 +586,8 @@ img.product-card-image {
 .modal-main {
   position: fixed;
   background: beige;
-  width: 80%;
-  height: 63%;
+  width: 78%;
+  height: 65%;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
@@ -539,3 +706,5 @@ img.product-card-image {
 
 
 /* Reviews Modal */
+
+

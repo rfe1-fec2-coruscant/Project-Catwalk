@@ -32,7 +32,7 @@ class WriteNewReview extends React.Component {
   render() {
 
     return (
-      <div>
+      <div id="rev-new-review">
         <NewReviewModal shown={this.state.show} hideModal={this.boundHideModal} />
         <button type="button" onClick={this.boundShowModal}>Write New Review</button>
       </div>

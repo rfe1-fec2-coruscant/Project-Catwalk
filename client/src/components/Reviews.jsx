@@ -14,7 +14,7 @@ import WriteNewReview from './RatingsAndReviews/WriteNewReview.jsx';
 class Reviews extends React.Component {
   constructor(props) {
     super(props);
-    this.tempid = 19378;
+    this.tempid = 19735;
     this.state = {curProduct: {}};
 
   }
@@ -30,24 +30,24 @@ class Reviews extends React.Component {
   }
 
     render() {
-      // console.log(this.state.curProduct)
+      console.log('cur product on my reviews', this.state.curProduct)
       return (
         <div id="reviews-outer-div">
-          <h1 id="reviews-outer-title">Reviews</h1>
+          <h2 id="reviews-outer-title">Ratings and Reviews</h2>
           {/* <KeyWordSearch /> */}
-          <ProductBreakdown />
           <RatingBreakdown
             curProduct={this.state.curProduct}
             curProductId={this.state.curProduct.product}
             curProductCount={this.state.curProduct.count}
             curProductReviews={this.state.curProduct.results}
           /><br></br>
-          <ReviewsList
+          <ProductBreakdown />
+          {/* <ReviewsList
             curProduct={this.state.curProduct}
             curProductId={this.state.curProduct.product}
             curProductCount={this.state.curProduct.count}
             curProductReviews={this.state.curProduct.results}
-          /><br></br>
+          /><br></br> */}
           <WriteNewReview />
         </div>
       )

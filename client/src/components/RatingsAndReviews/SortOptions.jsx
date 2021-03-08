@@ -14,10 +14,18 @@ class SortOptions extends React.Component {
     this.setState({value: event.target.value})
   }
 
+  renderNewest() {
+
+  }
+
+  renderMostHelpful() {
+
+  }
+
   render() {
     return (
-      <div>Sorting Options
-        <select value={this.state.value} onChange={this.boundHandleChange}>
+      <div id="rev-sort-options">Sorting Options
+        <select value={this.state.value} onChange={this.boundHandleChange}>{this.props.count} reviews, sorted by-
           <option value="Relevant">Relevant</option>
           <option value="Helpful">Helpful</option>
           <option value="Newest">Newest</option>

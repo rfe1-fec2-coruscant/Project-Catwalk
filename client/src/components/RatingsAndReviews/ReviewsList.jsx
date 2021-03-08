@@ -7,100 +7,65 @@ class ReviewsList extends React.Component {
     this.state = {
       reviews: []
     };
+
     this.count = 2;
-    this.startCount = 0;
-    this.boundOnlyRenderTwoTiles = this.onlyRenderTwoTiles.bind(this)
-    this.boundOnlyRenderTwoTiles = this.onlyRenderTwoTiles.bind(this)
-    this.boundRenderTwoStartReviews = this.renderTwoStartReviews.bind(this)
+
+    this.boundRenderTwoMoreTiles = this.renderTwoMoreTiles.bind(this)
     // this.allReviewsCopy = this.props.curProductReviews.slice()
   }
 
   componentDidMount() {
-
-  }
-
-  // renderMoreTiles() {
-  //   let tempReviews = [];
-  //   for (let i = this.count; i < this.count; i++) {
-  //     if (this.props.curProductReviews.length) {
-  //       tempReviews.push(this.props.curProductReviews[i])
-  //     }
-  //   }
-  //  this.setState({reviews: tempReviews})
-  // }
-
-  onlyRenderTwoTiles() {
-    if (this.state.reviews.length > 1) {
-      return this.state.reviews.map((review) => {
-        this.count += 1
-          return (
-            <IndividualReviewTile
-              key={review.review_id}
-              reviewId={review.review_id}
-              rating={review.rating}
-              summary={review.summary}
-              reviewBody={review.body}
-              reviewDate={review.date}
-              reviewHelpfulness={review.helpfulness}
-              recommend={review.recommend}
-              reviewerName={review.reviewer_name}
-              response={review.response}
-              reviewPhotos={review.photos}
-            />
-          )
-      })
-    } else if (this.state.reviews.length === 1) {
-      this.count += 1
-      return (
-        <IndividualReviewTile
-          key={review.review_id}
-          reviewId={review.review_id}
-          rating={review.rating}
-          summary={review.summary}
-          reviewBody={review.body}
-          reviewDate={review.date}
-          reviewHelpfulness={review.helpfulness}
-          recommend={review.recommend}
-          reviewerName={review.reviewer_name}
-          response={review.response}
-          reviewPhotos={review.photos}
-        />
-      )
-    } else {
-      return
+    console.log('heres my props', this.props)
+    let startingTwo = [];
+    let i = 0
+    for (let review of this.props.curProductReviews) {
+      if (i === 2) {
+        break;
+      }
+      startingTwo.push(review);
+      i++;
     }
+
+    this.setState({reviews: startingTwo})
   }
 
-  renderTwoStartReviews() {
-    while (this.startCount < 2) {
-      return this.state.reviews.map((review) => {
-        this.startCount += 1
-        return (
-          <IndividualReviewTile
-            key={review.review_id}
-            reviewId={review.review_id}
-            rating={review.rating}
-            summary={review.summary}
-            reviewBody={review.body}
-            reviewDate={review.date}
-            reviewHelpfulness={review.helpfulness}
-            recommend={review.recommend}
-            reviewerName={review.reviewer_name}
-            response={review.response}
-            reviewPhotos={review.photos}
-          />
-        )
-      })
+  renderTwoMoreTiles() {
+    let i = 0;
+    let curReviews = this.state.reviews.slice();
+    for (let j = this.count; j < this.props.curProductReviews; j++) {
+      if (i === 2) {
+        break;
+      }
+      curReviews.push(this.props.curProductReviews[j])
+      i++
     }
+    this.setState({reviews: curReviews})
   }
+
 
   render() {
     if (this.props.curProductReviews) {
       return (
-        <div>A bunch of Reviews.
-          <SortOptions />
-          {this.boundRenderTwoStartReviews()}
-          <button type="button" onClick={this.boundRenderMoreTiles}>More Reviews</button>
+        <div id="reviews-list">A bunch of Reviews.
+          <SortOptions count={this.props.curProductCount}/>
+          {this.state.reviews.each((review) => {
+            return (
+              <IndividualReviewTile
+                key={review.review_id}
+                reviewId={review.review_id}
+                rating={review.rating}
+                summary={review.summary}
+                reviewBody={review.body}
+                reviewDate={review.date}
+                reviewHelpfulness={review.helpfulness}
+                recommend={review.recommend}
+                reviewerName={review.reviewer_name}
+                response={review.response}
+                reviewPhotos={review.photos}
+              />
+            )
+          })}
+          <button type="button" onClick={this.boundRenderTwoMoreTiles}>More Reviews</button>
         </div>
       )
     } else {
@@ -114,3 +79,6 @@ class ReviewsList extends React.Component {
 
 
 export default ReviewsList;
+
+
+
