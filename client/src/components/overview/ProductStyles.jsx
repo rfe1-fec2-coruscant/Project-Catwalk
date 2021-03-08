@@ -13,6 +13,7 @@ var ProductStyles = ( {styles, currentStyle, changeStyle} ) => (
                style={style}
                changeStyle={changeStyle}
                key={style.style_id}
+               currentStyle={currentStyle}
               />
            )
         })

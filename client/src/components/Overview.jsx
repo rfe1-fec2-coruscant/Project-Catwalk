@@ -10,10 +10,13 @@ class Overview extends React.Component {
     this.state = {
       product: props.currentProduct,
       styles: {},
-      currentStyle: {}
+      currentStyle: {},
+      reviewRating: {}
     };
     this.updateStyles = this.updateStyles.bind(this);
     this.changeCurrentStyle = this.changeCurrentStyle.bind(this);
+    this.getReviewRating = this.getReviewRating.bind(this);
+    this.calculateRating = this.calculateRating.bind(this);
   }
 
   updateStyles(newData) {
@@ -22,11 +25,37 @@ class Overview extends React.Component {
     this.setState({
       styles: newData,
       currentStyle: newData.results[0]
+    }, this.getReviewRating(this.state.product.id));
+  }
+
+  getReviewRating(productId) {
+    ajaxRequests.get(`reviews/meta?product_id=${productId}`, (returnData) => {
+      // console.log(returnData);
+      let rating = this.calculateRating(returnData.ratings);
+      this.setState({
+        reviewRating: rating
+      });
     });
   }
 
+  calculateRating(ratingsObj) {
+    let starNumbers = Object.keys(ratingsObj);
+    let calculatedRating = 0;
+    let numberOfReviews = 0;
+    // debugger;
+    for (var i = 0; i < starNumbers.length; i++) {
+      calculatedRating += (starNumbers[i] * ratingsObj[starNumbers[i]]);
+      numberOfReviews += parseInt(ratingsObj[starNumbers[i]]);
+    }
+    calculatedRating /= numberOfReviews;
+    return {
+      rating: calculatedRating,
+      num: numberOfReviews
+    }
+  }
+
   changeCurrentStyle(event) {
-    debugger;
+    // debugger;
     var styles = this.state.styles.results;
     for (var i = 0; i < styles.length; i++) {
       console.log(styles[i].style_id);
@@ -52,6 +81,7 @@ class Overview extends React.Component {
               currentProduct={this.state.product}
               currentStyle={this.state.currentStyle}
               changeStyle={this.changeCurrentStyle}
+              reviews={this.state.reviewRating}
             />
           </div>
           <div id="product-description" className="outline">

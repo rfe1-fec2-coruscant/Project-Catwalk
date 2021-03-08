@@ -19,7 +19,6 @@ app.get('/', (req, res) => {
 
 app.get('/get', (req, res) => {
   var endPoint = req.query.path;
-  console.log(api + '/' + endPoint);
   axios.get(api + '/' + endPoint, {
     headers: {
       'Authorization': config.TOKEN
@@ -27,6 +26,25 @@ app.get('/get', (req, res) => {
   })
     .then(data => {
       res.send(data.data).end();
+    })
+    .catch(err => {
+      res.send(err).end();
+    });
+});
+
+app.put('/put', (req, res) => {
+  console.log('hi from app.put');
+  console.log(req.body.data);
+  var endPoint = req.body.data;
+  var url = api + '/' + endPoint;
+  console.log(url);
+  axios.put(url, {
+    headers: {
+      'Authorization': config.TOKEN
+    }
+  })
+    .then(data => {
+      res.end();
     })
     .catch(err => {
       res.send(err).end();
