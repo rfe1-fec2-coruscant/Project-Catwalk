@@ -1,8 +1,8 @@
 import React from 'react';
 
 var IndividualReviewTile = (props) => (
-  <div>Review #: {props.reviewId}
-      <div id="review-rating"></div>
+  <div id="indvRevContainer">
+      <div id="review-id">Review #: {props.reviewId}</div>
       <div id="review-rating"> Rating: {props.rating}  </div>
       <div id="review-date"> Review Date: {props.reviewDate}</div>
       <div id="review-name"> Reviewer Name: {props.reviewerName}</div>
