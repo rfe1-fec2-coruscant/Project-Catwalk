@@ -20,8 +20,12 @@
 }
 
 /* RelatedProducts */
+.related-items-header-text {
+  font-family: Arial, Helvetica, sans-serif;
+}
 
 .related-products {
+  font-family: Arial, Helvetica, sans-serif;
   width: 975px;
   height: auto;
   position: relative;
@@ -257,6 +261,7 @@ img.product-card-image {
 } */
 
 .your-outfit-cards {
+  font-family: Arial, Helvetica, sans-serif;
   width: 975px;
   height: auto;
   /* overflow-y: hidden; */

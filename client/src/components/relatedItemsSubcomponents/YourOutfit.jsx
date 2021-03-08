@@ -91,7 +91,11 @@ class YourOutfit extends React.Component {
         updatedIsNothingHiddenRight = false;
         updatedShownProducts = this.props.yourOutfitIds.slice(0, 3);
         updatedHiddenProductsRight = this.props.yourOutfitIds.slice(3);
+      } else {
+        updatedHiddenProductsRight = [];
+        updatedIsNothingHiddenRight = true;
       }
+
       this.setState({
         isCurrentProductAdded: this.props.isCurrentProductAdded,
         yourOutfitIds: this.props.yourOutfitIds,
@@ -110,7 +114,7 @@ class YourOutfit extends React.Component {
         <div className='your-outfit-cards'>
           <div className='product-card add-outfit' onClick={this.handleAddOutfitClick}>
             <span className='plus-icon'>{PlusElement}</span>
-            <span className='add-outfit-text'>Add to Outfit</span>
+            <span className='related-items-header-text add-outfit-text'>Add to Outfit</span>
           </div>
           {this.state.shownProducts.map(yourOutfitId => <ProductCard isYourOutfit={true} relatedProductId={yourOutfitId} key={'YO: ' + yourOutfitId} handleOutfitRemove={this.props.handleOutfitRemove} handleProductDetailRender={this.props.handleProductDetailRender}/>)}
         </div>
