@@ -41,10 +41,10 @@ class AddQuestion extends React.Component {
       //TODO add productID
       product_id: ''
     }
-    console.log('data for post request', data);
+    // console.log('data for post request', data);
     var path = 'qa/questions/';
     ajaxRequests.post(path, data, (error, results) => {
-      console.log(results);
+      // console.log(results);
     });
   }
 
