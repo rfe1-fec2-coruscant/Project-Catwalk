@@ -35,7 +35,7 @@ class ProductCardPrice extends React.Component {
   render() {
     if (this.state.salePrice) {
       return(
-        <span className='product-card-text'>{this.state.salePrice}</span>
+        <span className='product-card-text sale-price'>{this.state.salePrice}</span>
       );
     } else {
       return(

@@ -237,6 +237,10 @@
   font-weight: bold;
 }
 
+.sale-price {
+  color: darkred;
+}
+
 /* .hidden-product-card {
   display: none;
 } */
