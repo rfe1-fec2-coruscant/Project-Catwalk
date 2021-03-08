@@ -106,3 +106,6 @@ client/dist/main.js
 
 # TernJS port file
 .tern-port
+
+# personal
+sample_AJAX_data.txt
