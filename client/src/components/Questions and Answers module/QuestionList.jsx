@@ -1,33 +1,28 @@
 import React from 'react'
 import Question from './Question.jsx'
 import ajaxRequests from '../../../ajaxRequests.js';
+import AddQuestion from './AddQuestion.jsx'
 
 class QuestionList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      questions: null
+      questions: [],
+      length: 2,
+      moreQuestionsVisible: true,
     };
   }
+componentDidMount() {
+  this.setState({questions: this.props.questions});
+}
 
-  //sample query parameter: https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews?product_id=20031
-
-  //GET /qa/questions Retrieves a list of questions for a particular product.
-
-  //takes params product_id, page, and count
-  componentDidMount() {
-    ajaxRequests.get('qa/questions?product_id=19378', (results) => {
-      console.log(results);
-
-    this.setState({questions: results.results});
-    })
-
+componentDidUpdate(prevProps) {
+  if(prevProps.questions !== this.props.questions) {
+    this.setState({questions: this.props.questions});
   }
+}
 
   helpfulQuestionClick(e, question) {
-    //post to helpful count
-    // alert('helpful!');
-    // console.log(question);
     console.log('questionID', question.question_id);
     var path = 'qa/answers/' + question.question_id + '/helpful';
     console.log('path', path);
@@ -42,24 +37,39 @@ class QuestionList extends React.Component {
     this.setState({questions: this.state.questions});
   }
 
+  loadMoreQuestions() {
+    this.setState({length: this.state.length +=2});
+  }
 
   render() {
-    if(this.state.questions !== null) {
+    const moreQuestionsVisible = this.state.moreQuestionsVisible;
+    let moreQuestions;
+    if(moreQuestionsVisible && this.state.length <= this.state.questions.length) {
+      moreQuestions = <button type="button" className="largeButton" onClick={this.loadMoreQuestions.bind(this)}>MORE ANSWERED QUESTIONS</button>
+    } else {
+      moreQuestions = <div></div>;
+    }
+
+    if(this.state.questions !== undefined) {
       return (
         <div>
-          <Question
-           question={this.state.questions[0]}
-           helpfulQuestionClick={this.helpfulQuestionClick.bind(this)}/>
-          <Question
-          question={this.state.questions[1]}
-          helpfulQuestionClick={this.helpfulQuestionClick.bind(this)}
-          />
+            <span>{this.state.questions.slice(0,this.state.length).map((question) => (<Question
+           question={question}
+           helpfulQuestionClick={this.helpfulQuestionClick.bind(this)}
+           productName="Albert Romper"
+            /> ))}
+            </span>
+          <div>
+            <div>{moreQuestions}</div>
+            <AddQuestion/>
+         </div>
         </div>
 
         );
     } else {
     return (
       <div>
+        <button className="largeButton">ADD A QUESTION +</button>
       </div>
      )
     }
@@ -68,9 +78,3 @@ class QuestionList extends React.Component {
 };
 
 export default QuestionList;
-
-
-// export default function QuestionList(props) {
-
-
-// };

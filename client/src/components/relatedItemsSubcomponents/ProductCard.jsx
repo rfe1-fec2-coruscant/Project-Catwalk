@@ -35,7 +35,11 @@ class ProductCard extends React.Component {
   }
 
   handleProductCardTextBoxClick(productId) {
-    console.log('productId:', productId);
+    if (productId[0] === 'Y') {
+      productId = productId.slice(3);
+      console.log('productId:', productId);
+    }
+    this.props.handleProductDetailRender(productId);
   }
 
   componentDidMount() {
@@ -48,6 +52,14 @@ class ProductCard extends React.Component {
         price: data.default_price
       });
     });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.currentProductFeatures !== prevProps.currentProductFeatures) {
+      this.setState({
+        currentProductFeatures: this.props.currentProductFeatures
+      });
+    }
   }
 
   render() {
@@ -71,7 +83,7 @@ class ProductCard extends React.Component {
     } else {
       return (
         <div className='product-card your-outfit-card'>
-          <ProductCardImg relatedProductId={relatedProductId} key={relatedProductId} handleOutfitRemove={this.props.handleOutfitRemove} />
+          <ProductCardImg relatedProductId={relatedProductId} key={'YO: ' + relatedProductId} handleOutfitRemove={this.props.handleOutfitRemove} />
           <div className='product-card-text-box' id={this.state.productObject.id} onClick={() => this.handleProductCardTextBoxClick(this.state.productId)}>
             <span className='product-card-text'>{this.state.category || 'category'}</span>
             <br></br>
@@ -87,33 +99,4 @@ class ProductCard extends React.Component {
 
 }
 
-
 export default ProductCard;
-
-// {product.productObject.name ? product.productObject.name : ''}
-
-// var ProductCard = ({ product }) => (
-//   <p>{product.id}</p>
-// );
-
-// var ProductCard = ({ product }) => {
-//   if (product.productObject) {
-//     return (
-//       <p>{product.id}</p>
-//     );
-//   } else {
-//     return (
-//       <p></p>
-//     );
-//   }
-// }
-
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps !== this.props) {
-  //     this.setState({
-  //       productObject: this.props.productObject,
-  //       stylesObject: this.props.stylesObject,
-  //       name: this.props.productObject.name
-  //     });
-  //   }
-  // }
