@@ -20,7 +20,6 @@ class App extends React.Component {
         <Overview />
         <RelatedItemsAndComparisons />
         <Questions/>
-        <br></br><div>Reviews</div><br></br>
         <Reviews/>
       </div>
 

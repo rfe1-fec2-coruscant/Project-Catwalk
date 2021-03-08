@@ -10,7 +10,7 @@ const NewReviewModal = ({ hideModal, shown }) => {
       <a type="css" href="./modals.css"></a>
       <form className="modal-main">
 
-        <div required>Overall Rating:
+        <div className="rev-modal-input1" id="rev-overall-rating" required>Overall Rating:
           <input type="radio" className="star-rating" />Poor
           <input type="radio" className="star-rating" />Fair
           <input type="radio" className="star-rating" />Average
@@ -18,34 +18,41 @@ const NewReviewModal = ({ hideModal, shown }) => {
           <input type="radio" className="star-rating" />Great
         </div>
 
-        <div required >Do you recommend this product?
+        <div id="rev-recommended" className="rev-modal-input1" required >Do you recommend this product?
             <input type="radio" className="newRevYes" />Yes
-            <input type="radio" className="newRevNo" />Yes
-        </div>
-        <Characteristics />
-        <div>
-          Picture Uploader ////Needs Completing
+            <input type="radio" className="newRevNo" />No
         </div>
 
-        <div>Review Summary:
+        <Characteristics />
+
+        <div id="nickname" className="rev-modal-input" >Whats you nickname?
+            <br></br><input type="text" className="rev-input" placeholder="Example: jackson11!" maxLength="60" required />
+          <br></br><p> For privacy reasons, do not use </p>
+          <p> your full name or email address.</p>
+          <div ></div>
+        </div>
+
+        <div id="rev-summary" className="rev-modal-input" >Review Summary:
             <br></br><input type="text" placeholder="Example: Best purchase ever!" maxLength="60" />
         </div>
 
-        <div>Review Body:
-          <br></br><textarea id="review-body" name="review-body" placeholder="Why did you like the product or not?" maxLength="1000" minLength="50" required/>
+        <div id="rev-body" className="rev-modal-input" >Review Body:
+          <br></br><textarea id="rev-body-input" className="rev-input" name="review-body" placeholder=" Why did you like the product or not?" maxLength="1000" minLength="50" required/>
         </div>
 
-        <div>Whats you nickname?
-            <br></br><input type="text" placeholder="Example: jackson11!" maxLength="60" required/>
-            <br></br><span>For privacy reasons, do not use your full name or email address</span>
+
+
+        <div id="rev-email" className="rev-modal-input" >Whats your email?
+            <br></br><input className="rev-input" type="text" placeholder="Example:  jackson11@email.com!" maxLength="60" required/>
+          <br></br><span id="rev-email-txt">For authentication reasons, you will not be emailed.</span>
         </div>
 
-        <div>Whats your email?
-            <br></br><input type="text" placeholder="Example:  jackson11@email.com!" maxLength="60" required/>
-          <br></br><span>For authentication reasons, you will not be emailed</span>
+        <div id="new-review-photo-uploader" className="rev-modal-input" >Upload A Photo
+          <br></br><input className="rev-input" type="file" name="photo-uploader" />
         </div>
-        <div>
-          <input type="submit" onClick={hideModal} value="Submit Review" />
+
+        <div id="new-rev-submit">
+          <input  type="submit" onClick={hideModal} value="Submit Review" />
         </div>
 
       </form>
@@ -54,3 +61,4 @@ const NewReviewModal = ({ hideModal, shown }) => {
 };
 
 export default NewReviewModal;
+

@@ -13,7 +13,6 @@
   background-color:#ccf
 }
 
-<<<<<<< HEAD
 
 
 
@@ -24,7 +23,6 @@
 /*--------Ratings and reviews---------------------*/
 
 /*--------write new review modal---------------------*/
-=======
 /* RelatedItemsAndComparisons */
 
 .related-items {
@@ -169,7 +167,6 @@ img.product-card-image {
 }
 
 /* ComparisonModal */
->>>>>>> 76d8f7a1ef82097e4d60f1b61571d76d78c34af2
 
 .modal {
   position: fixed;
@@ -178,7 +175,6 @@ img.product-card-image {
   width:100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
-<<<<<<< HEAD
 }
 
 .modal-main {
@@ -188,7 +184,6 @@ img.product-card-image {
   height: auto;
   top:50%;
   left:50%;
-=======
   z-index: 3;
 }
 
@@ -200,7 +195,6 @@ img.product-card-image {
   top: 35%;
   left: 50%;
   padding: 5px;
->>>>>>> 76d8f7a1ef82097e4d60f1b61571d76d78c34af2
   transform: translate(-50%,-50%);
 }
 
@@ -212,9 +206,7 @@ img.product-card-image {
   display: none;
 }
 
-<<<<<<< HEAD
 /*--------write new review modal---------------------*/
-=======
 .close-button {
   float: right;
   color: floralwhite;
@@ -406,4 +398,144 @@ img.product-card-image {
   padding: 7px;
   border-width: 1px;
 }
->>>>>>> 76d8f7a1ef82097e4d60f1b61571d76d78c34af2
+
+
+/* Reviews css */
+#reviews-outer-div {
+  background-color: beige;
+}
+
+/* Reviews Modal */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+  position: fixed;
+  background: beige;
+  width: 80%;
+  height: 63%;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
+#rev-overall-rating {
+  position: fixed;
+  left: 8px;
+  top: 3px;
+}
+
+#rev-recommended {
+  position: fixed;
+  left: 8px;
+  top: 25px;
+}
+
+#rev-characteristics {
+  position: fixed;
+  left: 30%;
+  top: 50px;
+}
+
+
+#nickname {
+  position: relative;
+  left: 5px;
+  top: 50px;
+}
+
+#rev-summary input[type="text"] {
+  width: 330px;
+  height: 30px
+}
+
+#rev-summary {
+  position: relative;
+  left: 5px;
+  top: 85px;
+}
+
+#rev-body-input {
+  width: 330px;
+  height: 220px;
+}
+
+#rev-body {
+  position: relative;
+  left: 5px;
+  top: 105px;
+}
+
+#rev-email-input {
+  margin-bottom: 5px;
+  margin-top: 1px;
+}
+
+#rev-email-txt {
+  margin-bottom: 3px;
+}
+
+#rev-email {
+  position: absolute;
+  left: 30%;
+  top: 330px;
+}
+
+#new-review-photo-uploader {
+  position: fixed;
+  left: 30%;
+  top: 430px;
+}
+
+#new-rev-submit {
+  position: fixed;
+  left: 85%;
+  top: 450px;
+}
+
+.rev-modal-input {
+  margin-bottom: 3px;
+}
+
+.rev-input {
+  margin-bottom: 5px;
+  margin-top: 1px;
+}
+
+.rev-modal-input input[type="radio"]{
+  margin: 0 4px 0 30px;
+  margin-top: 23px;
+}
+
+.rev-modal-input1 input[type="radio"]{
+  margin: 0 10px 0 10px;
+}
+
+.rev-modal-input input[type="file"] {
+  margin-bottom: 3px;
+  margin-top: 3px;
+}
+
+
+.rev-modal-input input[type="text"] {
+  width: 250px;
+  height: 20px
+}
+
+
+/* Reviews Modal */

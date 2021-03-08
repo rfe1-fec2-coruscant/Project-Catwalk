@@ -30,10 +30,11 @@ class Reviews extends React.Component {
   }
 
     render() {
-      console.log(this.state.curProduct)
+      // console.log(this.state.curProduct)
       return (
-        <div>
-          <KeyWordSearch />
+        <div id="reviews-outer-div">
+          <h1 id="reviews-outer-title">Reviews</h1>
+          {/* <KeyWordSearch /> */}
           <ProductBreakdown />
           <RatingBreakdown
             curProduct={this.state.curProduct}
