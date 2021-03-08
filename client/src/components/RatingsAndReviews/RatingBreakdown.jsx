@@ -10,35 +10,34 @@ class RatingsBreakdown extends React.Component {
     super(props);
 
     this.state = {
+      averageRecommendation: 0,
+      averageRating: 0
     };
 
-    this.count;
-    this.averageRating = 3
+    this.count = 0;
     this.everyPostive = 0;
-    this.averageRecommendation
     this.starRating;
 
   }
 
   componentDidMount() {
-    // this.generateAverageRatingAndRecommendation()
+    this.generateAverageRatingAndRecommendation()
   }
 
   generateAverageRatingAndRecommendation () {
     this.props.curProductReviews.map((review) => {
       this.count++
-      this.averageRating = review.rating / count
-
+      this.setState({ averageRating: (review.rating / this.count) * 5})
       if (review.recommend === true) {
         this.everyPostive++;
       }
-      this.averageRecommendation = this.everyPostive / this.count;
+      this.setState({ averageRecommendation: (this.everyPostive / this.count) * 100})
     })
   }
   renderStars() {
     var stars = [];
-    if (this.averageRating % 1 === 0) {
-      for(let i = 0; i < this.averageRating; i++) {
+    if (this.state.averageRating % 1 === 0) {
+      for(let i = 0; i < this.state.averageRating; i++) {
         stars.push(<span className="rev-star fa fa-star"></span>)
       }
     }
@@ -52,14 +51,14 @@ class RatingsBreakdown extends React.Component {
         <div>
 
           <div id="average-rating-container">
-            <div id="rev-num-rating">{this.averageRating}</div>
+            <div id="rev-num-rating">{this.state.averageRating}</div>
             <div id="rev-star-rating">
               {this.renderStars()}
             </div>
 
             </div>
             <div id="recommendation">
-              98{this.averageRecommendation}% of reviews recommend this Product
+              {this.state.averageRecommendation}% of reviews recommend this Product
             </div>
           <div>
 

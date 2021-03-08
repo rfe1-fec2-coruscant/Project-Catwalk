@@ -5,13 +5,20 @@ class ReviewsList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviews: []
+      reviews: [],
+      length: 2
     };
 
     this.count = 2;
+    this.count1;
+    this.averageRating = 3
+    this.everyPostive = 0;
+    this.averageRecommendation
+    this.starRating;
 
     this.boundRenderTwoMoreTiles = this.renderTwoMoreTiles.bind(this)
     this.allReviewsCopy = this.props.curProductReviews.slice()
+    this.renderStars = this.renderStars.bind(this)
   }
 
   componentDidMount() {
@@ -30,16 +37,28 @@ class ReviewsList extends React.Component {
   }
 
   renderTwoMoreTiles() {
-    let i = 0;
-    let curReviews = this.state.reviews.slice();
-    for (let j = this.count; j < this.props.curProductReviews; j++) {
-      if (i === 2) {
-        break;
+    this.setState({length: this.state.length += 2})
+  }
+
+  generateAverageRatingAndRecommendation() {
+    this.props.curProductReviews.map((review) => {
+      this.count1++
+      this.averageRating = review.rating / count1
+
+      if (review.recommend === true) {
+        this.everyPostive++;
       }
-      curReviews.push(this.props.curProductReviews[j])
-      i++
+      this.averageRecommendation = this.everyPostive / this.count1;
+    })
+  }
+  renderStars(averageRating) {
+    var stars = [];
+    if (averageRating % 1 === 0) {
+      for (let i = 0; i < averageRating; i++) {
+        stars.push(<span className="rev-star fa fa-star"></span>)
+      }
     }
-    this.setState({reviews: curReviews})
+    return stars
   }
 
 
@@ -49,11 +68,12 @@ class ReviewsList extends React.Component {
       // console.log('my props again', this.props)
       return (
         <div id="reviews-list">
-          <SortOptions count={this.props.curProductCount}/>
-          {this.state.reviews.map((review) => {
+          <SortOptions count={this.state.length}/>
+          {this.props.curProductReviews.slice(0, this.state.length).map((review) => {
             return (
               <IndividualReviewTile
                 key={review.review_id}
+                renderStars={this.renderStars}
                 reviewId={review.review_id}
                 rating={review.rating}
                 summary={review.summary}
