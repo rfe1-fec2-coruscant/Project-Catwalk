@@ -57,6 +57,7 @@ componentDidUpdate(prevProps) {
            question={question}
            helpfulQuestionClick={this.helpfulQuestionClick.bind(this)}
            productName="Albert Romper"
+           key={question.question_id}
             /> ))}
             </span>
           <div>

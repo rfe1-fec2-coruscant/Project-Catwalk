@@ -120,7 +120,9 @@ reportedClick(e, answer) {
             <span>{this.state.answersArray.slice(0,this.state.length).map((answer) => (<Answer
             answer={answer}
             helpfulAnswerClick={this.helpfulAnswerClick.bind(this)}
-            reportedClick={this.reportedClick.bind(this)}/> ))}
+            reportedClick={this.reportedClick.bind(this)}
+            key={answer.id}/> ))}
+
             </span>
             <span>{button}</span>
             {/* <button className="moreAnswers"
