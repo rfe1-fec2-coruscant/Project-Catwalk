@@ -12,7 +12,7 @@ class Reviews extends React.Component {
   //
   render() {
     return (
-      <div>Here are some reviews</div>
+      <div id="reviews-component">Here are some reviews</div>
     )
   }
 }

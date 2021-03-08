@@ -3,11 +3,165 @@
   padding: 0;
 }
 
+/************************OVERVIEW START*************************/
+
 #overview {
-  height: 100px;
+  height: auto;
   width: 100vw;
-  background-color:#ccf
+  background-color:#dde;
+  font-size: 24px;
+  font-family: Helvetica;
 }
+
+#product-display {
+  height: 80vh;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  padding: 20px;
+}
+
+#image-gallery {
+  background-color: #eee;
+  border-radius: 15px;
+  height: 96%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#image-gallery img {
+  /* max-width: 100%;
+  height: auto;*/
+  border-radius: inherit;
+  max-height: auto;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+#product-details {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.star0, .star1, .star2, .star3, .star {
+  display: inline-block;
+  position: relative;
+  font-size: 30px;
+  color: #666;
+}
+
+.star1::after,
+.star2::after,
+.star3::after,
+.star::after
+{
+  font-family: "Font Awesome 5 Free";
+  content: "\f005";
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  color: #fc0;
+}
+
+.star1::after { width: 30%; }
+.star2::after { width: 50%; }
+.star3::after { width: 67%; }
+
+#star-rating a {
+  font-size: .5em;
+}
+
+#product-name {
+  font-size: 1.2em;
+}
+
+#product-styles {
+  border: green 2px dashed;
+  font-size: 1.2em;
+}
+
+#styles-container {
+  background-color: #eee;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 10px;
+}
+
+.style-bubble {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  border: #999 solid 1px;
+  margin: 10px;
+  justify-self: center;
+  box-shadow: 5px 5px 8px 5px rgba(100, 100, 100, 0.5);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.target-style::after {
+  display: block;
+  font-family: "Font Awesome 5 Free";
+  font-size: 60px;
+  font-weight: 900;
+  content: "\f058";
+  position: relative;
+  left: 0;
+  top: -100px;
+  color: #0a0;
+}
+
+.style-bubble img {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+#purchase-options {
+  border: #3d3d3d dashed 2px;
+  display: flex;
+  flex-direction: column;
+}
+
+#purchase-options div {
+  display: flex;
+  flex-direction: row;
+}
+
+.purchase-buttons {
+  height: 75px;
+  border: black solid 2px;
+  text-align: center;
+  font-size: 1.5em;
+  justify-content: center;
+  margin: 15px;
+  padding: 0 20px;
+  flex-grow: 1;
+}
+
+#size-selector {
+  width: auto;
+}
+
+#product-description {
+  display: block;
+  width: 80%;
+  padding: 15px;
+  margin: 15px auto;
+}
+
+.outline {
+  border: green dashed 2px;
+}
+
+/*************************OVERVIEW END*************************/
+
+
 
 /* RelatedItemsAndComparisons */
 
