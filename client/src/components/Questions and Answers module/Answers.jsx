@@ -9,7 +9,7 @@ class Answers extends React.Component {
     this.state = {
       length: 2,
       answersArray: [],
-      loadMoreVisible: false
+      loadMoreVisible: true
       // allAnswers: false
     };
   }
@@ -22,10 +22,13 @@ componentDidMount() {
 }
 
 loadMoreAnswers() {
-  // if (!this.state.allAnswers) {
-
-  // }
-  this.setState({length: this.state.answersArray.length, renderArray: this.state.answersArray.slice(0, length)});
+  if (this.state.loadMoreVisible === true) {
+    this.setState({length: this.state.answersArray.length, renderArray: this.state.answersArray.slice(0, length)});
+  }
+  else {
+    this.setState({length: 2});
+  }
+ this.setState({loadMoreVisible: !this.state.loadMoreVisible});
 }
 
 helpfulAnswerClick(e, answer) {
@@ -107,7 +110,9 @@ reportedClick(e, answer) {
       button= <button className="moreAnswers"
       onClick={this.loadMoreAnswers.bind(this)}>LOAD MORE ANSWERS</button>;
     } else {
-      button = <div></div>;
+      button =
+      <button className="moreAnswers"
+      onClick={this.loadMoreAnswers.bind(this)}>COLLAPSE</button>;
     }
 
     return (
@@ -121,7 +126,8 @@ reportedClick(e, answer) {
             answer={answer}
             helpfulAnswerClick={this.helpfulAnswerClick.bind(this)}
             reportedClick={this.reportedClick.bind(this)}
-            key={answer.id}/> ))}
+            key={answer.id}
+            /> ))}
 
             </span>
             <span>{button}</span>
