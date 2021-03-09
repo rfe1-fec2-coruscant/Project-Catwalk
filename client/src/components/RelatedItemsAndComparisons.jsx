@@ -83,7 +83,7 @@ class RelatedItemsAndComparisons extends React.Component {
     return (
       <div className="related-items">
         <h2 className="related-items-header related-items-header-text">Related Items and Comparisons</h2>
-        <RelatedProducts relatedProductIds={this.state.relatedProductIds} currentProductId={this.state.currentProductId} handleProductDetailRender={this.handleProductDetailRender} />
+        <RelatedProducts globalClickTracker={this.props.globalClickTracker} relatedProductIds={this.state.relatedProductIds} currentProductId={this.state.currentProductId} handleProductDetailRender={this.handleProductDetailRender} />
         <br></br>
         <h2 className="related-items-header related-items-header-text">Your Outfit</h2>
         <YourOutfit isCurrentProductAdded={this.state.isCurrentProductAdded} yourOutfitIds={this.state.yourOutfitIds} handleAddOutfit={this.handleAddOutfit} handleOutfitRemove={this.handleOutfitRemove} setYourOutfitIdsOnInitialMount={this.setYourOutfitIdsOnInitialMount} handleProductDetailRender={this.handleProductDetailRender} />

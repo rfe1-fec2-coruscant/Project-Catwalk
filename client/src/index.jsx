@@ -8,6 +8,7 @@ import RelatedItemsAndComparisons from './components/RelatedItemsAndComparisons.
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.handleGlobalClick = this.handleGlobalClick.bind(this);
 
     this.state = {
       products: [
@@ -66,19 +67,62 @@ class App extends React.Component {
             "created_at": "2021-02-23T19:24:34.450Z",
             "updated_at": "2021-02-23T19:24:34.450Z"
         }
-      ]
+      ],
+
+      globalClickTracker: {
+        'Overview': {
+          'count' : 0,
+          'data': []
+        },
+        'RelatedItemsAndComparisons': {
+          'count': 0,
+          'data': []
+        },
+        'Questions': {
+          'count': 0,
+          'data': []
+        },
+        'Reviews': {
+          'count': 0,
+          'data': []
+        },
+      }
+
     };
   }
 
-  componentDidMount() {}
+  handleGlobalClick(e, moduleName) {
+    var clickObject = {
+      nodeName: e.target.nodeName,
+      className: e.target.className,
+      id: e.target.id,
+      textContent: e.target.textContent,
+      dateOfClick: new Date()
+    };
+    var updatedGlobalClickTracker = this.state.globalClickTracker;
+    var updatedClicksArray = updatedGlobalClickTracker[moduleName].data;
+    updatedClicksArray.push(clickObject);
+    updatedGlobalClickTracker[moduleName].count++;
+    this.setState({ globalClickTracker: updatedGlobalClickTracker });
+  }
+
+  componentDidMount() { }
 
   render() {
-    return(
+    return (
       <div>
-        <Overview currentProduct={this.state.products[1]}/>
-        <RelatedItemsAndComparisons currentProductId={this.state.products[1].id}/>
-        <Questions/>
-        <Reviews/>
+        <div onClick={(e) => this.handleGlobalClick(e, 'Overview')}>
+          <Overview currentProduct={this.state.products[1]} />
+        </div>
+        <div onClick={(e) => this.handleGlobalClick(e, 'RelatedItemsAndComparisons')}>
+          <RelatedItemsAndComparisons currentProductId={this.state.products[1].id} />
+        </div>
+        <div onClick={(e) => this.handleGlobalClick(e, 'Questions')}>
+          <Questions />
+        </div>
+        <div onClick={(e) => this.handleGlobalClick(e, 'Reviews')}>
+          <Reviews />
+        </div>
       </div>
 
     )

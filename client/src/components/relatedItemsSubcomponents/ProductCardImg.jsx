@@ -4,22 +4,9 @@ import ajaxRequests from '../../../ajaxRequests.js';
 class ProductCardImg extends React.Component {
   constructor(props) {
     super(props);
-    this.handleImageClick = this.handleImageClick.bind(this);
-    this.moduleName = 'ProductCardImg';
-    this.timeStampOfMount = new Date();
     this.state = {
       image: null
     };
-  }
-
-  handleImageClick(e, moduleName) {
-    // console.log(moduleName);
-    var clickObject = {
-      nodeName: e.target.nodeName,
-      moduleName: moduleName,
-      dateOfClick: new Date(this.timeStampOfMount.getTime() + e.timeStamp)
-    };
-    console.log('clickObject:', clickObject);
   }
 
   componentDidMount() {
@@ -45,7 +32,7 @@ class ProductCardImg extends React.Component {
     if (isRelatedProduct) {
       return (
         <div className='product-image-container'>
-          <img onClick={(e) => this.handleImageClick(e, this.moduleName)} className='product-card-image' src={this.state.image || 'https://miro.medium.com/max/880/0*H3jZONKqRuAAeHnG.jpg'}></img>
+          <img className='product-card-image' src={this.state.image || 'https://miro.medium.com/max/880/0*H3jZONKqRuAAeHnG.jpg'}></img>
           <div>
             <span className='star-action'><a onClick={this.props.handleStarActionClick}>&#9733;</a></span>
           </div>
