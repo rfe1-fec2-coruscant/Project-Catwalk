@@ -1,3 +1,6 @@
+
+/*--------GENERAL PAGE LAYOUT---------------------*/
+
 * {
   margin: 0;
   padding: 0;
@@ -30,6 +33,16 @@
   justify-content: center;
 }
 
+
+
+
+
+
+
+
+/*--------Ratings and reviews---------------------*/
+
+/*--------write new review modal---------------------*/
 #image-gallery img {
   /* max-width: 100%;
   height: auto;*/
@@ -361,6 +374,15 @@ img.product-card-image {
   width:100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+  position:fixed;
+  background: white;
+  width: 80%;
+  height: auto;
+  top:50%;
+  left:50%;
   z-index: 3;
 }
 
@@ -383,6 +405,7 @@ img.product-card-image {
   display: none;
 }
 
+/*--------write new review modal---------------------*/
 .close-button {
   float: right;
   color: floralwhite;
@@ -602,7 +625,344 @@ img.product-card-image {
   border-width: 1px;
 }
 
-.add-answer-modal {
+
+/* Reviews css */
+
+
+/* General Review Layout */
+.rev-container {
+  height: auto
+}
+
+#reviews-outer-div {
+  height: auto;
+  background-color: beige;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(5, auto);
+  row-gap: 8px
+}
+
+#reviews-outer-title {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 1;
+
+}
+#ratings-breakdown {
+  margin-top: 50px;
+  margin-bottom: 10px;
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+#rev-product-breakdown {
+  margin-left: 5px;
+  margin-top: 30px;
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+#recommendation {
+  margin-left: 5px
+}
+
+#reviews-list {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 4;
+  margin-top: 10px;
+}
+
+#rev-new-review {
+  margin-top:30px;
+  margin-left:50px;
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 5;
+  grid-row-end: 5;
+}
+
+
+
+
+
+/* General Review Layout */
+
+
+/* Reviews-list */
+#reviews-list {
+  padding: 3px;
+  margin-left: 20px;
+  border: 1px solid black;
+  height: auto;
+  width: 1200px
+}
+  #indvRevContainer {
+    padding: 3px;
+    border: 1px solid black;
+    margin-bottom: 2px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 50px);
+  }
+
+  #review-id {
+    margin-left: 10px;
+    margin-top: 20px;
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+
+  #review-recommend {
+    margin-left: 10px;
+    margin-top: 38px;
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+  #review-rating {
+    margin-left: 10px;
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+
+  #review-date {
+    margin-left: 180px;
+    grid-column-start: 4;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+
+  #review-helpfulness {
+    margin-top: 50px;
+    margin-left: 180px;
+    grid-column-start: 4;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+
+  #review-name{
+    margin-right: 220px;
+    margin-left: 20px;
+    grid-column-start: 4;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+
+  #review-response{
+    margin-left: 10px;
+    margin-top: 38px;
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+  }
+
+  #review-summary{
+    margin-bottom: 100px;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+  #select-sorter {
+    margin-left: 3px;
+    margin-right: 3px;
+  }
+  #review-body{
+    margin-left: 30px;
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+/* Reviews-list */
+
+
+/* Products Breakdown */
+
+  .prod-char-bar {
+   -webkit-appearance: none;
+    appearance: none;
+    background: grey;
+    outline: none;
+    width: 400px;
+    height: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+  }
+
+  .prod-char-bar::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: blue;
+  border-width: 0 3px 3px 0;
+  padding: 3px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+
+}
+
+  #size-table{
+    width: 100%;
+  }
+
+  #sth2 {
+    position: relative;
+    left :110px
+  }
+
+  #sth3 {
+    position: relative;
+    left :220px
+  }
+
+  #cth2 {
+    position: relative;
+    left: 300px
+  }
+
+/* Products Breakdown */
+
+
+/* Ratings Breakdown */
+#average-rating-container {
+  display: grid;
+  width: 500px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 50px)
+}
+
+#rev-num-rating {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  font-size: 60px;
+  font-weight: bold;
+  margin-left: 10px
+}
+
+#rev-star-rating {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  margin-left: 150px;
+
+}
+
+.rev-star {
+  margin-left: 1px;
+  margin-right: 1px;
+  display: inline-block;
+  position: relative;
+  font-size: 20px;
+  color:black;
+}
+
+
+.rev-star-icon {
+  color: #383628;
+  font-size: 20px;
+  position: relative;
+}
+
+.label {
+  text-decoration: none;
+}
+
+.percentage {
+  position: absolute;
+  left: 380px;
+}
+
+#bar-graph-container {
+  text-decoration: none;
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  margin-left: 10px
+}
+
+h2 {
+  margin-left: 5px;
+}
+
+
+/*
+#one-star{
+  width: 5%;
+}
+
+#two-star{
+  width: 10%;
+}
+
+#three-star{
+  width: 40%;
+}
+
+#four-star{
+  width: 30%;
+}
+
+#five-star{
+  width: 25%;
+} */
+
+.bar-graph{
+  margin-bottom: 5px;
+  width: 400px;
+  height: 20px;
+  background-color: white;
+}
+
+.bar-graph[value] {
+  -webkit-appearance: none;
+   appearance: none;
+}
+
+.bar-graph[value]::-webkit-progress-value {
+  background-image:
+	   -webkit-linear-gradient(-45deg,
+	                           transparent 33%, rgba(0, 0, 0, .1) 33%,
+	                           rgba(0,0, 0, .1) 66%, transparent 66%),
+	   -webkit-linear-gradient(top,
+	                           rgba(255, 255, 255, .25),
+	                           rgba(0, 0, 0, .25)),
+	   -webkit-linear-gradient(left, #09c, purple);
+
+    border-radius: 2px;
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+
+
+
+/* Ratings Breakdown */
+
+/* Reviews Modal */
+
+.modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -618,6 +978,16 @@ img.product-card-image {
   width:100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+  position: fixed;
+  background: beige;
+  width: 78%;
+  height: 60%;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
 }
 
 .add-answer-modal-main {
@@ -644,6 +1014,113 @@ img.product-card-image {
 .display-none {
   display: none;
 }
+
+#rev-overall-rating {
+  position: fixed;
+  left: 8px;
+  top: 3px;
+}
+
+#rev-recommended {
+  position: fixed;
+  left: 8px;
+  top: 25px;
+}
+
+#rev-characteristics {
+  position: fixed;
+  left: 30%;
+  top: 50px;
+}
+
+
+#nickname {
+  position: relative;
+  left: 5px;
+  top: 50px;
+}
+
+#rev-summary input[type="text"] {
+  width: 330px;
+  height: 30px
+}
+
+#rev-summary {
+  position: relative;
+  left: 5px;
+  top: 85px;
+}
+
+#rev-body-input {
+  width: 330px;
+  height: 220px;
+}
+
+#rev-body {
+  position: relative;
+  left: 5px;
+  top: 105px;
+}
+
+#rev-email-input {
+  margin-bottom: 5px;
+  margin-top: 1px;
+}
+
+#rev-email-txt {
+  margin-bottom: 3px;
+}
+
+#rev-email {
+  position: absolute;
+  left: 30%;
+  top: 330px;
+}
+
+#new-review-photo-uploader {
+  position: fixed;
+  left: 30%;
+  top: 430px;
+}
+
+#new-rev-submit {
+  position: fixed;
+  left: 85%;
+  top: 450px;
+}
+
+.rev-modal-input {
+  margin-bottom: 3px;
+}
+
+.rev-input {
+  margin-bottom: 5px;
+  margin-top: 1px;
+}
+
+.rev-modal-input input[type="radio"]{
+  margin: 0 4px 0 30px;
+  margin-top: 23px;
+}
+
+.rev-modal-input1 input[type="radio"]{
+  margin: 0 10px 0 10px;
+}
+
+.rev-modal-input input[type="file"] {
+  margin-bottom: 3px;
+  margin-top: 3px;
+}
+
+
+.rev-modal-input input[type="text"] {
+  width: 250px;
+  height: 20px
+}
+
+
+/* Reviews Modal */
+
 
 
 .thumbnail {
