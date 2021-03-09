@@ -4,12 +4,17 @@ import Overview from './components/Overview.jsx';
 import Reviews from './components/Reviews.jsx'
 import Questions from './components/Questions.jsx'
 import RelatedItemsAndComparisons from './components/RelatedItemsAndComparisons.jsx';
+import ProductList from './ProductList.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state ={
+    this.state = {
+      shoppingCart: {
+        products: [],
+        subtotal: 0
+      },
       products: [
         {
             "id": 19378,
@@ -66,21 +71,48 @@ class App extends React.Component {
             "created_at": "2021-02-23T19:24:34.450Z",
             "updated_at": "2021-02-23T19:24:34.450Z"
         }
-      ]
+      ],
+      currentProduct: {}
     };
+    this.addtoCart = this.addtoCart.bind(this);
   }
-  componentDidMount() {}
+  componentDidMount() {
+    console.log("mounted");
+    // if (this.state.currentProduct === {}) {
+    // }
+      this.setState( {currentProduct: this.state.products[1]} );
+  }
+
+  addtoCart () {
+
+  }
+
+  changeCurrentProduct (index) {
+
+  }
 
   render() {
-    return(
-      <div>
-        <Overview currentProduct={this.state.products[1]}/>
-        <RelatedItemsAndComparisons />
-        <Questions/>
-        <Reviews/>
-      </div>
+    console.log('rendering');
+    if (Object.keys(this.state.currentProduct).length) {
+      return(
+        <div>
+          <header>
+            <ProductList products={this.state.products}/>
+          </header>
 
-    )
+          <Overview
+            currentProduct={this.state.currentProduct}
+            addtoCart={this.addtoCart}/>
+          <RelatedItemsAndComparisons />
+          <Questions/>
+          <Reviews/>
+        </div>
+      );
+    } else {
+      return( <div>Loading...</div> );
+    }
+
+
   }
 }
 

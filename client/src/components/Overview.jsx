@@ -82,6 +82,7 @@ class Overview extends React.Component {
               currentStyle={this.state.currentStyle}
               changeStyle={this.changeCurrentStyle}
               reviews={this.state.reviewRating}
+              addtoCart={this.props.addtoCart}
             />
           </div>
           <div id="product-description" className="outline">
