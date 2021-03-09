@@ -2,6 +2,7 @@ import React from 'react';
 import ProductCardImg from './ProductCardImg.jsx';
 import ComparisonModal from './ComparisonModal.jsx';
 import StarRatings from './StarRatings.jsx';
+import ProductCardPrice from'./ProductCardPrice.jsx';
 import ajaxRequests from '../../../ajaxRequests.js';
 
 class ProductCard extends React.Component {
@@ -75,7 +76,8 @@ class ProductCard extends React.Component {
             <br></br>
             <span className='product-card-text product-card-name'>{this.state.name || 'name'}</span>
             <br></br>
-            <span className='product-card-text'>${this.state.price || '(price)'}</span>
+            {/* <span className='product-card-text'>${this.state.price || '(price)'}</span> */}
+            <ProductCardPrice relatedProductId={relatedProductId} price={this.state.price}/>
             <StarRatings relatedProductId={relatedProductId} />
           </div>
         </div>
@@ -89,7 +91,8 @@ class ProductCard extends React.Component {
             <br></br>
             <span className='product-card-text product-card-name'>{this.state.name || 'name'}</span>
             <br></br>
-            <span className='product-card-text'>${this.state.price || '(price)'}</span>
+            {/* <span className='product-card-text'>${this.state.price || '(price)'}</span> */}
+            <ProductCardPrice relatedProductId={relatedProductId} price={this.state.price}/>
             <StarRatings relatedProductId={relatedProductId} />
           </div>
         </div>
