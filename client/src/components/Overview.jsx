@@ -19,7 +19,7 @@ class Overview extends React.Component {
   }
 
   updateStyles(newData) {
-    console.log('changing state');
+    // console.log('changing state');
     // debugger;
     this.setState({
       styles: newData,

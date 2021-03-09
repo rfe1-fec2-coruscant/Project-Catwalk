@@ -58,7 +58,7 @@ class AddAnswer extends React.Component {
     var path = 'qa/questions/' + this.props.question.question_id + '/answers'
     console.log('path', path);
     ajaxRequests.post(path, data, (error, results) => {
-      console.log(results);
+      // console.log(results);
     });
     // //update
   }
