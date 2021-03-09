@@ -17,8 +17,7 @@ class ProductCardPrice extends React.Component {
       var updatedSalePrice = this.state.salePrice;
       for (var obj of data.results) {
         if (obj['sale_price']) {
-          console.log('sale price!:', obj['sale_price']);
-          updatedSalePrice = `Wow: $${obj['sale_price']}`;
+          updatedSalePrice = obj['sale_price'];
           break;
         }
       }
@@ -34,11 +33,14 @@ class ProductCardPrice extends React.Component {
 
   render() {
     if (this.state.salePrice) {
-      return(
-        <span className='product-card-text sale-price'>{this.state.salePrice}</span>
+      return (
+        <div>
+          <span className='product-card-text sale-price'>${this.state.salePrice}</span>
+          <span className='product-card-text old-price'>{this.state.price}</span>
+        </div>
       );
     } else {
-      return(
+      return (
         <span className='product-card-text'>${this.state.price || '(price)'}</span>
       );
     }
