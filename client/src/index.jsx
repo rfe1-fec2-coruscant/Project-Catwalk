@@ -9,7 +9,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state ={
+    this.state = {
       products: [
         {
             "id": 19378,
@@ -69,13 +69,14 @@ class App extends React.Component {
       ]
     };
   }
+
   componentDidMount() {}
 
   render() {
     return(
       <div>
         <Overview currentProduct={this.state.products[1]}/>
-        <RelatedItemsAndComparisons />
+        <RelatedItemsAndComparisons currentProductId={this.state.products[1].id}/>
         <Questions/>
         <Reviews/>
       </div>

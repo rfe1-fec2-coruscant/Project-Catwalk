@@ -12,7 +12,7 @@ class RelatedItemsAndComparisons extends React.Component {
     this.setYourOutfitIdsOnInitialMount = this.setYourOutfitIdsOnInitialMount.bind(this);
     this.handleProductDetailRender = this.handleProductDetailRender.bind(this);
     this.state = {
-      currentProductId: 19735,
+      currentProductId: this.props.currentProductId,
       relatedProductIds: [],
       yourOutfitIds: [],
       isCurrentProductAdded: false
