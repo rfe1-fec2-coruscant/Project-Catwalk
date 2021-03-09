@@ -524,6 +524,7 @@ img.product-card-image {
 }
 
 .answers {
+  /* overflow-y: scroll; */
   display: flex;
   flex-direction: row;
   font-size: 14px;
