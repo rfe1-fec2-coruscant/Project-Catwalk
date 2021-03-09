@@ -24,6 +24,8 @@ header {
   margin-top: -14px;
   pointer-events: none;
   transition: all 0.4s ease;
+  height: 0;
+  width: 0;
 }
 
 #products-icon {
@@ -31,6 +33,7 @@ header {
   height: auto;
   font-size: 2em;
   cursor: pointer;
+  margin: 6px 0 0 6px;
 }
 
 #products-list li {
@@ -38,12 +41,21 @@ header {
   background-color: #ddd;
   border: #666 1px solid;
   padding: 4px 8px;
+  cursor: pointer;
 }
 
-#products-menu-cb:checked ~ #products-list{
+#products-menu-cb:checked ~ #products-list {
   opacity: 1;
   pointer-events: all;
   transform: translateY(20px);
+  height: auto;
+  max-height: 100vh;
+  overflow: scroll;
+  width: 300px;
+}
+
+#products-list::-webkit-scrollbar {
+  display: none;
 }
 
 #products-menu-cb{
