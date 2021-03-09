@@ -14,15 +14,15 @@ class Searchbar extends React.Component {
 
   componentDidMount() {
     //sample product ID is arbitrary at this stage
-    ajaxRequests.get('qa/questions?product_id=19089', (results) => {
-      console.log(results);
+    ajaxRequests.get('qa/questions?product_id=19378', (results) => {
+      // console.log(results);
 
     this.sortQuestions(results.results);
     })
   }
 
   sortQuestions(array) {
-    console.log('calling sortQuestions on ', array);
+    // console.log('calling sortQuestions on ', array);
     //sorts questions in order of helpfulness
         //helper function sorts by helpfulness
         function compareHelpful(a, b) {

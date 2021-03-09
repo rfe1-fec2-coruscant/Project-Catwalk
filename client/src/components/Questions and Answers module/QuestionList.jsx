@@ -27,7 +27,7 @@ componentDidUpdate(prevProps) {
     var path = 'qa/answers/' + question.question_id + '/helpful';
     console.log('path', path);
     ajaxRequests.put(path, (error, results) => {
-      console.log(results);
+      // console.log(results);
     });
     //update state with new helpful count
     question.helpfulness++;
@@ -54,6 +54,7 @@ componentDidUpdate(prevProps) {
       return (
         <div>
             <span>{this.state.questions.slice(0,this.state.length).map((question) => (<Question
+           key={question.question_id}
            question={question}
            helpfulQuestionClick={this.helpfulQuestionClick.bind(this)}
            productName="Albert Romper"

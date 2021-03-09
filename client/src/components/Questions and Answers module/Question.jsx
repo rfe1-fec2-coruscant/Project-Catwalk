@@ -9,7 +9,7 @@ const Question = (props) => {
   if (props.question) {
 
 
-    console.log(props.question["question_body"]);
+    // console.log(props.question["question_body"]);
      //helpful link disabled after one use
      if (props.question.helpfulDisabled === true) {
       var helpfulness = <span>Yes</span>;

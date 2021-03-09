@@ -36,11 +36,11 @@ loadMoreAnswers() {
 
 helpfulAnswerClick(e, answer) {
   //post to helpful count
-  console.log('answerID', answer.id);
+  // console.log('answerID', answer.id);
   var path = 'qa/answers/' + answer.id + '/helpful';
-  console.log('path', path);
+  // console.log('path', path);
   ajaxRequests.put(path, (error, results) => {
-    console.log(results);
+    // console.log(results);
   });
   //update state with new helpful count
   answer.helpfulness++;
@@ -54,7 +54,7 @@ reportedClick(e, answer) {
   //PUT to reported url
   var path = 'qa/answers/' + answer.id + '/report';
   ajaxRequests.put(path, (error, results) => {
-    console.log(results);
+    // console.log(results);
   });
   //make it so you can't click it again
   answer.reportedDisabled = true;
@@ -129,6 +129,7 @@ reportedClick(e, answer) {
           </div>
           <div>
             <span>{this.state.answersArray.slice(0,this.state.length).map((answer) => (<Answer
+            key={answer.id}
             answer={answer}
             helpfulAnswerClick={this.helpfulAnswerClick.bind(this)}
             reportedClick={this.reportedClick.bind(this)}

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
