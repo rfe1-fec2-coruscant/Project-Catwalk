@@ -6,11 +6,9 @@ var IndividualReviewTile = (props) => (
 
   <div id="indvRevContainer">
       <div id="review-id">Review #: {props.reviewId}</div>
-
       <div id="review-rating">
          Rating:
         {props.renderStars(props.rating)}
-
       </div>
 
       <div id="review-date"> Review Date: {props.reviewDate}</div>

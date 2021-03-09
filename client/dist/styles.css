@@ -772,14 +772,31 @@ img.product-card-image {
 
 
 /* Products Breakdown */
-  .prod-bar-graph {
-    background-color: blanchedalmond;
-    border: dotted;
+
+  .prod-char-bar {
+   -webkit-appearance: none;
+    appearance: none;
+    background: grey;
+    outline: none;
     width: 400px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    height: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     margin-left: 10px;
   }
+
+  .prod-char-bar::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: blue;
+  border-width: 0 3px 3px 0;
+  padding: 3px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+
+}
 
   #size-table{
     width: 100%;
@@ -806,6 +823,7 @@ img.product-card-image {
 /* Ratings Breakdown */
 #average-rating-container {
   display: grid;
+  width: 500px;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 50px)
 }
@@ -816,6 +834,7 @@ img.product-card-image {
   grid-row-start: 1;
   grid-row-end: 1;
   font-size: 60px;
+  font-weight: bold;
   margin-left: 10px
 }
 
@@ -824,17 +843,49 @@ img.product-card-image {
   grid-column-end: 1;
   grid-row-start: 1;
   grid-row-end: 1;
-  margin-left: 40px;
+  margin-left: 150px;
 
 }
 
+.rev-star {
+  margin-left: 1px;
+  margin-right: 1px;
+  display: inline-block;
+  position: relative;
+  font-size: 20px;
+  color:black;
+}
+
+
+.rev-star-icon {
+  color: #383628;
+  font-size: 20px;
+  position: relative;
+}
+
+.label {
+  text-decoration: none;
+}
+
+.percentage {
+  position: absolute;
+  left: 380px;
+}
+
 #bar-graph-container {
+  text-decoration: none;
   grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 2;
   grid-row-end: 2;
   margin-left: 10px
 }
+
+h2 {
+  margin-left: 5px;
+}
+
+
 /*
 #one-star{
   width: 5%;
@@ -857,25 +908,30 @@ img.product-card-image {
 } */
 
 .bar-graph{
-  width: 60%;
-  height: 15px;
+  margin-bottom: 5px;
+  width: 400px;
+  height: 20px;
   background-color: white;
 }
 
-.rev-star {
-  display: inline-block;
-  position: relative;
-  font-size: 20px;
-  color:black;
+.bar-graph[value] {
+  -webkit-appearance: none;
+   appearance: none;
 }
 
+.bar-graph[value]::-webkit-progress-value {
+  background-image:
+	   -webkit-linear-gradient(-45deg,
+	                           transparent 33%, rgba(0, 0, 0, .1) 33%,
+	                           rgba(0,0, 0, .1) 66%, transparent 66%),
+	   -webkit-linear-gradient(top,
+	                           rgba(255, 255, 255, .25),
+	                           rgba(0, 0, 0, .25)),
+	   -webkit-linear-gradient(left, #09c, purple);
 
-.rev-star-icon {
-  color: #383628;
-  font-size: 20px;
-  position: relative;
+    border-radius: 2px;
+    background-size: 35px 20px, 100% 100%, 100% 100%;
 }
-
 
 
 

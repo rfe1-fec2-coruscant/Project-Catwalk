@@ -30,9 +30,8 @@ class Reviews extends React.Component {
   }
 
     render() {
-
+      console.log('Here is what Im getting', this.state.curProduct)
       if (Object.keys(this.state.curProduct).length > 0) {
-        console.log('state here', this.state.curProduct)
         return (
           <div className="rev-container" id="reviews-outer-div">
             <h2 id="reviews-outer-title">Ratings and Reviews</h2>
@@ -43,7 +42,9 @@ class Reviews extends React.Component {
               curProductCount={this.state.curProduct.count}
               curProductReviews={this.state.curProduct.results}
             /><br></br>
-            <ProductBreakdown />
+            <ProductBreakdown
+
+            />
             <ReviewsList
             curProduct={this.state.curProduct}
             curProductId={this.state.curProduct.product}

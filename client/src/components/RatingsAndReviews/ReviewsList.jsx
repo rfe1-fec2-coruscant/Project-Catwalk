@@ -64,7 +64,6 @@ class ReviewsList extends React.Component {
 
   render() {
     if (this.state.reviews.length > 0) {
-      console.log('more state', this.state.reviews)
       // console.log('my props again', this.props)
       return (
         <div id="reviews-list">

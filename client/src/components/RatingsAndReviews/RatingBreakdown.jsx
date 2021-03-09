@@ -13,7 +13,8 @@ class RatingsBreakdown extends React.Component {
       averageRecommendation: 0,
       averageRating: 0,
       starCounter: {},
-      starPercentages:{}
+      starPercentages: {}
+
 
     };
 
@@ -30,8 +31,20 @@ class RatingsBreakdown extends React.Component {
   }
 
   generateComponentState () {
-    let counter = {};
-    let perCounter = {}
+    let counter = {
+      1: 0,
+      2: 0,
+      3: 0,
+      4: 0,
+      5: 0
+    };
+    let perCounter = {
+      1: 0,
+      2: 0,
+      3: 0,
+      4: 0,
+      5: 0
+    }
     this.props.curProductReviews.map((review) => {
       this.count++
       if (counter[review.rating]) {
@@ -40,7 +53,7 @@ class RatingsBreakdown extends React.Component {
         counter[review.rating] = 1
       }
 
-      this.setState({ averageRating: (review.rating / this.count) * 5})
+      this.setState({ averageRating: ((review.rating / this.count) * 5).toFixed(2)})
 
       if (review.recommend === true) {
         this.everyPostive++;
@@ -52,7 +65,7 @@ class RatingsBreakdown extends React.Component {
 
     for (let j = 1; j <= 5; j++) {
       let percentage = (counter[j] / this.count) * 100
-      perCounter[j] = percentage
+      perCounter[j] += percentage
     }
     this.setState({ starPercentages: perCounter })
   }
@@ -67,7 +80,6 @@ class RatingsBreakdown extends React.Component {
   }
 
   render() {
-    console.log('star Percentages',this.state.starPercentages)
     return (
 
       <div id="ratings-breakdown">
@@ -88,26 +100,26 @@ class RatingsBreakdown extends React.Component {
          <div></div>
 
           </div><br></br>
-          <div id="bar-graph-container">Rating Breakdown
-          <br></br>
-            <div>One Star</div>
-            <div>% of bar filled</div>
+          <div id="bar-graph-container">
+            <h3> Rating Breakdown</h3>
+            <div className="percentage">{this.state.starPercentages['1']}%</div>
+            <div className="label">One Star:</div>
             <progress className="bar-graph" id="one-star" value={this.state.starPercentages['1']} max="100"></progress>
 
-            <div>Two Stars:</div>
-            <div>% of bar filled</div>
+            <div className="percentage">{this.state.starPercentages['2']}%</div>
+            <div className="label">Two Stars:</div>
             <progress className="bar-graph" id="two-stars" value={this.state.starPercentages['2']} max="100"></progress>
 
-            <div>Three Stars:</div>
-            <div>% of bar filled</div>
+            <div className="percentage">{this.state.starPercentages['3']}%</div>
+            <div className="label">Three Stars:</div>
             <progress className="bar-graph" id="three-stars" value={this.state.starPercentages['3']}max="100"></progress>
 
-            <div>Four Stars:</div>
-            <div>% of bar filled</div>
+            <div className="percentage">{this.state.starPercentages['4']}%</div>
+            <div className="label">Four Stars:</div>
             <progress className="bar-graph" id="four-stars" value={this.state.starPercentages['4']} max="100"></progress>
 
-            <div>Five Stars: </div>
-            <div>% of bar filled</div>
+            <div className="percentage">{this.state.starPercentages['5']}%</div>
+            <div className="label">Five Stars: </div>
             <progress className="bar-graph" id="five-stars" value={this.state.starPercentages['5']} max="100"></progress>
           </div>
 
