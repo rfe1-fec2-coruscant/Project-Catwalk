@@ -8,7 +8,6 @@ import RelatedItemsAndComparisons from './components/RelatedItemsAndComparisons.
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.handleGlobalClick = this.handleGlobalClick.bind(this);
 
     this.state = {
       products: [
@@ -69,41 +68,7 @@ class App extends React.Component {
         }
       ],
 
-      globalClickTracker: {
-        'Overview': {
-          'count' : 0,
-          'data': []
-        },
-        'RelatedItemsAndComparisons': {
-          'count': 0,
-          'data': []
-        },
-        'Questions': {
-          'count': 0,
-          'data': []
-        },
-        'Reviews': {
-          'count': 0,
-          'data': []
-        },
-      }
-
     };
-  }
-
-  handleGlobalClick(e, moduleName) {
-    var clickObject = {
-      nodeName: e.target.nodeName,
-      className: e.target.className,
-      id: e.target.id,
-      textContent: e.target.textContent,
-      dateOfClick: new Date()
-    };
-    var updatedGlobalClickTracker = this.state.globalClickTracker;
-    var updatedClicksArray = updatedGlobalClickTracker[moduleName].data;
-    updatedClicksArray.push(clickObject);
-    updatedGlobalClickTracker[moduleName].count++;
-    this.setState({ globalClickTracker: updatedGlobalClickTracker });
   }
 
   componentDidMount() { }
@@ -111,18 +76,12 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div onClick={(e) => this.handleGlobalClick(e, 'Overview')}>
+        <div className="widget" id="ModuleOverview">
           <Overview currentProduct={this.state.products[1]} />
         </div>
-        <div onClick={(e) => this.handleGlobalClick(e, 'RelatedItemsAndComparisons')}>
-          <RelatedItemsAndComparisons currentProductId={this.state.products[1].id} />
-        </div>
-        <div onClick={(e) => this.handleGlobalClick(e, 'Questions')}>
-          <Questions />
-        </div>
-        <div onClick={(e) => this.handleGlobalClick(e, 'Reviews')}>
-          <Reviews />
-        </div>
+        <RelatedItemsAndComparisons currentProductId={this.state.products[1].id} />
+        <Questions />
+        <Reviews />
       </div>
 
     )
