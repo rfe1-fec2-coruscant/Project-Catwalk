@@ -4,7 +4,7 @@ import ProductStyles from './ProductStyles.jsx';
 import PurchaseOptions from './PurchaseOptions.jsx';
 import StarRating from './StarRating.jsx';
 
-var ProductDetails = ( {styles, currentProduct, currentStyle, changeStyle, reviews} ) => (
+var ProductDetails = ( {styles, currentProduct, currentStyle, changeStyle, reviews, addtoCart} ) => (
   <div id="product-details">
     <StarRating reviews={reviews}/>
     <p id="category">Category: {currentProduct.category}</p>
@@ -15,7 +15,7 @@ var ProductDetails = ( {styles, currentProduct, currentStyle, changeStyle, revie
       currentStyle={currentStyle}
       changeStyle={changeStyle}
     />
-    <PurchaseOptions currentStyle={currentStyle}/>
+    <PurchaseOptions currentStyle={currentStyle} addtoCart={addtoCart}/>
   </div>
 
 );
