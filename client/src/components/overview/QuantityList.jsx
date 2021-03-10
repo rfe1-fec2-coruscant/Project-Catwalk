@@ -21,7 +21,7 @@ class QuantityList extends React.Component {
   }
 
   render () {
-    console.log("rendering QuantityList");
+    // console.log("rendering QuantityList");
     if (this.props.max) {
       let options = [];
       for (var i = 1; i <= this.props.max; i++) {
