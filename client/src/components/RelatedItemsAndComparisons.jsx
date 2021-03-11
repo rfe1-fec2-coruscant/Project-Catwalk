@@ -25,8 +25,15 @@ class RelatedItemsAndComparisons extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.currentProductId !== this.props.currentProductId) {
+      var updatedIsCurrentProductAdded = this.state.isCurrentProductAdded;
+      if (this.state.yourOutfitIds.includes(this.props.currentProductId)) {
+        updatedIsCurrentProductAdded = true;
+      } else {
+        updatedIsCurrentProductAdded = false;
+      }
       this.setState({
-        currentProductId: this.props.currentProductId
+        currentProductId: this.props.currentProductId,
+        isCurrentProductAdded: updatedIsCurrentProductAdded
       });
       this.secondaryFetch(this.props.currentProductId);
     }
