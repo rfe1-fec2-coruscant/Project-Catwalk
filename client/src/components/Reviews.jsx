@@ -30,7 +30,7 @@ class Reviews extends React.Component {
   }
 
     render() {
-      console.log('Here is what Im getting', this.state.curProduct)
+      // console.log('Here is what Im getting', this.state.curProduct);
       if (Object.keys(this.state.curProduct).length > 0) {
         return (
           <div className="rev-container" id="reviews-outer-div">

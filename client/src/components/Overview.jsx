@@ -57,7 +57,7 @@ class Overview extends React.Component {
     // debugger;
     var styles = this.state.styles.results;
     for (var i = 0; i < styles.length; i++) {
-      console.log(styles[i].style_id);
+      // console.log(styles[i].style_id);
       if (event.target.id == styles[i].style_id) {
         this.setState({
           currentStyle: styles[i]
@@ -144,7 +144,7 @@ class Overview extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log('props:',prevProps.product, this.props.product);
+    // console.log('props:',prevProps.product, this.props.product);
     if (prevProps.product !== this.props.product) {
       ajaxRequests.get(`products/${this.props.product.id}/styles`, this.updateStyles);
     }

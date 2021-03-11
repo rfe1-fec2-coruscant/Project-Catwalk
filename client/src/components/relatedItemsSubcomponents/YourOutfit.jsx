@@ -109,6 +109,7 @@ class YourOutfit extends React.Component {
   }
 
   render() {
+
     if (this.state.isNothingHiddenRight && this.state.isNothingHiddenLeft) {
       return (
         <div className='your-outfit-cards'>

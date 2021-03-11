@@ -236,8 +236,7 @@ header {
 /*************************OVERVIEW END*************************/
 
 
-
-/* RelatedItemsAndComparisons */
+/************************RelatedItemsAndComparisons START*************************/
 
 .related-items {
   color: darkslategrey;
@@ -334,6 +333,7 @@ header {
 img.product-card-image {
   height: 320px;
   width: 320px;
+  z-index: 1;
 }
 
 .star-action {
@@ -428,26 +428,17 @@ img.product-card-image {
 
 /* ComparisonModal */
 
-.modal {
+.bobmodal {
   position: fixed;
   top: 0;
   left: 0;
   width:100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
-}
-
-.modal-main {
-  position:fixed;
-  background: white;
-  width: 80%;
-  height: auto;
-  top:50%;
-  left:50%;
   z-index: 3;
 }
 
-.modal-main {
+.bobmodal-main {
   position: fixed;
   background: white;
   width: 60%;
@@ -465,6 +456,8 @@ img.product-card-image {
 .display-none {
   display: none;
 }
+
+/************************RelatedItemsAndComparisons END*************************/
 
 /*--------write new review modal---------------------*/
 .close-button {
