@@ -4,10 +4,9 @@ import Searchbar from './Questions and Answers module/Searchbar'
 
 export default function Questions(props) {
   return (
-    <div className="q-and-a">
-      <h2 className= "header">QUESTIONS AND ANSWERS</h2>
-      <Searchbar
-        product={props.product}/>
+    <div className="center-subwidgets q-and-a widget">
+      <h2 className= "header header-text">QUESTIONS AND ANSWERS</h2>
+      <Searchbar/>
      </div>
   )
 

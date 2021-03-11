@@ -22,7 +22,11 @@ class PurchaseOptions extends React.Component {
     var returnOptions = [];
     var sizes = this.state.sizes;
     for (var each in sizes) {
+<<<<<<< HEAD
      // console.log(sizes[each]);
+=======
+      // console.log(sizes[each]);
+>>>>>>> 4c0dfc94dcdd27d91c7335175fd42380c60d54b0
       if (sizes[each].quantity > 0) {
         returnOptions.push(
           <SizeOption sku={sizes[each]} pickSize={this.sizeSelected}/>

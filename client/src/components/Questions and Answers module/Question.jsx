@@ -19,7 +19,7 @@ const Question = (props) => {
 
     return (
       <div>
-        <div className="question">
+        <div className="question bold-text">
           <div >
             <b>Q: </b>
             <b>{props.question["question_body"]}</b>

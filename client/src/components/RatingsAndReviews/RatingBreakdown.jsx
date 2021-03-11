@@ -102,24 +102,19 @@ class RatingsBreakdown extends React.Component {
           </div><br></br>
           <div id="bar-graph-container">
             <h3> Rating Breakdown</h3>
-            <div className="percentage">{this.state.starPercentages['1']}%</div>
-            <div className="label">One Star:</div>
+            <div className="label">One Star:  {this.state.starPercentages['1']}%</div>
             <progress className="bar-graph" id="one-star" value={this.state.starPercentages['1']} max="100"></progress>
 
-            <div className="percentage">{this.state.starPercentages['2']}%</div>
-            <div className="label">Two Stars:</div>
+            <div className="label">Two Stars:  {this.state.starPercentages['2']}%</div>
             <progress className="bar-graph" id="two-stars" value={this.state.starPercentages['2']} max="100"></progress>
 
-            <div className="percentage">{this.state.starPercentages['3']}%</div>
-            <div className="label">Three Stars:</div>
+            <div className="label">Three Stars:  {this.state.starPercentages['3']}%</div>
             <progress className="bar-graph" id="three-stars" value={this.state.starPercentages['3']}max="100"></progress>
 
-            <div className="percentage">{this.state.starPercentages['4']}%</div>
-            <div className="label">Four Stars:</div>
+            <div className="label">Four Stars:  {this.state.starPercentages['4']}%</div>
             <progress className="bar-graph" id="four-stars" value={this.state.starPercentages['4']} max="100"></progress>
 
-            <div className="percentage">{this.state.starPercentages['5']}%</div>
-            <div className="label">Five Stars: </div>
+            <div className="label">Five Stars:  {this.state.starPercentages['5']}%</div>
             <progress className="bar-graph" id="five-stars" value={this.state.starPercentages['5']} max="100"></progress>
           </div>
 
