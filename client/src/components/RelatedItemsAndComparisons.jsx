@@ -99,7 +99,7 @@ class RelatedItemsAndComparisons extends React.Component {
 
   render() {
     return (
-      <div className="related-items center-subwidgets widget">
+      <div className="related-items">
         <h2 className="related-items-header related-items-header-text header-text">RELATED ITEMS AND COMPARISONS</h2>
           <RelatedProducts relatedProductIds={this.state.relatedProductIds} currentProductId={this.state.currentProductId} handleProductDetailRender={this.handleProductDetailRender}/>
         <br></br>
@@ -113,3 +113,5 @@ class RelatedItemsAndComparisons extends React.Component {
 }
 
 export default RelatedItemsAndComparisons;
+
+// line 102 class:  center-subwidgets widget

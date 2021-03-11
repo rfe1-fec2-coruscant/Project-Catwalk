@@ -33,7 +33,7 @@ const globalClickTrackerWrapper = Component => {
       // if parentNode.className === 'widget', then capture the id (slice the string from index 6 onwards; this is the key on global click object)
       var node = e.target;
       var nodeClassName = e.target.className;
-      while (!nodeClassName.includes('widget-for-clicks')) {
+      while (typeof nodeClassName !== 'string' || !nodeClassName.includes('widget-for-clicks')) {
         node = node.parentNode;
         nodeClassName = node.className;
       }

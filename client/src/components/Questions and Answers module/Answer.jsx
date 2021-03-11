@@ -34,8 +34,10 @@ const Answer = (props) => {
           <span>by {seller}</span>
           <span className = "small-text date">{newDate}</span>
           <span className="regular-text divide">|</span>
-          <span className="small-text helpful">Helpful?
-            {helpfulness}
+          <span>
+            <span className="small-text helpful">Helpful?
+              </span>
+            <span className="small-text">{helpfulness}</span>
             <span className = "small-text count">{props.answer.helpfulness}</span>
             <span className="regular-text divide">|</span>
             <span>{reported}</span>

@@ -17,6 +17,7 @@
 
   --pink: #FF9393;
   --red: #FF4444;
+  --pale-pink: #FFECEC;
 
 
   /* var(--varname)- */
@@ -72,6 +73,15 @@ html {
   font-size: 14px;
 }
 
+.pop-up-modal {
+  background-color: var(--pale-pink);
+  padding: 10px;
+  border-radius: 5px;
+  color: black;
+  border: 2px solid #FF9393;
+  filter: drop-shadow(0 0 0.75rem #D5E6E6);
+}
+
 body {
   font-family: Helvetica, sans-serif;
   /* object-fit: contain; */
@@ -95,6 +105,7 @@ body {
   /* border: 1px #666 solid; */
   /* border-radius: 10px; */
   /* box-shadow: 5px 5px 8px 5px rgba(100, 100, 100, 0.5); */
+  margin-bottom:
 }
 
 .largeButton {
@@ -115,6 +126,8 @@ body {
   border: none;
   text-decoration: underline;
   font-size: 14px;
+  background-color: var(--white);
+  color: var(--dark-teal);
 }
 
 .checkmark {
@@ -379,6 +392,7 @@ header {
   /* border: 1px solid black; */
 }
 
+
 /* .related-items-header {
   /* margin-left: 150px; */
   /* margin-left: 35px; */
@@ -410,7 +424,7 @@ header {
 .change-product-button {
   display: inline-block;
   position: absolute;
-  top: 140%;
+  top: 133%;
   height: 50px;
   width: 20px;
   margin-top: -20px;
@@ -594,14 +608,12 @@ img.product-card-image {
 
 .bobmodal-main {
   position: fixed;
-  background: #dde;
+  /* background: #dde; */
   width: 60%;
   height: auto;
   top: 35%;
   left: 50%;
-  padding: 5px;
   transform: translate(-50%,-50%);
-  border-radius: 5px;
 }
 
 .display-block {
@@ -617,22 +629,24 @@ img.product-card-image {
 /*--------write new review modal---------------------*/
 .close-button {
   float: right;
-  color: #dde;
-  background-color: var(--background-color);
+  color: var(--dark-teal);
+  border: 1px solid #429696;
+  background-color: var(--pale-pink);
   cursor: pointer;
+  /* margin-right: 7px; */
   /* margin: 5px; */
 }
 
 .current-product-header {
   float: left;
-  color: var(--background-color);
+  color: black;
   font-size: larger;
   font-weight: bold;
 }
 
 .compared-product-header {
   float: right;
-  color: var(--background-color);
+  color: black;
   font-size: larger;
   font-weight: bold;
 }
@@ -642,14 +656,16 @@ img.product-card-image {
 #features-table {
   margin: auto;
   width: 100%;
+  color: var(--dark-teal);
 }
 
 .feature {
-  color: 896bb5;
+  color: var(--dark-teal);
 }
 
 .features-table-data-name {
   text-align: center;
+  color: black;
 }
 
 /* Your Outfit */
@@ -679,6 +695,7 @@ img.product-card-image {
   /* padding-top: 125px; */
   /* margin-bottom: 15px; */
   white-space: nowrap;
+  /* border-bottom: 1px solid black; */
 }
 
 /* .product-card {
@@ -691,6 +708,7 @@ img.product-card-image {
 .add-outfit {
   width: 300px;
   text-align: center;
+  color: var(--dark-teal);
   border-radius: 5px;
   /* border: 2px solid teal; */
   position: relative;
@@ -700,6 +718,7 @@ img.product-card-image {
 
 .plus-icon {
   font-size: 64px;
+  color: var(--dark-teal);
   position: absolute;
   top: 28%;
   left: 37%;
@@ -760,7 +779,17 @@ img.product-card-image {
  display: flex;
  flex-direction: row;
  justify-content: space-between;
- margin-bottom: var(--margin);
+ margin-bottom: var(--large-margin);
+}
+
+.question-body {
+  margin-bottom: var(--large-margin);
+}
+
+.question-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .helpful {
@@ -802,7 +831,7 @@ img.product-card-image {
 
 .answerText {
   /* font-size: 11px; */
-  margin-bottom: var(--small-margin);
+  margin-bottom: var(--margin);
   margin-left: 5px;
 }
 
@@ -823,8 +852,13 @@ img.product-card-image {
 
 .moreAnswers {
   /* font-size:10px; */
+  margin-top: var(--margin);
+  margin-bottom: var(--margin);
   border: none;
-  /* font-weight: bold; */
+  font-weight: bold;
+  font-size: 14px;
+  background-color: var(--white);
+  color: var(--dark-teal);
 }
 
 
@@ -1207,7 +1241,7 @@ h2 {
 
 .modal-main {
   position: fixed;
-  background: beige;
+  /* background: beige; */
   width: 78%;
   height: 60%;
   top:50%;
@@ -1220,7 +1254,7 @@ h2 {
   position:fixed;
   padding: 10px;
   display: flex;
-  background-color:mistyrose;
+  /* background-color:mistyrose; */
   flex-direction: column;
   justify-content: space-around;
   width: 80%;

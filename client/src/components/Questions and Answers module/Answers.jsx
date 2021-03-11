@@ -67,6 +67,7 @@ reportedClick(e, answer) {
       var otherAnswers = [];
       for (var id in this.props.answers) {
         var answer = this.props.answers[id];
+        var sellerArray = [];
         //separate the seller answers into their own array
         if (answer.answerer_name === "Seller") {
           sellerArray.push(answer);

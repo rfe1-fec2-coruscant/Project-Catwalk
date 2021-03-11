@@ -8,7 +8,7 @@ const NewReviewModal = ({ hideModal, shown }) => {
 
     <div className={showHideClassName}>
       <a type="css" href="./modals.css"></a>
-      <form className="modal-main">
+      <form className="modal-main pop-up-modal">
 
         <div className="rev-modal-input1" id="rev-overall-rating" required>Overall Rating:
           <input type="radio" className="star-rating" />Poor

@@ -3,11 +3,11 @@ import Upload from './Upload.jsx'
 //import ajaxRequests from '../../../photoSubmit.html'
 
 const AddAnswerModal = (props) => {
-  const showHideClassName = props.show ? "add-answer-modal display-block" : "add-answer-modal display-none";
+  const showHideClassName = props.show ? "add-answer-modal display-block bobmodal" : "add-answer-modal display-none bobmodal";
 
   return (
     <div className={showHideClassName}>
-      <section className="add-answer-modal-main">
+      <section className="add-answer-modal-main pop-up-modal">
         {props.children}
         <h2 className="header">Submit your Answer</h2>
         <h3 className="answerText">{props.productName}: {props.question["question_body"]} </h3>
@@ -29,17 +29,18 @@ const AddAnswerModal = (props) => {
           </div>
         </form>
         <h2 className="header">Upload photos:</h2>
-          <form action={props.handlePhotoUpload}>
-            <Upload
+        <form action={props.handlePhotoUpload}>
+          <Upload
             handlePhotoSelect={props.handlePhotoSelect}
-            />
-            <button type="button" onClick={props.handleAddAnswerSubmit}>Submit</button>
-          </form>
+          />
+          <button type="button" onClick={props.handleAddAnswerSubmit}>Submit</button>
+        </form>
         <button type="button" onClick={props.handleClose}>
           Close
         </button>
       </section>
     </div>
+
   );
 };
 
