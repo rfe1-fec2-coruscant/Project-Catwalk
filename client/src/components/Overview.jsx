@@ -144,7 +144,7 @@ class Overview extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log('props:',prevProps.product, this.props.product);
+   // console.log('props:',prevProps.product, this.props.product);
     if (prevProps.product !== this.props.product) {
       ajaxRequests.get(`products/${this.props.product.id}/styles`, this.updateStyles);
     }

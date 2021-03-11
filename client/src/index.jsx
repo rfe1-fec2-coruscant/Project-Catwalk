@@ -70,7 +70,8 @@ class App extends React.Component {
             product={this.state.currentProduct}
             addtoCart={this.addtoCart}/>
           <RelatedItemsAndComparisons />
-          <Questions/>
+          <Questions
+            product={this.state.currentProduct}/>
           <Reviews/>
         </div>
       );

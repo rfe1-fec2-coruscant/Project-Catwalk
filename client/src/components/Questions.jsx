@@ -6,7 +6,8 @@ export default function Questions(props) {
   return (
     <div className="q-and-a">
       <h2 className= "header">QUESTIONS AND ANSWERS</h2>
-      <Searchbar/>
+      <Searchbar
+        product={props.product}/>
      </div>
   )
 

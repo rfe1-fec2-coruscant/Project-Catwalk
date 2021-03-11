@@ -8,17 +8,28 @@ class Searchbar extends React.Component {
     super(props);
     this.state = {
       questions: [],
-      searchTerm: ''
+      searchTerm: '',
+      id: 19378
     };
   }
 
   componentDidMount() {
-    //sample product ID is arbitrary at this stage
-    ajaxRequests.get('qa/questions?product_id=19378', (results) => {
-      // console.log(results);
+    //product ID starts on first product
 
+    ajaxRequests.get('qa/questions?product_id=19378', (results) => {
     this.sortQuestions(results.results);
     })
+  }
+
+  componentDidUpdate(prevProps) {
+    if(prevProps.product !== this.props.product) {
+      this.setState({id: this.props.product.id});
+      var productID = this.props.product.id;
+      console.log('productID in searchbar', this.props.product.id);
+      ajaxRequests.get('qa/questions?product_id' + this.state.id, (results) => {
+        this.sortQuestions(results.results);
+      })
+    }
   }
 
   sortQuestions(array) {
