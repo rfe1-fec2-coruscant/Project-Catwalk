@@ -814,50 +814,57 @@ img.product-card-image {
   height: auto;
   grid-row-start: 4;
   grid-row-end: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
+.reviews-body {
+  display: flex;
+  flex-direction: row;
+}
 #reviews-outer-div {
-  height: auto;
+  /* height: auto;
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: repeat(5, auto);
-  row-gap: 8px
+  row-gap: 8px */
 }
 
 #reviews-outer-title {
-  grid-column-start: 1;
+  /* grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 1;
-  grid-row-end: 1;
-
+  grid-row-end: 1; */
+  margin-bottom: var(--large-margin);
 }
 #ratings-breakdown {
-  margin-top: 50px;
+  /* margin-top: 50px;
   margin-bottom: 10px;
   grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 1;
-  grid-row-end: 2;
+  grid-row-end: 2; */
 }
 
 #rev-product-breakdown {
-  margin-left: 5px;
+  /* margin-left: 5px;
   margin-top: 30px;
   grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 2;
-  grid-row-end: 3;
+  grid-row-end: 3; */
 }
 
 #recommendation {
-  margin-left: 5px
+  /* margin-left: 5px */
 }
 
 
 #rev-new-review {
-  position: relative;
+  /* position: relative;
   left: 435px;
-  bottom: 165px;
+  bottom: 165px; */
 }
 
 
@@ -866,10 +873,10 @@ img.product-card-image {
 
 /* Reviews-list */
 #reviews-list {
-  grid-column-start: 2;
+  /* grid-column-start: 2;
   grid-column-end: 2;
   grid-row-start: 1;
-  grid-row-end: 2;
+  grid-row-end: 2; */
   /* color: whitesmoke; */
   display: flex;
   flex-direction: column;
@@ -1039,10 +1046,13 @@ img.product-card-image {
 
 /* Ratings Breakdown */
 #average-rating-container {
-  display: grid;
+  /* display: grid;
   width: 400px;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 50px)
+  grid-template-rows: repeat(2, 50px) */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 #rev-num-rating {
@@ -1056,8 +1066,8 @@ img.product-card-image {
 }
 
 #rev-star-rating {
-  position: absolute;
-  left: 380px;
+  /* position: absolute;
+  left: 380px; */
 
 }
 
