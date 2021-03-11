@@ -31,7 +31,14 @@ const globalClickTrackerWrapper = Component => {
 
     handleGlobalClick(e, moduleName) {
       // if parentNode.className === 'widget', then capture the id (slice the string from index 6 onwards; this is the key on global click object)
-      console.log(e);
+      var node = e.target;
+      var nodeClassName = e.target.className;
+      while (!nodeClassName.includes('widget-for-clicks')) {
+        node = node.parentNode;
+        nodeClassName = node.className;
+      }
+      var moduleName = node.id.slice(6);
+
       var clickObject = {
         nodeName: e.target.nodeName,
         className: e.target.className,
