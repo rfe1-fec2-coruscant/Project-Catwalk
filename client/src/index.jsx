@@ -7,6 +7,8 @@ import Questions from './components/Questions.jsx'
 import RelatedItemsAndComparisons from './components/RelatedItemsAndComparisons.jsx';
 import ProductList from './ProductList.jsx';
 
+
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -36,6 +38,18 @@ class App extends React.Component {
         this.setProductList(returnData);
       });
     }
+    // const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+
+    // function switchTheme(e) {
+    //   if (e.target.checked) {
+    //       document.documentElement.setAttribute('data-theme', 'dark');
+    //       }
+    //   else {
+    //       document.documentElement.setAttribute('data-theme', 'light');
+    //     }
+    //  }
+
+    //  toggleSwitch.addEventListener('change', switchTheme, false);
 
   }
 
@@ -68,6 +82,8 @@ class App extends React.Component {
     })
   }
 
+
+
   render() {
     // console.log('rendering', this.state.currentProduct);
     if (Object.keys(this.state.currentProduct).length) {
@@ -78,6 +94,13 @@ class App extends React.Component {
           <div className="widget-for-clicks widget" id="ModuleOverview">
             <header>
               <ProductList products={this.state.products} select={this.changeCurrentProduct} />
+              <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                  <input type="checkbox" id="checkbox" />
+                  <div class="slider round"></div>
+                </label>
+                  <em>Enable Dark Mode!</em>
+                </div>
             </header>
             <Overview product={this.state.currentProduct} addtoCart={this.addtoCart} />
           </div>
