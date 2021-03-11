@@ -101,7 +101,7 @@ class RatingsBreakdown extends React.Component {
 
           </div><br></br>
           <div id="bar-graph-container">
-            <h3> Rating Breakdown</h3>
+            {/* <h3> Rating Breakdown</h3> */}
             <div className="label">One Star:  {this.state.starPercentages['1']}%</div>
             <progress className="bar-graph" id="one-star" value={this.state.starPercentages['1']} max="100"></progress>
 

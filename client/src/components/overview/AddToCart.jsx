@@ -4,7 +4,7 @@ var AddToCart = () => {
   return(
     <div
     className="largeButton purchase-buttons">
-      Add To Cart
+      ADD TO CART
     </div>
   );
 }

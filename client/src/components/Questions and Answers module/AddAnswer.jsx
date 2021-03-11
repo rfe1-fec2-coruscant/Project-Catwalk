@@ -64,6 +64,9 @@ class AddAnswer extends React.Component {
   render() {
     return (
       <div>
+        <button className="smallButton"   onClick={this.showModal.bind(this)}>
+          Add Answer
+        </button>
         <AddAnswerModal
           show={this.state.show}
           handleClose={this.hideModal.bind(this)}
@@ -77,9 +80,6 @@ class AddAnswer extends React.Component {
           handlePhotoSelect={this.handlePhotoSelect.bind(this)}
           photo={this.state.photo}
           handleAddAnswerSubmit={this.handleAddAnswerSubmit.bind(this)}/>
-        <button className="smallButton" onClick={this.showModal.bind(this)}>
-          Add Answer
-        </button>
       </div>
     );
   }

@@ -64,7 +64,7 @@ class PurchaseOptions extends React.Component {
             selected="selected"
             value=""
             className="dead-option">
-              Pick a size
+              PICK A SIZE
             </option>
             {this.renderSizeOptions()}
           </select>
