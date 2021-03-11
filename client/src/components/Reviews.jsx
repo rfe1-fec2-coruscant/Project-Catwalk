@@ -36,22 +36,26 @@ class Reviews extends React.Component {
           <div className="rev-container widget center-subwidgets" id="reviews-outer-div">
             <h2 id="reviews-outer-title" class="header-text">RATINGS AND REVIEWS</h2>
             {/* <KeyWordSearch /> */}
-            <RatingBreakdown
-              curProduct={this.state.curProduct}
-              curProductId={this.state.curProduct.product}
-              curProductCount={this.state.curProduct.count}
-              curProductReviews={this.state.curProduct.results}
-            /><br></br>
-            <ProductBreakdown
-
-            />
-            <ReviewsList
-            curProduct={this.state.curProduct}
-            curProductId={this.state.curProduct.product}
-            curProductCount={this.state.curProduct.count}
-            curProductReviews={this.state.curProduct.results}
-          /><br></br>
-            <WriteNewReview />
+            <div className="reviews-body">
+              <div>
+                <RatingBreakdown
+                  curProduct={this.state.curProduct}
+                  curProductId={this.state.curProduct.product}
+                  curProductCount={this.state.curProduct.count}
+                  curProductReviews={this.state.curProduct.results}
+                /><br></br>
+                <ProductBreakdown/>
+              </div>
+              <div>
+                <ReviewsList
+                curProduct={this.state.curProduct}
+                curProductId={this.state.curProduct.product}
+                curProductCount={this.state.curProduct.count}
+                curProductReviews={this.state.curProduct.results}
+              /><br></br>
+                <WriteNewReview />
+              </div>
+            </div>
           </div>
         )
 
