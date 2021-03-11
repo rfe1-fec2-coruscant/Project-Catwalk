@@ -137,6 +137,66 @@ body {
   padding: 7px;
   border-width: 1px;
 }
+header {
+  display: block;
+  position: absolute;
+  top: 0;
+  height: 50px;
+  width: 100%;
+  background-color: blue;
+}
+
+/****************Products Menu*****************/
+
+#products-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  opacity: 0;
+  transform: translateY(-20px);
+  margin-top: -14px;
+  pointer-events: none;
+  transition: all 0.4s ease;
+  height: 0;
+  width: 0;
+}
+
+#products-icon {
+  color: #eee;
+  height: auto;
+  font-size: 2em;
+  cursor: pointer;
+  margin: 6px 0 0 6px;
+}
+
+#products-list li {
+  display: inline-block;
+  background-color: #ddd;
+  border: #666 1px solid;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+#products-menu-cb:checked ~ #products-list {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(20px);
+  height: auto;
+  max-height: 100vh;
+  overflow: scroll;
+  width: 300px;
+}
+
+#products-list::-webkit-scrollbar {
+  display: none;
+}
+
+#products-menu-cb{
+  opacity: 0;
+}
+
+/****************Products Menu*****************/
 
 /************************OVERVIEW START*************************/
 
@@ -294,8 +354,7 @@ body {
 /*************************OVERVIEW END*************************/
 
 
-
-/* RelatedItemsAndComparisons */
+/************************RelatedItemsAndComparisons START*************************/
 
 .related-items {
   color: var(--background-color);
@@ -308,30 +367,30 @@ body {
 /* .related-items-header {
   /* margin-left: 150px; */
   /* margin-left: 35px; */
-} */
+/*}
 
 /* RelatedProducts */
 /* .related-items-header-text {
   /* font-family: Arial, Helvetica, sans-serif; */
-} */
+/*}
 
 .related-products {
   /* font-family: Arial, Helvetica, sans-serif; */
   /* width: 975px; */
-  object-fit: none;
+  /* object-fit: none; */
   /* max-width: 96vw; */
   /* width: 95%; */
-  border: 1px solid black;
+  /* border: 1px solid black;
   height: 460px;
-  position: relative;
+  position: relative; */
   /* margin-bottom: 5px; */
   /* padding-left: 105px; */
   /* margin-left: 35px; */
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
   /* overflow: hidden; */
-  white-space: nowrap;
+  /* white-space: nowrap; */
   /* margin-bottom: 25px; */
-}
+/* } */
 
 .change-product-button {
   display: inline-block;
@@ -402,7 +461,10 @@ body {
 img.product-card-image {
   height: 300px;
   width: 300px;
+  z-index: 1;
+
 }
+/* possibly 320px for width and height^ */
 
 .star-action {
   position: absolute;
@@ -525,6 +587,8 @@ img.product-card-image {
 .display-none {
   display: none;
 }
+
+/************************RelatedItemsAndComparisons END*************************/
 
 /*--------write new review modal---------------------*/
 .close-button {
@@ -1246,3 +1310,7 @@ h2 {
   height: 15px;
   width: 15px;
 }
+
+
+
+

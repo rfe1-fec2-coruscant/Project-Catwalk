@@ -1,5 +1,5 @@
 import React from 'react';
-import ajaxRequests from '../../ajaxRequests.js'
+import ajaxRequests from '../../ajaxRequests.js';
 
 import ImageGallery from './overview/ImageGallery.jsx';
 import ProductDetails from './overview/ProductDetails.jsx';
@@ -8,7 +8,6 @@ class Overview extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      product: props.currentProduct,
       styles: {},
       currentStyle: {},
       reviewRating: {}
@@ -25,7 +24,7 @@ class Overview extends React.Component {
     this.setState({
       styles: newData,
       currentStyle: newData.results[0]
-    }, this.getReviewRating(this.state.product.id));
+    }, this.getReviewRating(this.props.product.id));
   }
 
   getReviewRating(productId) {
@@ -58,7 +57,7 @@ class Overview extends React.Component {
     // debugger;
     var styles = this.state.styles.results;
     for (var i = 0; i < styles.length; i++) {
-      console.log(styles[i].style_id);
+      // console.log(styles[i].style_id);
       if (event.target.id == styles[i].style_id) {
         this.setState({
           currentStyle: styles[i]
@@ -71,22 +70,23 @@ class Overview extends React.Component {
   render() {
     // debugger;
     // console.log(Object.keys(this.state.product), Object.keys(this.state.style))
-    if (Object.keys(this.state.product).length && Object.keys(this.state.styles).length) {
+    if ( /*Object.keys(this.props.product).length &&*/ Object.keys(this.state.styles).length) {
       return(
         <div id="overview" className="widget">
           <div id="product-display">
             <ImageGallery currentProduct={this.state.currentStyle}/>
             <ProductDetails
               styles={this.state.styles}
-              currentProduct={this.state.product}
+              currentProduct={this.props.product}
               currentStyle={this.state.currentStyle}
               changeStyle={this.changeCurrentStyle}
               reviews={this.state.reviewRating}
+              addtoCart={this.props.addtoCart}
             />
           </div>
           <div id="product-description" className="outline center-subwidgets">
             <h3 className= "bold-text">Product Description</h3>
-            <p>{this.state.product.description}</p>
+            <p>{this.props.product.description}</p>
           </div>
         </div>
       );
@@ -139,7 +139,15 @@ class Overview extends React.Component {
     // if (this.state.product.id !== this.state.style.product_id) {
     // }
       // get new style data
-      ajaxRequests.get(`products/${this.state.product.id}/styles`, this.updateStyles);
+
+      ajaxRequests.get(`products/${this.props.product.id}/styles`, this.updateStyles);
+  }
+
+  componentDidUpdate(prevProps) {
+    // console.log('props:',prevProps.product, this.props.product);
+    if (prevProps.product !== this.props.product) {
+      ajaxRequests.get(`products/${this.props.product.id}/styles`, this.updateStyles);
+    }
   }
 }
 
