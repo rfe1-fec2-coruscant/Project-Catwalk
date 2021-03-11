@@ -21,7 +21,7 @@ const Question = (props) => {
       <div>
         <div className="question">
           <div className="bold-text">
-            <b>Q: </b>
+            <b className="question-body">Q: </b>
             <b>{props.question["question_body"]}</b>
           </div>
           <div >

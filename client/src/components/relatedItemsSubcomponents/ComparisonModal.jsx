@@ -37,7 +37,7 @@ class ComparisonModal extends React.Component {
     // var showHideClassName = this.props.show ? 'modal display-block' : 'modal display-none';
     return (
       <div className={this.state.showHideClassName}>
-      <div className='bobmodal-main'>
+      <div className='bobmodal-main pop-up-modal'>
         <button type="button" className="close-button" onClick={this.props.handleCloseModal}>&#10006;</button>
         <span className="comparing-header"><em>Comparing</em></span>
         <br></br>

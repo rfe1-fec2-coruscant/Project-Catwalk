@@ -61,7 +61,7 @@ componentDidUpdate(prevProps) {
            key={question.question_id}
             /> ))}
             </span>
-          <div>
+          <div className="question-buttons">
             <div>{moreQuestions}</div>
             <AddQuestion/>
          </div>

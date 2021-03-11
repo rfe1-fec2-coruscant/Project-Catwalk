@@ -39,15 +39,15 @@ class App extends React.Component {
 
   }
 
-  addtoCart () {
+  addtoCart() {
 
   }
 
-  setProductList (products) {
-    this.setState({products: products}, this.changeCurrentProduct);
+  setProductList(products) {
+    this.setState({ products: products }, this.changeCurrentProduct);
   }
 
-  changeCurrentProduct (event) {
+  changeCurrentProduct(event) {
     if (event) {
       // console.log(event.target.dataset.index);
     }
@@ -75,20 +75,21 @@ class App extends React.Component {
 
       return (
         <div id="grid-container">
-          <div className="widget" id="ModuleOverview">
+          <div className="widget-for-clicks widget" id="ModuleOverview">
             <header>
-              <ProductList
-                products={this.state.products}
-                select={this.changeCurrentProduct}
-              />
+              <ProductList products={this.state.products} select={this.changeCurrentProduct} />
             </header>
-            <Overview
-              product={this.state.currentProduct}
-              addtoCart={this.addtoCart} />
+            <Overview product={this.state.currentProduct} addtoCart={this.addtoCart} />
           </div>
-          <RelatedItemsAndComparisons handleProductClickFromRelatedProducts={this.handleProductClickFromRelatedProducts} currentProductId={this.state.currentProductId} />
-          <Questions />
-          <Reviews />
+          <div className="widget-for-clicks widget" id="ModuleRelatedItemsAndComparisons">
+            <RelatedItemsAndComparisons handleProductClickFromRelatedProducts={this.handleProductClickFromRelatedProducts} currentProductId={this.state.currentProductId} />
+          </div>
+          <div className="widget-for-clicks widget" id="ModuleQuestions">
+            <Questions />
+          </div>
+          <div className="widget-for-clicks widget" id="ModuleReviews">
+            <Reviews />
+          </div>
         </div>
       );
     } else {
