@@ -63,7 +63,7 @@ class AddAnswer extends React.Component {
 
   render() {
     return (
-      <main>
+      <div>
         <AddAnswerModal
           show={this.state.show}
           handleClose={this.hideModal.bind(this)}
@@ -80,7 +80,7 @@ class AddAnswer extends React.Component {
         <button className="smallButton" onClick={this.showModal.bind(this)}>
           Add Answer
         </button>
-      </main>
+      </div>
     );
   }
 }

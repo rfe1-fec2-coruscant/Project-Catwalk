@@ -86,7 +86,7 @@ class RatingsBreakdown extends React.Component {
         <div>
 
           <div id="average-rating-container">
-            <div id="rev-num-rating">{this.state.averageRating}</div>
+            <div className="biggest-text" id="rev-num-rating">{this.state.averageRating}</div>
             <div id="rev-star-rating">
               {this.renderStars()}
             </div>

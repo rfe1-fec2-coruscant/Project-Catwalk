@@ -3,8 +3,7 @@ import React from 'react';
 var AddToCart = () => {
   return(
     <div
-    id="add-to-cart-button"
-    className="purchase-buttons">
+    className="largeButton purchase-buttons">
       Add To Cart
     </div>
   );

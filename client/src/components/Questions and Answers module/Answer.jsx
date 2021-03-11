@@ -29,15 +29,15 @@ const Answer = (props) => {
     }
     return (
       <div className="answer">
-        <div className= "answerText">{props.answer.body}</div>
-        <section className="answerBy">
+        <div className= "regular-text answerText">{props.answer.body}</div>
+        <section className="small-text answerBy">
           <span>by {seller}</span>
-          <span className = "date">{newDate}</span>
-          <span className="divide">|</span>
-          <span className="helpful">Helpful?
+          <span className = "small-text date">{newDate}</span>
+          <span className="regular-text divide">|</span>
+          <span className="small-text helpful">Helpful?
             {helpfulness}
-            <span className = "count">{props.answer.helpfulness}</span>
-            <span className="divide">|</span>
+            <span className = "small-text count">{props.answer.helpfulness}</span>
+            <span className="regular-text divide">|</span>
             <span>{reported}</span>
           </span>
         </section>

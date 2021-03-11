@@ -71,22 +71,8 @@ class App extends React.Component {
   render() {
     // console.log('rendering', this.state.currentProduct);
     if (Object.keys(this.state.currentProduct).length) {
-      return(
-        <div>
-          <header>
-            <ProductList
-            products={this.state.products}
-            select={this.changeCurrentProduct}
-            />
-          </header>
 
-          <Overview
-            product={this.state.currentProduct}
-            addtoCart={this.addtoCart}/>
-          <RelatedItemsAndComparisons />
-          <Questions
-            product={this.state.currentProduct}/>
-          <Reviews/>
+
       return (
         <div id="grid-container">
           <div className="widget" id="ModuleOverview">
