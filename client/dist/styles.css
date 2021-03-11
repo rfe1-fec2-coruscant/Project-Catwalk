@@ -990,6 +990,7 @@ img.product-card-image {
     margin-top: 5px;
     margin-bottom: 5px;
     margin-left: 10px;
+    pointer-events: none;
   }
 
   .prod-char-bar::-webkit-slider-thumb {
@@ -1000,10 +1001,8 @@ img.product-card-image {
   background: purple;
   border-width: 0 3px 3px 0;
   padding: 3px;
-
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
-
 }
 
   #size-table{

@@ -15,7 +15,10 @@ class Reviews extends React.Component {
   constructor(props) {
     super(props);
     this.tempid = 19735;
-    this.state = {curProduct: {}};
+    this.state = {
+      curProduct: {},
+      curProductMeta: {}
+    };
 
   }
 
@@ -23,10 +26,13 @@ class Reviews extends React.Component {
     ajaxRequests.get(`reviews?product_id=${this.tempid}`, (results) => {
       this.setState({ curProduct: results });
     })
+
+    ajaxRequests.get(`reviews/meta/?product_id=${this.tempid}`, (results) => {
+      this.setState({ curProductMeta: results });
+    })
       // .catch((error) => {
       //   console.log(error)
       // })
-
   }
 
     render() {
@@ -34,7 +40,7 @@ class Reviews extends React.Component {
       if (Object.keys(this.state.curProduct).length > 0) {
         return (
           <div className="rev-container widget center-subwidgets" id="reviews-outer-div">
-            <h2 id="reviews-outer-title" class="header-text">Ratings and Reviews</h2>
+            <h2 id="reviews-outer-title" className="header-text">Ratings and Reviews</h2>
             {/* <KeyWordSearch /> */}
             <RatingBreakdown
               curProduct={this.state.curProduct}
@@ -43,7 +49,7 @@ class Reviews extends React.Component {
               curProductReviews={this.state.curProduct.results}
             /><br></br>
             <ProductBreakdown
-
+              curProductMeta={this.state.curProductMeta}
             />
             <ReviewsList
             curProduct={this.state.curProduct}
