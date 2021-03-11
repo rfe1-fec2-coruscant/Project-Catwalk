@@ -76,11 +76,12 @@ class Overview extends React.Component {
           <div id="product-display">
             <div id="overview-left">
               <ImageGallery currentProduct={this.state.currentStyle}/>
-              <div  className="outline center-subwidgets">
-                <div id="product-description" className= "bold-text">Product Description</div>
-                <p>{this.props.product.description}</p>
+              <div id="product-description" >
+                <div  className= "bold-text" id="description-header">Product Description</div>
+                <p className= "regular-text">{this.props.product.description}</p>
               </div>
             </div>
+            <div id="overview-right">
               <ProductDetails
                 styles={this.state.styles}
                 currentProduct={this.props.product}
@@ -89,6 +90,7 @@ class Overview extends React.Component {
                 reviews={this.state.reviewRating}
                 addtoCart={this.props.addtoCart}
               />
+            </div>
           </div>
         </div>
       );
