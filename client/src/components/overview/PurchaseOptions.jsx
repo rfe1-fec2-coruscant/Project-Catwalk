@@ -71,7 +71,7 @@ class PurchaseOptions extends React.Component {
           <QuantityList max={this.state.maxQty} pickNum={this.updateQuantity}/>
         </div>
         <div>
-          <AddToCart />
+          <AddToCart addtoCart={this.props.addtoCart} qty={this.state.qty}/>
           <div id="favorite" className="purchase-buttons">*</div>
         </div>
       </div>

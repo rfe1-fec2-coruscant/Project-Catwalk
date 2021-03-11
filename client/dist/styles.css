@@ -94,16 +94,6 @@ header {
   justify-content: center;
 }
 
-
-
-
-
-
-
-
-/*--------Ratings and reviews---------------------*/
-
-/*--------write new review modal---------------------*/
 #image-gallery img {
   /* max-width: 100%;
   height: auto;*/
@@ -220,6 +210,10 @@ header {
 
 #size-selector {
   width: auto;
+}
+
+#add-to-cart-button {
+
 }
 
 #product-description {

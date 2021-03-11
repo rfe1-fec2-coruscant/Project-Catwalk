@@ -62,7 +62,7 @@ class App extends React.Component {
           <header>
             <ProductList
             products={this.state.products}
-            select={this.changeCurrentProduct}
+            selectNewProduct={this.changeCurrentProduct}
             />
           </header>
 
