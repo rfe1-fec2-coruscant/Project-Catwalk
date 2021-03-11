@@ -46,6 +46,7 @@ html {
 }
 
 #grid-container {
+  margin-top: 70px;
   display: grid;
   grid-template-rows: auto auto auto auto;
 }
@@ -119,6 +120,11 @@ body {
   color: var(--white);
   font-size: 20px;
   font-weight: bold;
+  cursor: pointer;
+}
+
+.largeButton:hover {
+  background-color: var(--yellow);
 }
 
 .smallButton {
@@ -128,6 +134,11 @@ body {
   font-size: 14px;
   background-color: var(--white);
   color: var(--dark-teal);
+  cursor: pointer;
+}
+
+.smallButton:hover {
+  color: var(--background-color);
 }
 
 .checkmark {
@@ -213,16 +224,26 @@ header {
   height: 80vh;
   display: grid;
   grid-template-columns: 2fr 1fr;
-  padding: 20px;
+  /* padding: 20px; */
 }
+
+#overview-left {
+  display: flex;
+  flex-direction: column;
+}
+
+/* #overview-right {
+  display: flex;
+  flex-direction: column;
+}; */
 
 #image-gallery {
   background-color: var(--lightest-teal);
   border-radius: 15px;
-  height: 96%;
+  /* height: 96%; */
   overflow: hidden;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 #product-price {
@@ -369,7 +390,7 @@ header {
 #product-description {
   display: block;
   width: 80%;
-  padding: 15px;
+  padding: 10px;
   margin: 15px auto;
   margin-bottom: var(--large-margin);
 }
@@ -421,10 +442,18 @@ header {
   /* margin-bottom: 25px; */
 /* } */
 
+.related-products {
+  padding-left: 60px;
+}
+
+.related-items-header {
+  padding-left: 65px;
+}
+
 .change-product-button {
   display: inline-block;
   position: absolute;
-  top: 133%;
+  top: 126%;
   height: 50px;
   width: 20px;
   margin-top: -20px;
@@ -438,6 +467,10 @@ header {
   /* margin: 5px; */
 }
 
+.change-product-button:hover {
+  background-color: var(--dark-teal);
+  color: black;
+}
 
 
 /* ProductCard */
@@ -458,6 +491,11 @@ header {
   padding: 15px 10px 25px 10px;
   background-color: var(--dark-teal);
   color: var(--white);
+}
+
+.product-card-text-box:hover {
+  background-color: var(--light-teal);
+  color: var(--dark-teal);
 }
 
 .product-card-text {
@@ -508,16 +546,26 @@ img.product-card-image {
   cursor: pointer;
 }
 
+.star-action:hover {
+  color: var(--dark-yellow);
+}
+
 .x-action {
   position: absolute;
   top: 2px;
   right: 3px;
   font-size: 24px;
-  color: #dde;
-  background-color: black;
+  color: black;
+  /* background-color: black; */
   text-shadow: 0 0 2px rgba(0,0,0,0.7);
   z-index: 2;
   cursor: pointer;
+}
+
+.x-action:hover {
+  color: var(--pale-pink);
+  /* background-color: black; */
+
 }
 
 /* ProductCard: Stars */
@@ -683,6 +731,7 @@ img.product-card-image {
 
 .your-outfit-cards {
   /* width: 975px; */
+  padding-left: 60px;
   max-width: 96vw;
   object-fit: none;
   height: 460px;
@@ -716,9 +765,13 @@ img.product-card-image {
   margin-left: 28px;
 }
 
+.add-outfit:hover {
+  color: var(--pink);
+}
+
 .plus-icon {
   font-size: 64px;
-  color: var(--dark-teal);
+  color: inherit;
   position: absolute;
   top: 28%;
   left: 37%;
@@ -742,12 +795,18 @@ img.product-card-image {
   margin-right: -5px;
   /* margin-right: 10px; */
   z-index: 2;
-  color: #dde;
+  color: var(--dark-teal);
   background-color: var(--background-color);
   cursor: pointer;
   /* margin: 5px; */
 
 }
+
+.change-your-outfit-button:hover {
+  background-color: var(--dark-teal);
+  color: black;
+}
+
 /* .your-outfit-card {
 } */
 
@@ -859,9 +918,12 @@ img.product-card-image {
   font-size: 14px;
   background-color: var(--white);
   color: var(--dark-teal);
+  cursor: pointer;
 }
 
-
+.moreAnswers:hover {
+  color: var(--background-color);
+}
 
 
 /* Reviews css */

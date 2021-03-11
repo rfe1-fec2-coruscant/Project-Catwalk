@@ -74,19 +74,21 @@ class Overview extends React.Component {
       return(
         <div id="overview">
           <div id="product-display">
-            <ImageGallery currentProduct={this.state.currentStyle}/>
-            <ProductDetails
-              styles={this.state.styles}
-              currentProduct={this.props.product}
-              currentStyle={this.state.currentStyle}
-              changeStyle={this.changeCurrentStyle}
-              reviews={this.state.reviewRating}
-              addtoCart={this.props.addtoCart}
-            />
-          </div>
-          <div id="product-description" className="outline center-subwidgets">
-            <h3 className= "bold-text">Product Description</h3>
-            <p>{this.props.product.description}</p>
+            <div id="overview-left">
+              <ImageGallery currentProduct={this.state.currentStyle}/>
+              <div  className="outline center-subwidgets">
+                <div id="product-description" className= "bold-text">Product Description</div>
+                <p>{this.props.product.description}</p>
+              </div>
+            </div>
+              <ProductDetails
+                styles={this.state.styles}
+                currentProduct={this.props.product}
+                currentStyle={this.state.currentStyle}
+                changeStyle={this.changeCurrentStyle}
+                reviews={this.state.reviewRating}
+                addtoCart={this.props.addtoCart}
+              />
           </div>
         </div>
       );
@@ -127,8 +129,8 @@ class Overview extends React.Component {
               </div>
             </div>
           </div>
-          <div id="product-description" className="outline center-subwidgets">
-            <h3 className="bold-text">Product Description</h3>
+          <div className="outline center-subwidgets">
+            <h3 id="product-description" className="bold-text">Product Description</h3>
             <p className="small-text">Ea quis esse amet laborum dolore nisi labore duis do. Proident aliqua commodo aliqua officia cupidatat duis aliquip amet commodo aliquip ea eu officia dolore. Anim reprehenderit ut amet dolor cillum aliquip adipisicing nulla.</p>
           </div>
         </div>
