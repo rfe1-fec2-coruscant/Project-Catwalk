@@ -5,7 +5,7 @@ var StarRating = ( {reviews} ) => {
   if (reviews.num === 0) {
     return(
       <div id="star-rating">
-      Star Rating:
+      {/* Star Rating: */}
         <span>
           No Reviews Submitted
         </span>
@@ -28,12 +28,12 @@ var StarRating = ( {reviews} ) => {
   }
 
   return(
-    <div id="star-rating">
-      Star Rating:
+    <div className="star" id="star-rating">
+      {/* Star Rating: */}
         <span>
           {starsArray}
         </span>
-        <a href="#reviews-component">See all {reviews.num} reviews</a>
+        <a className="smallButton" href="#reviews-component">See all {reviews.num} reviews</a>
     </div>
   );
 }

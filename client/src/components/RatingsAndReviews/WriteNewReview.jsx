@@ -35,7 +35,7 @@ class WriteNewReview extends React.Component {
     return (
       <div id="rev-new-review">
         <NewReviewModal shown={this.state.show} hideModal={this.boundHideModal} />
-        <button type="button" onClick={this.boundShowModal}>Write New Review</button>
+        <button className="largeButton" type="button" onClick={this.boundShowModal}>Write New Review</button>
       </div>
     )
   }

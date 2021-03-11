@@ -72,7 +72,7 @@ class Overview extends React.Component {
     // console.log(Object.keys(this.state.product), Object.keys(this.state.style))
     if ( /*Object.keys(this.props.product).length &&*/ Object.keys(this.state.styles).length) {
       return(
-        <div id="overview" className="widget">
+        <div id="overview">
           <div id="product-display">
             <ImageGallery currentProduct={this.state.currentStyle}/>
             <ProductDetails
@@ -115,13 +115,14 @@ class Overview extends React.Component {
                 </div>
               </div>
               <div id="purchase-options">
-                <div className="outline">
-                  <div id="size-selector" className="purchase-buttons">Size</div>
-                  <div id="quantity-selector" className="purchase-buttons">Quant</div>
+              {/* <div className="outline"> */}
+                <div>
+                  <div id="size-selector" className="largeButton purchase-buttons">Size</div>
+                  <div id="quantity-selector" className="largeButton purchase-buttons">Quant</div>
                 </div>
                 <div>
-                  <div id="add-to-cart-button" className="purchase-buttons">Add To Cart</div>
-                  <div id="favorite" className="purchase-buttons">*</div>
+                  <div id="add-to-cart-button" className="largeButton purchase-buttons">Add To Cart</div>
+                  <div id="favorite" className="largeButton purchase-buttons">*</div>
                 </div>
               </div>
             </div>
