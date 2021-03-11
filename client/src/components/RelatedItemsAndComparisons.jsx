@@ -23,6 +23,23 @@ class RelatedItemsAndComparisons extends React.Component {
     this.fetchData();
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.currentProductId !== this.props.currentProductId) {
+      this.setState({
+        currentProductId: this.props.currentProductId
+      });
+      this.secondaryFetch(this.props.currentProductId);
+    }
+  }
+
+  secondaryFetch(id) {
+    ajaxRequests.get('products/' + id + '/related', relatedProductIds => {
+      this.setState({
+        relatedProductIds: relatedProductIds
+      });
+    });
+  }
+
   fetchData() {
     ajaxRequests.get('products/' + this.state.currentProductId + '/related', relatedProductIds => {
       this.setState({
@@ -35,6 +52,7 @@ class RelatedItemsAndComparisons extends React.Component {
     if (id === this.state.currentProductId) {
       return console.log('you\'re already on this product\'s page!');
     }
+    this.props.handleProductClickFromRelatedProducts(id);
     // check if id passed up is in yourOutfitIds
     var updatedIsCurrentProductAdded = this.state.yourOutfitIds.indexOf(id) === -1 ? false : true;
     this.setState({

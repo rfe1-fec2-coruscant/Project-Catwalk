@@ -4,12 +4,14 @@ const bodyParser = require('body-parser')
 const path = require('path');
 const config = require('../config.js');
 const sessionConfig = require('./sessionConfig.js');
+const morgan = require('morgan');
 
 const PORT = 3000;
 const app = express();
 const api = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe';
 
 app.use(express.static(path.join(__dirname, '..', '/client/dist')));
+app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(sessionConfig.mySession);
 app.use(sessionConfig.addSession);

@@ -17,11 +17,13 @@ class App extends React.Component {
         subtotal: 0
       },
       products: [],
-      currentProduct: {}
+      currentProduct: {},
+      currentProductId: undefined
     };
     this.addtoCart = this.addtoCart.bind(this);
     this.changeCurrentProduct = this.changeCurrentProduct.bind(this);
     this.setProductList = this.setProductList.bind(this);
+    this.handleProductClickFromRelatedProducts = this.handleProductClickFromRelatedProducts.bind(this);
   }
   componentDidMount() {
     // console.log("mounted");
@@ -51,7 +53,19 @@ class App extends React.Component {
     }
     var index = (event) ? event.target.dataset.index : 0;
     // console.log(this.state.products[index]);
-    this.setState({ currentProduct: this.state.products[index] });
+    this.setState({
+      currentProduct: this.state.products[index],
+      currentProductId: this.state.products[index].id
+    });
+  }
+
+  handleProductClickFromRelatedProducts(id) {
+    ajaxRequests.get('products/' + id, newProduct => {
+      this.setState({
+        currentProduct: newProduct,
+        currentProductId: newProduct.id
+      });
+    })
   }
 
   render() {
@@ -70,7 +84,7 @@ class App extends React.Component {
               product={this.state.currentProduct}
               addtoCart={this.addtoCart} />
           </div>
-          <RelatedItemsAndComparisons currentProductId={this.state.currentProduct.id} />
+          <RelatedItemsAndComparisons handleProductClickFromRelatedProducts={this.handleProductClickFromRelatedProducts} currentProductId={this.state.currentProductId} />
           <Questions />
           <Reviews />
         </div>
