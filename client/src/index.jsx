@@ -72,7 +72,7 @@ class App extends React.Component {
     // console.log('rendering', this.state.currentProduct);
     if (Object.keys(this.state.currentProduct).length) {
       return (
-        <div>
+        <div id="grid-container">
           <div className="widget" id="ModuleOverview">
             <header>
               <ProductList

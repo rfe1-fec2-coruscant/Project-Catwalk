@@ -33,8 +33,8 @@ class Reviews extends React.Component {
       // console.log('Here is what Im getting', this.state.curProduct);
       if (Object.keys(this.state.curProduct).length > 0) {
         return (
-          <div className="rev-container" id="reviews-outer-div">
-            <h2 id="reviews-outer-title">Ratings and Reviews</h2>
+          <div className="rev-container widget center-subwidgets" id="reviews-outer-div">
+            <h2 id="reviews-outer-title" class="header-text">Ratings and Reviews</h2>
             {/* <KeyWordSearch /> */}
             <RatingBreakdown
               curProduct={this.state.curProduct}

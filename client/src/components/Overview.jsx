@@ -72,7 +72,7 @@ class Overview extends React.Component {
     // console.log(Object.keys(this.state.product), Object.keys(this.state.style))
     if ( /*Object.keys(this.props.product).length &&*/ Object.keys(this.state.styles).length) {
       return(
-        <div id="overview">
+        <div id="overview" className="widget">
           <div id="product-display">
             <ImageGallery currentProduct={this.state.currentStyle}/>
             <ProductDetails
@@ -84,8 +84,8 @@ class Overview extends React.Component {
               addtoCart={this.props.addtoCart}
             />
           </div>
-          <div id="product-description" className="outline">
-            <h3>Product Description</h3>
+          <div id="product-description" className="outline center-subwidgets">
+            <h3 className= "bold-text">Product Description</h3>
             <p>{this.props.product.description}</p>
           </div>
         </div>
@@ -97,10 +97,10 @@ class Overview extends React.Component {
           <div id="product-display">
             <div id="image-gallery">Loading...</div>
             <div id="product-details">
-              <div id="star-rating">Start Rating = *****</div>
-              <p id="category">Category</p>
+              <div className="small-text" id="star-rating">Start Rating = *****</div>
+              <p className="header-text" id="category">Category</p>
               <h3 id="product-name">Ugly Christmas Sweater</h3>
-              <p id="product-price">Price</p>
+              <p className="regular-text" id="product-price">Price</p>
               <div id="product-styles">
                 <p className="style-header">Style > <strong>Current Style</strong></p>
                 <div id="styles-container">
@@ -126,9 +126,9 @@ class Overview extends React.Component {
               </div>
             </div>
           </div>
-          <div id="product-description" className="outline">
-            <h3>Product Description</h3>
-            <p>Ea quis esse amet laborum dolore nisi labore duis do. Proident aliqua commodo aliqua officia cupidatat duis aliquip amet commodo aliquip ea eu officia dolore. Anim reprehenderit ut amet dolor cillum aliquip adipisicing nulla.</p>
+          <div id="product-description" className="outline center-subwidgets">
+            <h3 className="bold-text">Product Description</h3>
+            <p className="small-text">Ea quis esse amet laborum dolore nisi labore duis do. Proident aliqua commodo aliqua officia cupidatat duis aliquip amet commodo aliquip ea eu officia dolore. Anim reprehenderit ut amet dolor cillum aliquip adipisicing nulla.</p>
           </div>
         </div>
       );
