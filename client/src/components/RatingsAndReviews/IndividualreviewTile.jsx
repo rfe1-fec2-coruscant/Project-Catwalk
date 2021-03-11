@@ -14,7 +14,7 @@ var IndividualReviewTile = (props) => (
         </div>
       </div>
       <div className="bold-text review-summary">{props.summary} </div>
-      <div className="regular-text review-response">Response: {props.response}</div>
+      {/* <div className="regular-text review-response">Response: {props.response}</div> */}
     <div id="review-recommend"> Would you recommended this product?: {props.recommend ? "Yes, I would recommend this product!" : "No , I would recommend this product!"} </div>
       <div className="normal-text" id="review-body">{props.reviewBody} </div>
       <div className="smallButton" id="review-helpfulness">Helpful? {props.reviewHelpfulness}</div>
