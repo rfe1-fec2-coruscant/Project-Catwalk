@@ -75,19 +75,19 @@ class App extends React.Component {
 
       return (
         <div id="grid-container">
-          <div className="widget-for-clicks" id="ModuleOverview">
+          <div className="widget-for-clicks widget" id="ModuleOverview">
             <header>
               <ProductList products={this.state.products} select={this.changeCurrentProduct} />
             </header>
             <Overview product={this.state.currentProduct} addtoCart={this.addtoCart} />
           </div>
-          <div className="widget-for-clicks" id="ModuleRelatedItemsAndComparisons">
+          <div className="widget-for-clicks widget" id="ModuleRelatedItemsAndComparisons">
             <RelatedItemsAndComparisons handleProductClickFromRelatedProducts={this.handleProductClickFromRelatedProducts} currentProductId={this.state.currentProductId} />
           </div>
-          <div className="widget-for-clicks" id="ModuleQuestions">
+          <div className="widget-for-clicks widget" id="ModuleQuestions">
             <Questions />
           </div>
-          <div className="widget-for-clicks" id="ModuleReviews">
+          <div className="widget-for-clicks widget" id="ModuleReviews">
             <Reviews />
           </div>
         </div>
