@@ -73,7 +73,7 @@ class App extends React.Component {
 
   render() {
     return(
-      <div>
+      <div id="grid-container">
         <Overview currentProduct={this.state.products[1]}/>
         <RelatedItemsAndComparisons />
         <Questions/>

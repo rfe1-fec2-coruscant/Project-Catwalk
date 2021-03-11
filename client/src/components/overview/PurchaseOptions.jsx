@@ -12,12 +12,12 @@ class PurchaseOptions extends React.Component {
     return (
       <div id="purchase-options">
         <div>
-          <div id="size-selector" className="purchase-buttons">Size</div>
+          <div id="size-selector" className="largeButton purchase-buttons bold-text">Size</div>
           <input
             id="quantity-selector"
             type="number"
             min="1" max="12"
-            className="purchase-buttons"
+            className="purchase-buttons bold-text"
           ></input>
         </div>
         <div>

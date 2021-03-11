@@ -57,7 +57,7 @@ class Searchbar extends React.Component {
   render() {
     if(this.state.questions !== []) {
     return (
-      <div>
+      <div className="button">
         <input id="searchbar" type="text" onChange={this.editSearchTerm.bind(this)} placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."></input>
         <QuestionList questions={this.dynamicSearch()}/>
       </div>
