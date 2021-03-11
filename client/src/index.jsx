@@ -71,6 +71,8 @@ class App extends React.Component {
   render() {
     // console.log('rendering', this.state.currentProduct);
     if (Object.keys(this.state.currentProduct).length) {
+
+
       return (
         <div id="grid-container">
           <div className="widget-for-clicks" id="ModuleOverview">

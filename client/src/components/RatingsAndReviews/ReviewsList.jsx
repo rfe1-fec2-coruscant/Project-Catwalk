@@ -80,7 +80,7 @@ class ReviewsList extends React.Component {
 
   renderButton(){
     if (this.state.shown) {
-      return (<button id="more-reviews" type="button" onClick={this.boundRenderTwoMoreTiles}>More Reviews</button>)
+      return (<button className="largeButton" id="more-reviews" type="button" onClick={this.boundRenderTwoMoreTiles}>More Reviews</button>)
     } else {
       return (<div id="rev-button-placeholder"></div>)
     }

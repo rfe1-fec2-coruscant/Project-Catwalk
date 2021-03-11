@@ -2,7 +2,7 @@ import React from 'react';
 
 var ProductBreakdown = (props) => (
   <div id="rev-product-breakdown">
-    <div id='here' >ProductBreakdown
+    <div id='here' >
 
       <br></br><input type="range" min="1" max="100"  id="size-bar-size" className="prod-char-bar"/>
       <table>

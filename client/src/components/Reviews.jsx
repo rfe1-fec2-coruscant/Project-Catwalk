@@ -34,7 +34,7 @@ class Reviews extends React.Component {
       if (Object.keys(this.state.curProduct).length > 0) {
         return (
           <div className="rev-container widget center-subwidgets" id="reviews-outer-div">
-            <h2 id="reviews-outer-title" class="header-text">Ratings and Reviews</h2>
+            <h2 id="reviews-outer-title" class="header-text">RATINGS AND REVIEWS</h2>
             {/* <KeyWordSearch /> */}
             <RatingBreakdown
               curProduct={this.state.curProduct}

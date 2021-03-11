@@ -4,7 +4,7 @@ import StyleBubble from './StyleBubble.jsx';
 
 var ProductStyles = ( {styles, currentStyle, changeStyle} ) => (
   <div id="product-styles">
-    <p className="bold-text style-header">Style > <strong>{currentStyle.name}</strong></p>
+    <p className="bold-text style-header">STYLE > <span id="style-text">{currentStyle.name.toUpperCase()}</span></p>
     <div id="styles-container">
       {
         styles.map( (style) => {

@@ -9,6 +9,7 @@ var ProductList = ( {products, select} ) => {
       <li data-index={i} onClick={select}>{products[i].name} | ID: {products[i].id}</li>
     );
   }
+
   // console.log("productsList: ",productsList);
 
   return(

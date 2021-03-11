@@ -22,7 +22,7 @@ class PurchaseOptions extends React.Component {
     var returnOptions = [];
     var sizes = this.state.sizes;
     for (var each in sizes) {
-      // console.log(sizes[each]);
+     // console.log(sizes[each]);
       if (sizes[each].quantity > 0) {
         returnOptions.push(
           <SizeOption sku={sizes[each]} pickSize={this.sizeSelected}/>
@@ -57,14 +57,14 @@ class PurchaseOptions extends React.Component {
           required
           id="size-selector"
           value={this.state.selectedSize}
-          className="purchase-buttons"
+          className="largeButton purchase-buttons"
           onChange={this.sizeSelected}>
             <option
             disabled
             selected="selected"
             value=""
             className="dead-option">
-              Pick a size
+              PICK A SIZE
             </option>
             {this.renderSizeOptions()}
           </select>
@@ -72,7 +72,7 @@ class PurchaseOptions extends React.Component {
         </div>
         <div>
           <AddToCart />
-          <div id="favorite" className="purchase-buttons">*</div>
+          <div id="favorite" className="largeButton purchase-buttons">*</div>
         </div>
       </div>
     );
