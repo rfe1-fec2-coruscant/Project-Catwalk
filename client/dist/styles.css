@@ -23,6 +23,25 @@
 
   /* var(--varname)- */
 }
+
+[data-theme="dark"] {
+  --background-color: #429696;
+  --dark-teal: #9EDADA;
+  --light-teal: #429696;
+  --lightest-teal: #429696;
+
+  --white: black;
+
+  --lightest-yellow: #fff4de;
+  --yellow: #ffc144;
+  --dark-yellow: #f9A600;
+  --darkest-yellow: #e6870a;
+  --light-yellow: #ffdb93;
+
+  --pink: #FF9393;
+  --red: #FF4444;
+  --pale-pink: #FFECEC;
+}
 /*
 @font-face {
   font-family: Source Sans Pro;
@@ -486,17 +505,29 @@ header {
 /* } */
 
 .related-products {
-  padding-left: 60px;
+  padding-left: 63px;
+  overflow-y: hidden;
+  /* padding-left: 105px; */
+  /* margin-left: 35px; */
+  /* padding-top: 125px; */
+  /* margin-bottom: 15px; */
+  max-width: 96vw;
+  object-fit: none;
+  height: 460px;
+  position: relative;
+  margin-top: 20px;
+  margin-left: -22px;
+  white-space: nowrap;
 }
 
 .related-items-header {
-  padding-left: 65px;
+  padding-left: 45px;
 }
 
 .change-product-button {
   display: inline-block;
   position: absolute;
-  top: 126%;
+  top: 45%;
   height: 50px;
   width: 20px;
   margin-top: -20px;
@@ -509,6 +540,7 @@ header {
   cursor: pointer;
   /* margin: 5px; */
 }
+
 
 .change-product-button:hover {
   background-color: var(--dark-teal);
@@ -717,7 +749,7 @@ img.product-card-image {
 .bobmodal-main {
   position: fixed;
   /* background: #dde; */
-  width: 60%;
+  width: 30%;
   height: auto;
   top: 35%;
   left: 50%;
@@ -795,7 +827,7 @@ img.product-card-image {
 
 .your-outfit-cards {
   /* width: 975px; */
-  padding-left: 60px;
+  padding-left: 44px;
   max-width: 96vw;
   object-fit: none;
   height: 460px;
@@ -900,7 +932,7 @@ img.product-card-image {
   border-color: lightgray;
   margin-top: var(--large-margin);
   margin-bottom: var(--large-margin);
-  width: 95%;
+  width: 100%;
   text-align: left;
 
 
