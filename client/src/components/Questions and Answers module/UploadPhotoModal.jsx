@@ -54,4 +54,4 @@ class UploadPhotoModal extends React.Component {
   }
 
 
-export default UploadPhotoModal;
+// export default UploadPhotoModal;

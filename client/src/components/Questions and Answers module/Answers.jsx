@@ -9,7 +9,8 @@ class Answers extends React.Component {
     this.state = {
       length: 2,
       answersArray: [],
-      loadMoreVisible: false
+      loadMoreVisible: false,
+      allAnswers: false
     };
   }
 //const Answers = (props) => {
@@ -17,11 +18,20 @@ class Answers extends React.Component {
 
 componentDidMount() {
   this.sortAnswers();
+  if (this.state.answersArray.length > 2) {
+    this.setState({loadMoreVisible: true});
+  }
 
 }
 
 loadMoreAnswers() {
-  this.setState({length: this.state.answersArray.length, renderArray: this.state.answersArray.slice(0, length)});
+  if (this.state.loadMoreVisible === true) {
+    this.setState({length: this.state.answersArray.length, renderArray: this.state.answersArray.slice(0, length)});
+  }
+  else {
+    this.setState({length: 2});
+  }
+ this.setState({allAnswers: !this.state.allAnswers});
 }
 
 helpfulAnswerClick(e, answer) {
@@ -57,6 +67,7 @@ reportedClick(e, answer) {
       var otherAnswers = [];
       for (var id in this.props.answers) {
         var answer = this.props.answers[id];
+        var sellerArray = [];
         //separate the seller answers into their own array
         if (answer.answerer_name === "Seller") {
           sellerArray.push(answer);
@@ -98,12 +109,17 @@ reportedClick(e, answer) {
 
   render() {
     const loadMoreVisible = this.state.loadMoreVisible;
+    const allAnswers = this.state.allAnswers;
     let button;
-    if(loadMoreVisible) {
+    if(loadMoreVisible && !allAnswers) {
       button= <button className="moreAnswers"
       onClick={this.loadMoreAnswers.bind(this)}>LOAD MORE ANSWERS</button>;
+    } else if (loadMoreVisible && allAnswers) {
+      button =
+      <button className="moreAnswers"
+      onClick={this.loadMoreAnswers.bind(this)}>COLLAPSE</button>;
     } else {
-      button = <div></div>;
+      button= <div></div>;
     }
 
     return (
@@ -117,7 +133,10 @@ reportedClick(e, answer) {
             key={answer.id}
             answer={answer}
             helpfulAnswerClick={this.helpfulAnswerClick.bind(this)}
-            reportedClick={this.reportedClick.bind(this)}/> ))}
+            reportedClick={this.reportedClick.bind(this)}
+            key={answer.id}
+            /> ))}
+
             </span>
             <span>{button}</span>
             {/* <button className="moreAnswers"

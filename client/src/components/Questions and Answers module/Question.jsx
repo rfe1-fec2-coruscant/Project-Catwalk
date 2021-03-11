@@ -19,16 +19,16 @@ const Question = (props) => {
 
     return (
       <div>
-        <div className="question bold-text">
-          <div >
-            <b>Q: </b>
+        <div className="question">
+          <div className="bold-text">
+            <b className="question-body">Q: </b>
             <b>{props.question["question_body"]}</b>
           </div>
           <div >
-            <span className="helpful">Helpful?</span>
+            <span className="small-text helpful" >Helpful?</span>
             <span>{helpfulness}</span>
-            <span className="count">{props.question.question_helpfulness}</span>
-            <span className="divide">|</span>
+            <span className="small-text count">{props.question.question_helpfulness}</span>
+            <span className="regular-text divide">|</span>
             <span><AddAnswer
             productName={props.productName}
             question={props.question}
