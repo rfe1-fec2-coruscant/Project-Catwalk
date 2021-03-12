@@ -2,14 +2,13 @@ import React from 'react';
 
 
 
-var ProductList = ( {products, select} ) => {
+var ProductList = ( {products, selectNewProduct} ) => {
   var productsList = [];
   for (var i = 0; i < products.length; i++) {
     productsList.push(
-      <li data-index={i} onClick={select}>{products[i].name} | ID: {products[i].id}</li>
+      <li data-index={i} onClick={selectNewProduct}>{products[i].name} | ID: {products[i].id}</li>
     );
   }
-
   // console.log("productsList: ",productsList);
 
   return(

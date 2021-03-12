@@ -89,7 +89,7 @@ class App extends React.Component {
         <div id="grid-container">
           <div className="widget-for-clicks widget" id="ModuleOverview">
             <header>
-              <ProductList products={this.state.products} select={this.changeCurrentProduct} />
+              <ProductList products={this.state.products} selectNewProduct={this.changeCurrentProduct} />
               <div class="theme-switch-wrapper">
                 <label class="theme-switch" for="theme-toggle">
                   <input onClick={this.switchTheme.bind(this)}type="checkbox" id="theme-toggle" />
