@@ -2,6 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './src/index.jsx';
 
+// const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+
+// var switchTheme = function(e) {
+//   if (e.target.checked) {
+//       document.documentElement.setAttribute('data-theme', 'dark');
+//       }
+//   else {
+//       document.documentElement.setAttribute('data-theme', 'light');
+//     }
+//   }
+
+//   toggleSwitch.addEventListener('change', switchTheme, false);
+
 const globalClickTrackerWrapper = Component => {
   return class extends React.Component {
     constructor(props) {

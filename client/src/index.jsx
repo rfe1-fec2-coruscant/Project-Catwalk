@@ -7,6 +7,8 @@ import Questions from './components/Questions.jsx'
 import RelatedItemsAndComparisons from './components/RelatedItemsAndComparisons.jsx';
 import ProductList from './ProductList.jsx';
 
+
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -36,7 +38,6 @@ class App extends React.Component {
         this.setProductList(returnData);
       });
     }
-
   }
 
   addtoCart() {
@@ -68,7 +69,18 @@ class App extends React.Component {
     })
   }
 
+  switchTheme(e) {
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    console.log('e.target', e.target);
+    if (e.target.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    }
+
   render() {
+
     // console.log('rendering', this.state.currentProduct);
     if (Object.keys(this.state.currentProduct).length) {
 
@@ -77,9 +89,13 @@ class App extends React.Component {
         <div id="grid-container">
           <div className="widget-for-clicks widget" id="ModuleOverview">
             <header>
-              <ProductList
-              products={this.state.products}
-              select={this.changeCurrentProduct} />
+              <ProductList products={this.state.products} select={this.changeCurrentProduct} />
+              <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="theme-toggle">
+                  <input onClick={this.switchTheme.bind(this)}type="checkbox" id="theme-toggle" />
+                  <div class="slider round"></div>
+                </label>
+              </div>
             </header>
             <Overview product={this.state.currentProduct} addtoCart={this.addtoCart} />
           </div>

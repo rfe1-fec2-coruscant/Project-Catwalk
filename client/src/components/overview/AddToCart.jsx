@@ -8,7 +8,7 @@ var AddToCart = ( {addtoCart, qty} ) => {
       <div
       id="add-to-cart-button"
       className="purchase-buttons largeButton">
-        Add To Cart
+        ADD TO CART
       </div>
     );
   } else {
@@ -16,7 +16,7 @@ var AddToCart = ( {addtoCart, qty} ) => {
       <div
       id="add-to-cart-button"
       className="purchase-buttons largeButton">
-        Add To Cart
+        ADD TO CART
       </div>
     );
   }

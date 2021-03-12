@@ -126,7 +126,7 @@ reportedClick(e, answer) {
       <div>
         <div className="answers">
           <div>
-            <b>A: </b>
+            <b className="bold-text">A: </b>
           </div>
           <div>
             <span>{this.state.answersArray.slice(0,this.state.length).map((answer) => (<Answer
