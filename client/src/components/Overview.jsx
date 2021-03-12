@@ -10,7 +10,8 @@ class Overview extends React.Component {
     this.state = {
       styles: {},
       currentStyle: {},
-      reviewRating: {}
+      reviewRating: {},
+      styleImages: []
     };
     this.updateStyles = this.updateStyles.bind(this);
     this.changeCurrentStyle = this.changeCurrentStyle.bind(this);
@@ -62,6 +63,7 @@ class Overview extends React.Component {
         this.setState({
           currentStyle: styles[i]
         });
+        console.log('Number of style photos: ', styles[i].photos.length);
         break;
       }
     }
