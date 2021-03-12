@@ -89,7 +89,7 @@ class RatingsBreakdown extends React.Component {
             <div className="biggest-text" id="rev-num-rating">{this.state.averageRating}</div>
             <div id="rev-star-rating">
               {this.renderStars()}
-            </div>
+          </div>
 
             </div>
             <div id="recommendation">
