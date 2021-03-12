@@ -12,7 +12,6 @@ const AddQuestionModal = (props) => {
         <form className="modal-form answerText regular-text" >
           {/* <div> */}
             <label className="input-label-1">*Your Question:</label>
-            {/* <input onChange={props.handleAnswerInput} type="text" maxLength="1000"></input> */}
             <textarea className="input-1 large-input" onChange={props.handleAnswerInput} type="text" maxLength="1000" rows="4" cols="30">
             </textarea>
           {/* </div> */}

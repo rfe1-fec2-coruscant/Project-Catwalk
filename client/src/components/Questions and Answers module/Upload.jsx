@@ -17,7 +17,10 @@ class Upload extends React.Component {
   render() {
     return (
       <div>
-        <input type="file" onChange={this.props.handlePhotoSelect}/>
+        <label className="choose-photo">Choose file
+        <input className="hidden" type="file" onChange={this.props.handlePhotoSelect}/>
+
+        </label>
         {/* <img className="thumbnail"src={this.props.fileArray[0]}/> */}
       </div>
     );

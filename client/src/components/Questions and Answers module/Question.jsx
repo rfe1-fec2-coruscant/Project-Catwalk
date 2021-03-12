@@ -12,7 +12,7 @@ const Question = (props) => {
     // console.log(props.question["question_body"]);
      //helpful link disabled after one use
      if (props.question.helpfulDisabled === true) {
-      var helpfulness = <span>Yes</span>;
+      var helpfulness = <span className="small-text">Yes</span>;
     } else {
       var helpfulness = <button className="smallButton" onClick={(e) => props.helpfulQuestionClick(e, props.question)}>Yes</button>
     }

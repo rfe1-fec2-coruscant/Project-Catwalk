@@ -6,7 +6,8 @@ export default function Questions(props) {
   return (
     <div className="center-subwidgets q-and-a widget">
       <h2 className= "header header-text">QUESTIONS AND ANSWERS</h2>
-      <Searchbar/>
+      <Searchbar
+      currentProductId={props.currentProductId}/>
      </div>
   )
 

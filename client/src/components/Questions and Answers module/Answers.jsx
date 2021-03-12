@@ -28,7 +28,7 @@ loadMoreAnswers() {
   if (this.state.loadMoreVisible === true) {
     this.setState({length: this.state.answersArray.length, renderArray: this.state.answersArray.slice(0, length)});
   }
-  else {
+  if (this.state.allAnswers === true) {
     this.setState({length: 2});
   }
  this.setState({allAnswers: !this.state.allAnswers});
@@ -108,18 +108,30 @@ reportedClick(e, answer) {
 
 
   render() {
-    const loadMoreVisible = this.state.loadMoreVisible;
-    const allAnswers = this.state.allAnswers;
-    let button;
-    if(loadMoreVisible && !allAnswers) {
-      button= <button className="moreAnswers"
+    // const loadMoreVisible = this.state.loadMoreVisible;
+    // const allAnswers = this.state.allAnswers;
+    // let button;
+    // if(loadMoreVisible && !allAnswers) {
+      // button= <button className="moreAnswers"
+      // onClick={this.loadMoreAnswers.bind(this)}>LOAD MORE ANSWERS</button>;
+    // } else if (loadMoreVisible && allAnswers) {
+    //   button =
+      // <button className="moreAnswers"
+      // onClick={this.loadMoreAnswers.bind(this)}>COLLAPSE</button>;
+    // }
+    // else {
+    //   button= <div></div>;
+    // }
+    if (this.state.loadMoreVisible && !this.state.allAnswers) {
+      var button= <button className="moreAnswers"
       onClick={this.loadMoreAnswers.bind(this)}>LOAD MORE ANSWERS</button>;
-    } else if (loadMoreVisible && allAnswers) {
-      button =
-      <button className="moreAnswers"
+    } else if (this.state.loadMoreVisible && this.state.allAnswers) {
+      var button = <button className="moreAnswers"
       onClick={this.loadMoreAnswers.bind(this)}>COLLAPSE</button>;
-    } else {
-      button= <div></div>;
+      console.log(button);
+    }
+    else if(!this.state.loadMoreVisible) {
+      var button= <div></div>;
     }
 
     return (

@@ -38,15 +38,23 @@ componentDidUpdate(prevProps) {
   }
 
   loadMoreQuestions() {
-    this.setState({length: this.state.length +=2});
+    if (this.state.length >= this.state.questions.length) {
+      this.setState({length: 2});
+    } else {
+      this.setState({length: this.state.length +=2});
+    }
   }
 
   render() {
     const moreQuestionsVisible = this.state.moreQuestionsVisible;
     let moreQuestions;
-    if(moreQuestionsVisible && this.state.length <= this.state.questions.length) {
-      moreQuestions = <button type="button" className="largeButton" onClick={this.loadMoreQuestions.bind(this)}>MORE ANSWERED QUESTIONS</button>
-    } else {
+    if(moreQuestionsVisible && this.state.length < this.state.questions.length) {
+      moreQuestions = <button type="button" id="more-answered-questions" className="largeButton" onClick={this.loadMoreQuestions.bind(this)}>MORE ANSWERED QUESTIONS</button>
+    }
+    else if (moreQuestionsVisible) {
+      moreQuestions = <button type="button" id="more-answered-questions" className="largeButton" onClick={this.loadMoreQuestions.bind(this)}>COLLAPSE</button>
+    }
+    else {
       moreQuestions = <div></div>;
     }
 
