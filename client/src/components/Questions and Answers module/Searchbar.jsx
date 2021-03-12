@@ -22,11 +22,12 @@ class Searchbar extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if(prevProps.product !== this.props.product) {
-      this.setState({id: this.props.product.id});
-      var productID = this.props.product.id;
-      console.log('productID in searchbar', this.props.product.id);
-      ajaxRequests.get('qa/questions?product_id' + this.state.id, (results) => {
+    if(prevProps.currentProductId !== this.props.currentProductId) {
+      this.setState({id: this.props.currentProductId});
+      var productID = this.props.currentProductId;
+      console.log('productID in searchbar', this.state.id);
+      ajaxRequests.get('qa/questions?product_id=' + this.state.id, (results) => {
+        console.log(results.results);
         this.sortQuestions(results.results);
       })
     }
@@ -49,7 +50,6 @@ class Searchbar extends React.Component {
           return comparison;
         }
         array.sort(compareHelpful);
-
         this.setState({questions: array});
       }
 

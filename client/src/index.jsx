@@ -103,7 +103,7 @@ class App extends React.Component {
             <RelatedItemsAndComparisons handleProductClickFromRelatedProducts={this.handleProductClickFromRelatedProducts} currentProductId={this.state.currentProductId} />
           </div>
           <div className="widget-for-clicks widget" id="ModuleQuestions">
-            <Questions />
+            <Questions currentProductId={this.state.currentProductId}/>
           </div>
           <div className="widget-for-clicks widget" id="ModuleReviews">
             <Reviews />
