@@ -8,12 +8,12 @@ class ReviewsList extends React.Component {
       reviews: [],
       length: 2,
       shown: true,
+
       sorting1: {
         relevant: true,
         helpful: false,
         newest: false
       },
-
       sorting2: {
 
       }
@@ -43,7 +43,22 @@ class ReviewsList extends React.Component {
 
     }
     this.setState({reviews: startingTwo})
+  }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.curProductReviews !== this.props.curProductReviews) {
+      let startingTwo = [];
+      let i = 0
+      for (let review of this.props.curProductReviews) {
+        if (i === 2) {
+          break;
+        }
+        startingTwo.push(review);
+        i++;
+
+      }
+      this.setState({ reviews: startingTwo })
+    }
   }
 
   renderTwoMoreTiles() {
@@ -78,7 +93,7 @@ class ReviewsList extends React.Component {
     return stars
   }
 
-  renderButton(){
+  renderButton() {
     if (this.state.shown) {
       return (<button className="largeButton" id="more-reviews" type="button" onClick={this.boundRenderTwoMoreTiles}>More Reviews</button>)
     } else {
@@ -127,3 +142,29 @@ export default ReviewsList;
 
 
 
+//
+
+/*
+this.setState({curMeta: this.props.curProductMeta})
+    let characteristics = this.findCorrectCharacteristics()
+    let values = Object.values(characteristics)
+    let allValues = Object.values(this.allCharacteristics)
+
+    for (let i = 0; i < allValues.length; i ++) {
+      if (allValues[i] === values[i]) {
+        if (values[i] === 'Size') {
+          this.setState({ showSize: true})
+        } else if (values[i] === 'Width') {
+          this.setState({ showWidth: true })
+        } else if (values[i] === 'Comfort') {
+          this.setState({ showComfort: true })
+        } else if (values[i] === 'Quality') {
+          this.setState({ showQuality: true })
+        } else if (values[i] === 'Length') {
+          this.setState({ showLength: true })
+        } else if (values[i] === 'Fit') {
+          this.setState({ showFit: true })
+        }
+      }
+    }
+*/

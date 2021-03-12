@@ -14,27 +14,47 @@ import WriteNewReview from './RatingsAndReviews/WriteNewReview.jsx';
 class Reviews extends React.Component {
   constructor(props) {
     super(props);
-    this.tempid = 19735;
-    this.state = {curProduct: {}};
-
+    this.state = {
+      curProduct: {},
+      curProductMeta: {},
+      currentProductId : this.props.currentProductId
+    };
   }
 
   componentDidMount() {
-    ajaxRequests.get(`reviews?product_id=${this.tempid}`, (results) => {
+    this.fetchData()
+    this.anotherFetch()
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.currentProductId !== this.props.currentProductId) {
+      this.setState({
+        currentProductId: this.props.currentProductId
+      });
+      this.fetchData()
+      this.anotherFetch()
+    }
+  }
+
+  fetchData() {
+    ajaxRequests.get(`reviews?product_id=${this.props.currentProductId}`, (results) => {
       this.setState({ curProduct: results });
     })
-      // .catch((error) => {
-      //   console.log(error)
-      // })
+  }
 
+  anotherFetch() {
+    console.log('current product id', this.props.currentProductId)
+    ajaxRequests.get(`reviews/meta?product_id=${this.props.currentProductId}`, (results) => {
+      this.setState({ curProductMeta: results });
+
+    })
   }
 
     render() {
-      // console.log('Here is what Im getting', this.state.curProduct);
       if (Object.keys(this.state.curProduct).length > 0) {
         return (
           <div className="rev-container widget center-subwidgets" id="reviews-outer-div">
-            <h2 id="reviews-outer-title" class="header-text">RATINGS AND REVIEWS</h2>
+            <h2 id="reviews-outer-title" className="header-text">RATINGS AND REVIEWS</h2>
             {/* <KeyWordSearch /> */}
             <div className="reviews-body">
               <div>
@@ -44,7 +64,7 @@ class Reviews extends React.Component {
                   curProductCount={this.state.curProduct.count}
                   curProductReviews={this.state.curProduct.results}
                 /><br></br>
-                <ProductBreakdown/>
+                <ProductBreakdown curProductMeta={this.state.curProductMeta}/>
               </div>
               <div>
                 <ReviewsList

@@ -13,24 +13,29 @@ class RatingsBreakdown extends React.Component {
       averageRecommendation: 0,
       averageRating: 0,
       starCounter: {},
-      starPercentages: {}
-
-
+      starPercentages: {},
+      reviews: []
     };
 
     this.count = 0;
     this.everyPostive = 0;
     this.starRating;
     this.var;
-
   }
 
   componentDidMount() {
-    this.generateComponentState()
-
+    console.log('heres my propppppp', this.props.curProductReviews)
+    console.log('heres my statttTTTT', this.state.reviews)
+    this.generateComponentState(this.props.curProductReviews)
   }
 
-  generateComponentState () {
+  componentDidUpdate(prevProps) {
+    if (prevProps.curProductReviews !== this.props.curProductReviews) {
+      this.generateComponentState(this.props.curProductReviews)
+    }
+  }
+
+  generateComponentState(reviews) {
     let counter = {
       1: 0,
       2: 0,
@@ -45,7 +50,7 @@ class RatingsBreakdown extends React.Component {
       4: 0,
       5: 0
     }
-    this.props.curProductReviews.map((review) => {
+    reviews.map((review) => {
       this.count++
       if (counter[review.rating]) {
         counter[review.rating] += 1
@@ -53,40 +58,42 @@ class RatingsBreakdown extends React.Component {
         counter[review.rating] = 1
       }
 
-      this.setState({ averageRating: ((review.rating / this.count) * 5).toFixed(2)})
+      this.setState({ averageRating: ((review.rating / this.count)).toFixed(2)})
 
       if (review.recommend === true) {
         this.everyPostive++;
       }
-      this.setState({ averageRecommendation: (this.everyPostive / this.count) * 100})
+      this.setState({ averageRecommendation: ((this.everyPostive / this.count) * 100).toFixed(2)})
 
     })
     this.setState({ starCounter: counter })
 
     for (let j = 1; j <= 5; j++) {
-      let percentage = (counter[j] / this.count) * 100
-      perCounter[j] += percentage
+      let percentage = ((counter[j] / this.count) * 100).toFixed(0)
+      perCounter[j] = percentage
     }
     this.setState({ starPercentages: perCounter })
   }
   renderStars() {
     var stars = [];
-    if (this.state.averageRating % 1 === 0) {
-      for(let i = 0; i < this.state.averageRating; i++) {
+      for(let i = 0; i < 4; i++) {
         stars.push(<span className="rev-star fa fa-star"></span>)
       }
-    }
+
     return stars;
   }
 
   render() {
+    console.log('hey', this.props.curProductReviews)
+    console.log('hi', this.state.reviews)
+    console.log('hi', this.state.averageRating)
     return (
 
       <div id="ratings-breakdown">
         <div>
 
           <div id="average-rating-container">
-            <div className="biggest-text" id="rev-num-rating">{this.state.averageRating}</div>
+            <div className="biggest-text" id="rev-num-rating">{4.00}</div>
             <div id="rev-star-rating">
               {this.renderStars()}
           </div>

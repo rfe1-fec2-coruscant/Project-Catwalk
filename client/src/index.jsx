@@ -106,7 +106,7 @@ class App extends React.Component {
             <Questions currentProductId={this.state.currentProductId}/>
           </div>
           <div className="widget-for-clicks widget" id="ModuleReviews">
-            <Reviews />
+            <Reviews currentProductId={this.state.currentProductId}/>
           </div>
         </div>
       );
