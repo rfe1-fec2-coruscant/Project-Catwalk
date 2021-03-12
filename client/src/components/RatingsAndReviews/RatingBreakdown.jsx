@@ -58,29 +58,28 @@ class RatingsBreakdown extends React.Component {
         counter[review.rating] = 1
       }
 
-      this.setState({ averageRating: ((review.rating / this.count) * 5).toFixed(2)})
+      this.setState({ averageRating: ((review.rating / this.count)).toFixed(2)})
 
       if (review.recommend === true) {
         this.everyPostive++;
       }
-      this.setState({ averageRecommendation: (this.everyPostive / this.count) * 100})
+      this.setState({ averageRecommendation: ((this.everyPostive / this.count) * 100).toFixed(2)})
 
     })
     this.setState({ starCounter: counter })
 
     for (let j = 1; j <= 5; j++) {
-      let percentage = (counter[j] / this.count) * 100
-      perCounter[j] += percentage
+      let percentage = ((counter[j] / this.count) * 100).toFixed(0)
+      perCounter[j] = percentage
     }
     this.setState({ starPercentages: perCounter })
   }
   renderStars() {
     var stars = [];
-    if (this.state.averageRating % 1 === 0) {
-      for(let i = 0; i < this.state.averageRating; i++) {
+      for(let i = 0; i < 4; i++) {
         stars.push(<span className="rev-star fa fa-star"></span>)
       }
-    }
+
     return stars;
   }
 
@@ -94,7 +93,7 @@ class RatingsBreakdown extends React.Component {
         <div>
 
           <div id="average-rating-container">
-            <div className="biggest-text" id="rev-num-rating">{this.state.averageRating}</div>
+            <div className="biggest-text" id="rev-num-rating">{4.00}</div>
             <div id="rev-star-rating">
               {this.renderStars()}
             </div>
