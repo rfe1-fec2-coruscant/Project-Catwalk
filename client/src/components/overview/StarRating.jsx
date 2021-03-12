@@ -33,7 +33,7 @@ var StarRating = ( {reviews} ) => {
         <span>
           {starsArray}
         </span>
-        <a className="smallButton" href="#reviews-component">See all {reviews.num} reviews</a>
+        <a className="smallButton" href="#reviews-outer-div">See all {reviews.num} reviews</a>
     </div>
   );
 }

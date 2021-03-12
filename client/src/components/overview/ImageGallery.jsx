@@ -1,12 +1,33 @@
 import React from 'react';
 
-var ImageGallery = ({currentProduct}) => (
-  <div id="image-gallery">
-    <div id="image-gallery-carousel"></div>
-    <div id="image-gallery-view">
-      <img alt="" src={currentProduct.photos[0].url}></img>
-    </div>
-  </div>
-);
+import ImageGalleryView from './ImageGalleryView.jsx';
+import ImageGalleryCarouselItem from './ImageGalleryCarouselItem.jsx';
+
+// var ImageGallery = ({currentProduct}) =>
+
+class ImageGallery extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      imageIndex: 0
+    };
+  }
+
+
+  render () {
+    return(
+      <div id="image-gallery">
+        <div id="image-gallery-carousel">
+          {this.props.currentProduct.photos.map((photo) => {
+            return(
+              <ImageGalleryCarouselItem photo={photo.thumbnail_url}/>
+            );
+          })}
+        </div>
+        <ImageGalleryView image={this.props.currentProduct.photos[this.state.imageIndex].url} />
+      </div>
+    );
+  }
+}
 
 export default ImageGallery;
