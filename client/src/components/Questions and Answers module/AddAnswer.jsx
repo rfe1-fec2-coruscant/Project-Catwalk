@@ -17,7 +17,6 @@ class AddAnswer extends React.Component {
  }
 
  handlePhotoSelect(event) {
-  alert('setState!');
   var newArray = this.state.fileArray.slice();
   newArray.push(URL.createObjectURL(event.target.files[0]));
   console.log('newArray', newArray);
@@ -47,7 +46,6 @@ class AddAnswer extends React.Component {
   }
 
   handleAddAnswerSubmit() {
-    alert('submitting!')
     var data = {
       body: this.state.answerInput,
       name: this.state.nicknameInput,
@@ -65,7 +63,10 @@ class AddAnswer extends React.Component {
 
   render() {
     return (
-      <main>
+      <span>
+        <button type="button" className="smallButton"   onClick={this.showModal.bind(this)}>
+          Add Answer
+        </button>
         <AddAnswerModal
           show={this.state.show}
           handleClose={this.hideModal.bind(this)}
@@ -79,10 +80,7 @@ class AddAnswer extends React.Component {
           handlePhotoSelect={this.handlePhotoSelect.bind(this)}
           photo={this.state.photo}
           handleAddAnswerSubmit={this.handleAddAnswerSubmit.bind(this)}/>
-        <button className="smallButton" onClick={this.showModal.bind(this)}>
-          Add Answer
-        </button>
-      </main>
+      </span>
     );
   }
 }

@@ -6,7 +6,17 @@ class ReviewsList extends React.Component {
     super(props);
     this.state = {
       reviews: [],
-      length: 2
+      length: 2,
+      shown: true,
+      sorting1: {
+        relevant: true,
+        helpful: false,
+        newest: false
+      },
+
+      sorting2: {
+
+      }
     };
 
     this.count = 2;
@@ -37,7 +47,14 @@ class ReviewsList extends React.Component {
   }
 
   renderTwoMoreTiles() {
-    this.setState({length: this.state.length += 2})
+    if (this.state.length <= this.props.curProductReviews.length) {
+      this.setState({ length: this.state.length += 2 })
+    }
+
+    if (this.state.length >= this.props.curProductReviews.length) {
+      this.setState({shown: false})
+    }
+
   }
 
   generateAverageRatingAndRecommendation() {
@@ -61,6 +78,13 @@ class ReviewsList extends React.Component {
     return stars
   }
 
+  renderButton(){
+    if (this.state.shown) {
+      return (<button className="largeButton" id="more-reviews" type="button" onClick={this.boundRenderTwoMoreTiles}>More Reviews</button>)
+    } else {
+      return (<div id="rev-button-placeholder"></div>)
+    }
+ }
 
   render() {
     if (this.state.reviews.length > 0) {
@@ -86,7 +110,7 @@ class ReviewsList extends React.Component {
               />
             )
           })}
-          <button type="button" onClick={this.boundRenderTwoMoreTiles}>More Reviews</button>
+          {this.renderButton()}
         </div>
       )
     } else {

@@ -11,12 +11,15 @@ class ProductCardImg extends React.Component {
 
   componentDidMount() {
     ajaxRequests.get('products/' + this.props.relatedProductId + '/styles', data => {
-      var imageUrl;
+      var imageUrl = this.state.image;
       for (var obj of data.results) {
         if (obj['default?'] === true) {
           imageUrl = obj.photos[0].thumbnail_url;
           break;
         }
+      }
+      if (imageUrl === null) {
+        imageUrl = data.results[0].photos[0].thumbnail_url;
       }
       this.setState({
         image: imageUrl
@@ -38,7 +41,7 @@ class ProductCardImg extends React.Component {
     } else {
       return (
         <div className='product-image-container'>
-          <img className='product-card-image' src={this.state.image ||'https://miro.medium.com/max/880/0*H3jZONKqRuAAeHnG.jpg'}></img>
+          <img className='product-card-image' src={this.state.image || 'https://miro.medium.com/max/880/0*H3jZONKqRuAAeHnG.jpg'}></img>
           <div>
             <span className='x-action'><a onClick={() => this.props.handleOutfitRemove(relatedProductId) }>&#9447;</a></span>
           </div>

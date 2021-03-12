@@ -18,7 +18,7 @@ class ComparisonModal extends React.Component {
   componentDidUpdate(prevProps) {
     if (this.props.show !== prevProps.show) {
       this.setState({
-        showHideClassName: this.props.show ? 'modal display-block' : 'modal display-none',
+        showHideClassName: this.props.show ? 'bobmodal display-block' : 'bobmodal display-none',
         productFeatures: this.props.productFeatures,
         currentProductFeatures: this.props.currentProductFeatures,
         comparedName: this.props.comparedName,
@@ -37,9 +37,9 @@ class ComparisonModal extends React.Component {
     // var showHideClassName = this.props.show ? 'modal display-block' : 'modal display-none';
     return (
       <div className={this.state.showHideClassName}>
-      <div className='modal-main'>
+      <div className='bobmodal-main pop-up-modal'>
         <button type="button" className="close-button" onClick={this.props.handleCloseModal}>&#10006;</button>
-        <span className="comparing-header"><em>Comparing</em></span>
+        <span className="comparing-header">Comparing</span>
         <br></br>
         <span className="current-product-header">{this.state.currentProductName}</span>
         <span className="compared-product-header">{this.state.comparedName}</span>

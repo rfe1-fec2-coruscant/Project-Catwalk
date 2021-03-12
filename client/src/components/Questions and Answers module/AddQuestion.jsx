@@ -33,7 +33,6 @@ class AddQuestion extends React.Component {
   }
 
   handleAddQuestionSubmit() {
-    alert('submitting!')
     var data = {
       body: this.state.answerInput,
       name: this.state.nicknameInput,

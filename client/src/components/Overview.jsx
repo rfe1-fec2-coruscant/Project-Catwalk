@@ -57,7 +57,7 @@ class Overview extends React.Component {
     // debugger;
     var styles = this.state.styles.results;
     for (var i = 0; i < styles.length; i++) {
-      console.log(styles[i].style_id);
+      // console.log(styles[i].style_id);
       if (event.target.id == styles[i].style_id) {
         this.setState({
           currentStyle: styles[i]
@@ -74,19 +74,23 @@ class Overview extends React.Component {
       return(
         <div id="overview">
           <div id="product-display">
-            <ImageGallery currentProduct={this.state.currentStyle}/>
-            <ProductDetails
-              styles={this.state.styles}
-              currentProduct={this.props.product}
-              currentStyle={this.state.currentStyle}
-              changeStyle={this.changeCurrentStyle}
-              reviews={this.state.reviewRating}
-              addtoCart={this.props.addtoCart}
-            />
-          </div>
-          <div id="product-description" className="outline">
-            <h3>Product Description</h3>
-            <p>{this.props.product.description}</p>
+            <div id="overview-left">
+              <ImageGallery currentProduct={this.state.currentStyle}/>
+              <div id="product-description" >
+                <div  className= "bold-text" id="description-header">Product Description</div>
+                <p className= "regular-text">{this.props.product.description}</p>
+              </div>
+            </div>
+            <div id="overview-right">
+              <ProductDetails
+                styles={this.state.styles}
+                currentProduct={this.props.product}
+                currentStyle={this.state.currentStyle}
+                changeStyle={this.changeCurrentStyle}
+                reviews={this.state.reviewRating}
+                addtoCart={this.props.addtoCart}
+              />
+            </div>
           </div>
         </div>
       );
@@ -97,10 +101,10 @@ class Overview extends React.Component {
           <div id="product-display">
             <div id="image-gallery">Loading...</div>
             <div id="product-details">
-              <div id="star-rating">Start Rating = *****</div>
-              <p id="category">Category</p>
+              <div className="small-text" id="star-rating">Start Rating = *****</div>
+              <p className="header-text" id="category">Category</p>
               <h3 id="product-name">Ugly Christmas Sweater</h3>
-              <p id="product-price">Price</p>
+              <p className="regular-text" id="product-price">Price</p>
               <div id="product-styles">
                 <p className="style-header">Style > <strong>Current Style</strong></p>
                 <div id="styles-container">
@@ -115,20 +119,21 @@ class Overview extends React.Component {
                 </div>
               </div>
               <div id="purchase-options">
-                <div className="outline">
-                  <div id="size-selector" className="purchase-buttons">Size</div>
-                  <div id="quantity-selector" className="purchase-buttons">Quant</div>
+              {/* <div className="outline"> */}
+                <div>
+                  <div id="size-selector" className="largeButton purchase-buttons">Size</div>
+                  <div id="quantity-selector" className="largeButton purchase-buttons">Quant</div>
                 </div>
                 <div>
-                  <div id="add-to-cart-button" className="purchase-buttons">Add To Cart</div>
-                  <div id="favorite" className="purchase-buttons">*</div>
+                  <div id="add-to-cart-button" className="largeButton purchase-buttons">Add To Cart</div>
+                  <div id="favorite" className="largeButton purchase-buttons">*</div>
                 </div>
               </div>
             </div>
           </div>
-          <div id="product-description" className="outline">
-            <h3>Product Description</h3>
-            <p>Ea quis esse amet laborum dolore nisi labore duis do. Proident aliqua commodo aliqua officia cupidatat duis aliquip amet commodo aliquip ea eu officia dolore. Anim reprehenderit ut amet dolor cillum aliquip adipisicing nulla.</p>
+          <div className="outline center-subwidgets">
+            <h3 id="product-description" className="bold-text">Product Description</h3>
+            <p className="small-text">Ea quis esse amet laborum dolore nisi labore duis do. Proident aliqua commodo aliqua officia cupidatat duis aliquip amet commodo aliquip ea eu officia dolore. Anim reprehenderit ut amet dolor cillum aliquip adipisicing nulla.</p>
           </div>
         </div>
       );
@@ -144,7 +149,7 @@ class Overview extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log('props:',prevProps.product, this.props.product);
+    // console.log('props:',prevProps.product, this.props.product);
     if (prevProps.product !== this.props.product) {
       ajaxRequests.get(`products/${this.props.product.id}/styles`, this.updateStyles);
     }

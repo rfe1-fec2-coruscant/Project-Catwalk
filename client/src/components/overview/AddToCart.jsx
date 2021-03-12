@@ -7,7 +7,7 @@ var AddToCart = ( {addtoCart, qty} ) => {
     return(
       <div
       id="add-to-cart-button"
-      className="purchase-buttons">
+      className="purchase-buttons largeButton">
         Add To Cart
       </div>
     );
@@ -15,7 +15,7 @@ var AddToCart = ( {addtoCart, qty} ) => {
     return(
       <div
       id="add-to-cart-button"
-      className="purchase-buttons">
+      className="purchase-buttons largeButton">
         Add To Cart
       </div>
     );

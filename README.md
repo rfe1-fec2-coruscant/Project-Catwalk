@@ -9,3 +9,5 @@ in your terminal.
 # Access the API
 
 Add your GitHub token to example_config.js and rename it to config.js
+
+

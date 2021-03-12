@@ -12,7 +12,7 @@ class RelatedItemsAndComparisons extends React.Component {
     this.setYourOutfitIdsOnInitialMount = this.setYourOutfitIdsOnInitialMount.bind(this);
     this.handleProductDetailRender = this.handleProductDetailRender.bind(this);
     this.state = {
-      currentProductId: 19735,
+      currentProductId: this.props.currentProductId,
       relatedProductIds: [],
       yourOutfitIds: [],
       isCurrentProductAdded: false
@@ -21,6 +21,30 @@ class RelatedItemsAndComparisons extends React.Component {
 
   componentDidMount() {
     this.fetchData();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.currentProductId !== this.props.currentProductId) {
+      var updatedIsCurrentProductAdded = this.state.isCurrentProductAdded;
+      if (this.state.yourOutfitIds.includes(this.props.currentProductId)) {
+        updatedIsCurrentProductAdded = true;
+      } else {
+        updatedIsCurrentProductAdded = false;
+      }
+      this.setState({
+        currentProductId: this.props.currentProductId,
+        isCurrentProductAdded: updatedIsCurrentProductAdded
+      });
+      this.secondaryFetch(this.props.currentProductId);
+    }
+  }
+
+  secondaryFetch(id) {
+    ajaxRequests.get('products/' + id + '/related', relatedProductIds => {
+      this.setState({
+        relatedProductIds: relatedProductIds
+      });
+    });
   }
 
   fetchData() {
@@ -35,6 +59,7 @@ class RelatedItemsAndComparisons extends React.Component {
     if (id === this.state.currentProductId) {
       return console.log('you\'re already on this product\'s page!');
     }
+    this.props.handleProductClickFromRelatedProducts(id);
     // check if id passed up is in yourOutfitIds
     var updatedIsCurrentProductAdded = this.state.yourOutfitIds.indexOf(id) === -1 ? false : true;
     this.setState({
@@ -82,10 +107,11 @@ class RelatedItemsAndComparisons extends React.Component {
   render() {
     return (
       <div className="related-items">
-        <h2 className="related-items-header related-items-header-text">Related Items and Comparisons</h2>
+        <h2 className="related-items-header related-items-header-text header-text">RELATED ITEMS AND COMPARISONS</h2>
           <RelatedProducts relatedProductIds={this.state.relatedProductIds} currentProductId={this.state.currentProductId} handleProductDetailRender={this.handleProductDetailRender}/>
         <br></br>
-        <h2 className="related-items-header related-items-header-text">Your Outfit</h2>
+        <br></br>
+        <h2 className="related-items-header related-items-header-text header-text">YOUR OUTFIT</h2>
         <YourOutfit isCurrentProductAdded={this.state.isCurrentProductAdded} yourOutfitIds={this.state.yourOutfitIds} handleAddOutfit={this.handleAddOutfit} handleOutfitRemove={this.handleOutfitRemove} setYourOutfitIdsOnInitialMount={this.setYourOutfitIdsOnInitialMount} handleProductDetailRender={this.handleProductDetailRender}/>
       </div>
     );
@@ -94,3 +120,5 @@ class RelatedItemsAndComparisons extends React.Component {
 }
 
 export default RelatedItemsAndComparisons;
+
+// line 102 class:  center-subwidgets widget

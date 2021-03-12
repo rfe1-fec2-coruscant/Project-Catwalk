@@ -2,11 +2,11 @@ import React from 'react'
 
 
 const AddQuestionModal = (props) => {
-  const showHideClassName = props.show ? "add-answer-modal display-block" : "add-answer-modal display-none";
+  const showHideClassName = props.show ? "add-answer-modal display-block bobmodal" : "add-answer-modal display-none bobmodal";
 
   return (
     <div className={showHideClassName}>
-      <section className="add-answer-modal-main">
+      <section className="add-answer-modal-main pop-up-modal">
         {props.children}
         <h2 className="header">Submit your Question</h2>
         <form className="answerText" >
@@ -27,12 +27,13 @@ const AddQuestionModal = (props) => {
             <label>For authentication reasons, you will not be emailed.</label>
           </div>
         </form>
-            <button type="button" onClick={props.handleAddQuestionSubmit}>SubmitQuestion</button>
+        <button type="button" onClick={props.handleAddQuestionSubmit}>SubmitQuestion</button>
         <button type="button" onClick={props.handleClose}>
           Close
         </button>
       </section>
     </div>
+
   );
 };
 

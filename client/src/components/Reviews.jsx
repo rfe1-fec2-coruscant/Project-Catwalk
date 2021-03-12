@@ -30,28 +30,32 @@ class Reviews extends React.Component {
   }
 
     render() {
-      console.log('Here is what Im getting', this.state.curProduct)
+      // console.log('Here is what Im getting', this.state.curProduct);
       if (Object.keys(this.state.curProduct).length > 0) {
         return (
-          <div className="rev-container" id="reviews-outer-div">
-            <h2 id="reviews-outer-title">Ratings and Reviews</h2>
+          <div className="rev-container widget center-subwidgets" id="reviews-outer-div">
+            <h2 id="reviews-outer-title" class="header-text">RATINGS AND REVIEWS</h2>
             {/* <KeyWordSearch /> */}
-            <RatingBreakdown
-              curProduct={this.state.curProduct}
-              curProductId={this.state.curProduct.product}
-              curProductCount={this.state.curProduct.count}
-              curProductReviews={this.state.curProduct.results}
-            /><br></br>
-            <ProductBreakdown
-
-            />
-            <ReviewsList
-            curProduct={this.state.curProduct}
-            curProductId={this.state.curProduct.product}
-            curProductCount={this.state.curProduct.count}
-            curProductReviews={this.state.curProduct.results}
-          /><br></br>
-            <WriteNewReview />
+            <div className="reviews-body">
+              <div>
+                <RatingBreakdown
+                  curProduct={this.state.curProduct}
+                  curProductId={this.state.curProduct.product}
+                  curProductCount={this.state.curProduct.count}
+                  curProductReviews={this.state.curProduct.results}
+                /><br></br>
+                <ProductBreakdown/>
+              </div>
+              <div>
+                <ReviewsList
+                curProduct={this.state.curProduct}
+                curProductId={this.state.curProduct.product}
+                curProductCount={this.state.curProduct.count}
+                curProductReviews={this.state.curProduct.results}
+              /><br></br>
+                <WriteNewReview />
+              </div>
+            </div>
           </div>
         )
 
