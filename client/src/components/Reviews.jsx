@@ -14,33 +14,47 @@ import WriteNewReview from './RatingsAndReviews/WriteNewReview.jsx';
 class Reviews extends React.Component {
   constructor(props) {
     super(props);
-    this.tempid = 19735;
     this.state = {
       curProduct: {},
-      curProductMeta: {}
+      curProductMeta: {},
+      currentProductId : this.props.currentProductId
     };
-
   }
 
   componentDidMount() {
-    ajaxRequests.get(`reviews?product_id=${this.tempid}`, (results) => {
+    this.fetchData()
+    this.anotherFetch()
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.currentProductId !== this.props.currentProductId) {
+      this.setState({
+        currentProductId: this.props.currentProductId
+      });
+      this.fetchData()
+      this.anotherFetch()
+    }
+  }
+
+  fetchData() {
+    ajaxRequests.get(`reviews?product_id=${this.props.currentProductId}`, (results) => {
       this.setState({ curProduct: results });
     })
+  }
 
-    ajaxRequests.get(`reviews/meta/?product_id=${this.tempid}`, (results) => {
+  anotherFetch() {
+    console.log('current product id', this.props.currentProductId)
+    ajaxRequests.get(`reviews/meta?product_id=${this.props.currentProductId}`, (results) => {
       this.setState({ curProductMeta: results });
+
     })
-      // .catch((error) => {
-      //   console.log(error)
-      // })
   }
 
     render() {
-      // console.log('Here is what Im getting', this.state.curProduct);
       if (Object.keys(this.state.curProduct).length > 0) {
         return (
           <div className="rev-container widget center-subwidgets" id="reviews-outer-div">
-            <h2 id="reviews-outer-title" class="header-text">RATINGS AND REVIEWS</h2>
+            <h2 id="reviews-outer-title" className="header-text">RATINGS AND REVIEWS</h2>
             {/* <KeyWordSearch /> */}
             <div className="reviews-body">
               <div>

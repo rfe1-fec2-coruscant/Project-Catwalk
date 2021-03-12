@@ -11,132 +11,169 @@ class ProductBreakdown extends React.Component  {
       showLength: false,
       showFit: false
     }
-    this.allCharacteristics = {
-      0: 'Size',
-      1: 'Width',
-      2: 'Comfort',
-      3: 'Quality',
-      4: 'Length',
-      5: 'Fit'
-    }
+
+
   }
 
   componentDidMount() {
-  //  let characteristics = this.findCorrectCharacteristics()
-  //  let values = Object.values(characteristics)
-  //  let allValues = Object.values(this.allCharacteristics)
-
-  //   for (let i = 0; i < allValues.length; i ++) {
-  //     if (allValues[i] === values[i]) {
-  //       if (values[i] === 'Size') {
-  //         this.setState({ showSize: true})
-  //       } else if (values[i] === 'Width') {
-  //         this.setState({ showWidth: true })
-  //       } else if (values[i] === 'Comfort') {
-  //         this.setState({ showComfort: true })
-  //       } else if (values[i] === 'Quality') {
-  //         this.setState({ showQuality: true })
-  //       } else if (values[i] === 'Length') {
-  //         this.setState({ showLength: true })
-  //       } else if (values[i] === 'Fit') {
-  //         this.setState({ showFit: true })
-  //       }
-  //     }
-  //   }
-
+    this.setCharacteristicsState()
   }
 
-  findCorrectCharacteristics () {
-    let characteristics = Object.keys(curProductMeta.characteristics)
-    let allCharacteristics = {
-      0: 'Size',
-      1: 'Width',
-      2: 'Comfort',
-      3: 'Quality',
-      4: 'Length',
-      5: 'Fit'
+  componentDidUpdate(prevProps) {
+    if (prevProps.curProductMeta !== this.props.curProductMeta) {
+      this.setCharacteristicsState()
     }
-    for (let i = 0; i < 5; i++) {
-      if (characteristics.indexOf(allCharacteristics[i] === -1)) {
-        allCharacteristics[i] = '';
-      }
-    }
-    return allCharacteristics
   }
+
+  setCharacteristicsState() {
+    let prodValues = Object.keys(this.props.curProductMeta.characteristics)
+    if (prodValues.includes('Size')) {
+      this.setState({ showSize: true })
+    }
+    if (prodValues.includes('Width')) {
+      this.setState({ showWidth: true })
+    }
+     if (prodValues.includes('Comfort')) {
+      this.setState({ showComfort: true })
+    }
+     if (prodValues.includes('Quality')) {
+      this.setState({ showQuality: true })
+    }
+    if (prodValues.includes('Length')) {
+      this.setState({ showLength: true })
+    }
+     if (prodValues.includes('Fit')) {
+      this.setState({ showFit: true })
+    }
+  }
+
+  renderSizeBar() {
+    let value = (this.props.curProductMeta.characteristics['Size'].value / 5) * 100
+    return (
+      <div>
+        <br></br><input type="range" min="1" max="100" value={value} id="size-bar-size" className="prod-char-bar" />
+        <table>
+          <tbody>
+            <tr id="size-table">
+              <th id="sth1" >Too small</th>
+              <th id="sth2">Perfect</th>
+              <th id="sth3">Too big</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    )
+  }
+
+  renderWidthBar() {
+    let value = (this.props.curProductMeta.characteristics['Width'].value / 5) * 100
+    return (
+      <div>
+        <br></br><input type="range" min="1" max="100" value={value} id="size-bar-width" className="prod-char-bar" />
+        <table>
+          <tbody>
+            <tr>
+              <th id="sth1" >Too small</th>
+              <th id="sth2">Perfect</th>
+              <th id="sth3">Too big</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    )
+  }
+
+  renderComfortBar() {
+    let value = (this.props.curProductMeta.characteristics['Comfort'].value / 5) * 100
+    return (
+      <div>
+        <br></br><input type="range" min="1" max="100" value={value} id="size-bar-comfort" className="prod-char-bar" />
+        <table>
+          <tbody>
+            <tr id="size-table">
+              <th id="cth1">Poor</th>
+              <th id="cth2">Perfect</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    )
+  }
+
+  renderQualityBar() {
+    let value = (this.props.curProductMeta.characteristics['Quality'].value / 5) * 100
+    return (
+      <div>
+        <br></br><input type="range" min="1" max="100" value={value} id="size-bar-quality" className="prod-char-bar" />
+        <table>
+          <tbody>
+            <tr>
+              <th id="cth1">Poor</th>
+              <th id="cth2">Perfect</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    )
+  }
+
+  renderLengthBar() {
+    let value = (this.props.curProductMeta.characteristics['Length'].value / 5) * 100
+    return (
+      <div>
+        <br></br><input type="range" min="1" max="100" value={value} id="size-bar-length" className="prod-char-bar" />
+        <table>
+          <tbody>
+            <tr id="size-table">
+              <th id="sth1" >Too small</th>
+              <th id="sth2">Perfect</th>
+              <th id="sth3">Too big</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    )
+  }
+
+  renderFitBar() {
+    let value = (this.props.curProductMeta.characteristics['Fit'].value / 5) * 100
+    return (
+      <div>
+        <br></br><input type="range" min="1" max="100" value={value} id="size-bar-fit" className="prod-char-bar" />
+        <table>
+          <tbody>
+            <tr>
+              <th id="sth1" >Too small</th>
+              <th id="sth2">Perfect</th>
+              <th id="sth3">Too big</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    )
+  }
+
   // Size, Width, Comfort, Quality, Length, and Fit.
 
   render() {
-    const { curProductMeta } = this.props;
-    return (
-      <div id="rev-product-breakdown">
-        <div id='here' >ProductBreakdown
+    // console.log('Cmon Now', )
+    // console.log('heres my state', this.state)
+    // console.log('heres my chars', this.props.curProductMeta.characteristics)
 
-        <br></br><input type="range" min="1" max="100" id="size-bar-size" className="prod-char-bar" />
-          <table>
-            <tbody>
-              <tr id="size-table">
-                <th id="sth1" >Too small</th>
-                <th id="sth2">Perfect</th>
-                <th id="sth3">Too big</th>
-              </tr>
-            </tbody>
-          </table>
-
-          <br></br><input type="range" min="1" max="100" id="size-bar-width" className="prod-char-bar" />
-          <table>
-            <tbody>
-              <tr>
-                <th id="cth1">Poor</th>
-                <th id="cth2">Perfect</th>
-              </tr>
-            </tbody>
-          </table>
-
-          <br></br><input type="range" min="1" max="100" id="size-bar-comfort" className="prod-char-bar" />
-          <table>
-            <tbody>
-              <tr id="size-table">
-                <th id="sth1" >Too small</th>
-                <th id="sth2">Perfect</th>
-                <th id="sth3">Too big</th>
-              </tr>
-            </tbody>
-          </table>
-
-          <br></br><input type="range" min="1" max="100" id="size-bar-quality" className="prod-char-bar" />
-          <table>
-            <tbody>
-              <tr>
-                <th id="cth1">Poor</th>
-                <th id="cth2">Perfect</th>
-              </tr>
-            </tbody>
-          </table>
-
-          <br></br><input type="range" min="1" max="100" id="size-bar-length" className="prod-char-bar" />
-          <table>
-            <tbody>
-              <tr id="size-table">
-                <th id="sth1" >Too small</th>
-                <th id="sth2">Perfect</th>
-                <th id="sth3">Too big</th>
-              </tr>
-            </tbody>
-          </table>
-
-          <br></br><input type="range" min="1" max="100" id="size-bar-fit" className="prod-char-bar" />
-          <table>
-            <tbody>
-              <tr>
-                <th id="cth1">Poor</th>
-                <th id="cth2">Perfect</th>
-              </tr>
-            </tbody>
-          </table>
-
+      return (
+        <div id="rev-product-breakdown">
+          <div id='here' >ProductBreakdown</div>
+            {this.state.showSize ? this.renderSizeBar() : ''}
+            {this.state.showWidth ? this.renderWidthBar() : ''}
+            {this.state.showFit ? this.renderFitBar() : ''}
+            {this.state.showLength ? this.renderLengthBar() : ''}
+            {this.state.showQuality ? this.renderQualityBar() : ''}
+            {this.state.showComfort ? this.renderComfortBar() : ''}
         </div>
-      </div>
-    )
+      )
+
   }
 }
 export default ProductBreakdown;

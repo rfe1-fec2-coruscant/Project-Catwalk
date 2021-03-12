@@ -13,24 +13,29 @@ class RatingsBreakdown extends React.Component {
       averageRecommendation: 0,
       averageRating: 0,
       starCounter: {},
-      starPercentages: {}
-
-
+      starPercentages: {},
+      reviews: []
     };
 
     this.count = 0;
     this.everyPostive = 0;
     this.starRating;
     this.var;
-
   }
 
   componentDidMount() {
-    this.generateComponentState()
-
+    console.log('heres my propppppp', this.props.curProductReviews)
+    console.log('heres my statttTTTT', this.state.reviews)
+    this.generateComponentState(this.props.curProductReviews)
   }
 
-  generateComponentState () {
+  componentDidUpdate(prevProps) {
+    if (prevProps.curProductReviews !== this.props.curProductReviews) {
+      this.generateComponentState(this.props.curProductReviews)
+    }
+  }
+
+  generateComponentState(reviews) {
     let counter = {
       1: 0,
       2: 0,
@@ -45,7 +50,7 @@ class RatingsBreakdown extends React.Component {
       4: 0,
       5: 0
     }
-    this.props.curProductReviews.map((review) => {
+    reviews.map((review) => {
       this.count++
       if (counter[review.rating]) {
         counter[review.rating] += 1
@@ -80,6 +85,9 @@ class RatingsBreakdown extends React.Component {
   }
 
   render() {
+    console.log('hey', this.props.curProductReviews)
+    console.log('hi', this.state.reviews)
+    console.log('hi', this.state.averageRating)
     return (
 
       <div id="ratings-breakdown">
