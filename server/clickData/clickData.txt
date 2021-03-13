@@ -1,0 +1,4 @@
+
+{"nodeName":"DIV","className":"","id":"product-details","textContent":"See all 6 reviewsROMPERAlberto Romper826.00STYLE > GOLDPICK A SIZEXSSMLXLXXLADD TO CART*","dateOfClick":"2021-03-13T20:16:19.043Z"}
+{"nodeName":"I","className":"star fa fa-star","id":"","textContent":"","dateOfClick":"2021-03-13T20:16:19.759Z"}
+{"nodeName":"IMG","className":"","id":"","textContent":"","dateOfClick":"2021-03-13T20:16:21.069Z"}

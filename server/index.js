@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const path = require('path');
 const config = require('../config.js');
 const sessionConfig = require('./sessionConfig.js');
+const globalClickTracker = require('./globalClickTracker.js');
 const morgan = require('morgan');
 
 const PORT = 3000;
@@ -98,6 +99,21 @@ app.post('/post', (req, res) => {
     .catch(err => {
       res.send(err).end();
     });
+});
+
+app.post('/globalClickTracker', (req, res) => {
+  globalClickTracker(req.body, err => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.sendStatus(200);
+    }
+  });
+});
+
+app.get('/clickData', (req, res) => {
+  console.log('__dirname:', __dirname);
+  res.sendFile(__dirname + '/clickData/clickData.txt');
 });
 
 app.listen(PORT, () => {

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './src/index.jsx';
+import ajaxRequests from './ajaxRequests.js';
 
 // const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
 
@@ -59,11 +60,14 @@ const globalClickTrackerWrapper = Component => {
         textContent: e.target.textContent,
         dateOfClick: new Date()
       };
-      var updatedGlobalClickTracker = this.state.globalClickTracker;
-      var updatedClicksArray = updatedGlobalClickTracker[moduleName].data;
-      updatedClicksArray.push(clickObject);
-      updatedGlobalClickTracker[moduleName].count++;
-      this.setState({ globalClickTracker: updatedGlobalClickTracker });
+
+      ajaxRequests.postGlobalClickTracker(clickObject, () => {
+        var updatedGlobalClickTracker = this.state.globalClickTracker;
+        var updatedClicksArray = updatedGlobalClickTracker[moduleName].data;
+        updatedClicksArray.push(clickObject);
+        updatedGlobalClickTracker[moduleName].count++;
+        this.setState({ globalClickTracker: updatedGlobalClickTracker });
+      });
     }
 
     render() {
