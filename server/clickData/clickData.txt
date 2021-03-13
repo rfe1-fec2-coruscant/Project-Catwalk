@@ -148,3 +148,13 @@
 {"nodeName":"BUTTON","className":"modal-button bold-text","id":"","textContent":"Submit Question","dateOfClick":"2021-03-13T20:45:37.463Z"}
 {"nodeName":"BUTTON","className":"small-modal-button regular-text","id":"","textContent":"Close","dateOfClick":"2021-03-13T20:45:38.388Z"}
 {"nodeName":"BUTTON","className":"smallButton","id":"","textContent":"Yes","dateOfClick":"2021-03-13T20:45:40.581Z"}
+{"nodeName":"DIV","className":"product-card-text-box regular-text","id":"19364","textContent":"SocksYasmin Socks$464.00  ","dateOfClick":"2021-03-13T20:47:03.233Z"}
+{"nodeName":"DIV","className":"product-card-text-box regular-text","id":"19965","textContent":"SweaterFred Sweater$281.00  ","dateOfClick":"2021-03-13T20:47:09.251Z"}
+{"nodeName":"I","className":"fas fa-tshirt","id":"products-icon","textContent":"","dateOfClick":"2021-03-13T20:47:29.843Z"}
+{"nodeName":"INPUT","className":"","id":"products-menu-cb","textContent":"","dateOfClick":"2021-03-13T20:47:29.846Z"}
+{"nodeName":"I","className":"fas fa-tshirt","id":"products-icon","textContent":"","dateOfClick":"2021-03-13T20:47:30.979Z"}
+{"nodeName":"INPUT","className":"","id":"products-menu-cb","textContent":"","dateOfClick":"2021-03-13T20:47:30.981Z"}
+{"nodeName":"DIV","className":"slider round","id":"","textContent":"","dateOfClick":"2021-03-13T20:47:31.609Z"}
+{"nodeName":"INPUT","className":"","id":"theme-toggle","textContent":"","dateOfClick":"2021-03-13T20:47:31.611Z"}
+{"nodeName":"DIV","className":"slider round","id":"","textContent":"","dateOfClick":"2021-03-13T20:47:33.218Z"}
+{"nodeName":"INPUT","className":"","id":"theme-toggle","textContent":"","dateOfClick":"2021-03-13T20:47:33.220Z"}
