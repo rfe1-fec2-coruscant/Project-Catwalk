@@ -216,6 +216,15 @@ body {
   outline: none;
 }
 
+.modal-button:hover {
+  color: var(--lightest-yellow);
+}
+
+.modal-button:active {
+  color: var(--light-yellow);
+  /* color: var(--yellow); */
+}
+
 .modal-buttons {
   display: flex;
   grid-column-start: 2;
@@ -245,6 +254,14 @@ body {
   cursor: pointer;
   outline: none;
   /* align-self: flex-end; */
+}
+
+.small-modal-button:hover {
+  color: var(--background-color);
+}
+
+.small-modal-button:active {
+  color: var(--light-teal);
 }
 
 .largeButton {
@@ -653,7 +670,7 @@ header {
 
 .related-products {
   padding-left: 63px;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
   /* padding-left: 105px; */
   /* margin-left: 35px; */
   /* padding-top: 125px; */
@@ -674,7 +691,8 @@ header {
 .change-product-button {
   display: inline-block;
   position: absolute;
-  top: 126%;
+  /* top: 126%; */
+  top: 45%;
   height: 50px;
   width: 20px;
   margin-top: -20px;
@@ -797,13 +815,11 @@ img.product-card-image {
 }
 
 .x-action:hover {
-  color: var(--pink);
-  /* background-color: black; */
+  color: #f39797;
 }
 
 .x-action:active {
-  color: black;
-  /* background-color: black; */
+  color: #f87d7d;
 }
 
 /* ProductCard: Stars */
@@ -919,26 +935,39 @@ img.product-card-image {
   border: 1px solid #429696;
   background-color: var(--pale-pink);
   cursor: pointer;
+  outline: none;
   /* margin-right: 7px; */
   /* margin: 5px; */
 }
 
+.close-button:hover {
+  background-color: #fac0c0;
+}
+
+.close-button:active {
+  /* background-color: var(--dark-teal); */
+  background-color: var(--pink);
+}
+
 .current-product-header {
   float: left;
-  color: black;
+  color: var(--dark-grey);
   font-size: larger;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .compared-product-header {
   float: right;
-  color: black;
+  color: var(--dark-grey);
   font-size: larger;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .comparing-header {
-  font-weight: bold;
+  /* font-weight: bold; */
+  float: left;
+  line-height: 1em;
+  color: var(--dark-grey);
 }
 
 /* ComparisonModalTable */

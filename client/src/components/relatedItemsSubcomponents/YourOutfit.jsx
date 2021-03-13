@@ -81,7 +81,7 @@ class YourOutfit extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.isCurrentProductAdded !== prevProps.isCurrentProductAdded || this.props.yourOutfitIds !== prevProps.yourOutfitIds) {
+    if (this.props.isCurrentProductAdded !== prevProps.isCurrentProductAdded || this.props.yourOutfitIds !== prevProps.yourOutfitIds || this.props.isCurrentProductAdded !== this.state.isCurrentProductAdded) {
       var updatedIsNothingHiddenRight = this.state.isNothingHiddenRight;
       var updatedHiddenProductsRight = this.state.hiddenProductsRight;
       var updatedShownProducts = this.props.yourOutfitIds;
