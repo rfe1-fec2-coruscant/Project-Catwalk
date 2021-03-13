@@ -25,7 +25,7 @@ class ProductBreakdown extends React.Component  {
   componentDidUpdate(prevProps) {
     if (prevProps.curProductMeta !== this.props.curProductMeta) {
       this.setState({characteristics: this.props.curProductMeta.characteristics});
-      console.log('characteristics', this.state.characteristics);
+      // console.log('characteristics', this.state.characteristics);
       // this.setCharacteristicsState()
     }
   }
@@ -222,8 +222,8 @@ class ProductBreakdown extends React.Component  {
 
   renderFitBar() {
     if (this.state.characteristics.Fit) {
-      console.log('this.state.characteristics.Fit', this.state.characteristics.Fit);
-      console.log('this.props.curProductMeta.characteristics.Fit', this.props.curProductMeta.characteristics.Fit);
+      // console.log('this.state.characteristics.Fit', this.state.characteristics.Fit);
+      // console.log('this.props.curProductMeta.characteristics.Fit', this.props.curProductMeta.characteristics.Fit);
       //let value = (this.props.curProductMeta.characteristics['Fit'].value / 5) * 100
       let value = (this.state.characteristics.Fit.value/5) * 100
       return (

@@ -52,6 +52,7 @@ const ajaxRequests = {
       }
     });
   },
+
   putYourOutfitItem: (path, callback) => {
     $.ajax({
       type: 'PUT',
@@ -74,6 +75,20 @@ const ajaxRequests = {
       success: callback,
       error: err => {
         console.log(err);
+      }
+    });
+  },
+
+  postGlobalClickTracker: (clickObject, callback) => {
+    $.ajax({
+      type: 'POST',
+      url: '/globalClickTracker',
+      contentType: 'application/json; charset=utf-8',
+      data: JSON.stringify(clickObject),
+      // dataType: 'json',
+      success: callback,
+      error: (err) => {
+        console.log('err:', err);
       }
     });
   }
