@@ -6,7 +6,7 @@ var ProductList = ( {products, selectNewProduct} ) => {
   var productsList = [];
   for (var i = 0; i < products.length; i++) {
     productsList.push(
-      <li data-index={i} onClick={selectNewProduct}>{products[i].name} | ID: {products[i].id}</li>
+      <li key={'prod$' + i} data-index={i} onClick={selectNewProduct}>{products[i].name} | ID: {products[i].id}</li>
     );
   }
   // console.log("productsList: ",productsList);

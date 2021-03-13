@@ -11,6 +11,7 @@ class ImageGallery extends React.Component {
     this.state = {
       imageIndex: 0
     };
+    this.count = 0;
   }
 
 
@@ -19,8 +20,9 @@ class ImageGallery extends React.Component {
       <div id="image-gallery">
         <div id="image-gallery-carousel">
           {this.props.currentProduct.photos.map((photo) => {
+            this.count += 1
             return(
-              <ImageGalleryCarouselItem photo={photo.thumbnail_url}/>
+              <ImageGalleryCarouselItem key={this.count} photo={photo.thumbnail_url}/>
             );
           })}
         </div>

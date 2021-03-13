@@ -34,11 +34,11 @@ const AddAnswerModal = (props) => {
             </div>
 
           <div className="regular-text input-label-4">Upload photos:</div>
-          <form className="input-4" action={props.handlePhotoUpload}>
+          <div className="input-4" action={props.handlePhotoUpload}>
             <Upload
               handlePhotoSelect={props.handlePhotoSelect}
               />
-          </form>
+          </div>
 
           <div id="add-answer-modal-buttons">
             <button className="modal-button bold-text" type="button" onClick={props.handleAddQuestionSubmit}>Submit Answer</button>

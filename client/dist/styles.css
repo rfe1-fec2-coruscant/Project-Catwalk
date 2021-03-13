@@ -321,8 +321,9 @@ header {
   margin-top: -14px;
   pointer-events: none;
   transition: all 0.4s ease;
-  height: 0;
-  width: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
 }
 
 #products-icon {

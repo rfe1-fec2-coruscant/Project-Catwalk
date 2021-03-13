@@ -43,7 +43,7 @@ class Reviews extends React.Component {
   }
 
   anotherFetch() {
-    console.log('current product id', this.props.currentProductId)
+    // console.log('current product id', this.props.currentProductId)
     ajaxRequests.get(`reviews/meta?product_id=${this.props.currentProductId}`, (results) => {
       this.setState({ curProductMeta: results });
 
@@ -51,7 +51,7 @@ class Reviews extends React.Component {
   }
 
     render() {
-      if (Object.keys(this.state.curProduct).length > 0) {
+      if (Object.keys(this.state.curProductMeta).length > 0) {
         return (
           <div className="rev-container widget center-subwidgets" id="reviews-outer-div">
             <h2 id="reviews-outer-title" className="header-text">RATINGS AND REVIEWS</h2>
@@ -73,7 +73,7 @@ class Reviews extends React.Component {
                 curProductCount={this.state.curProduct.count}
                 curProductReviews={this.state.curProduct.results}
               /><br></br>
-                <WriteNewReview />
+                {/* <WriteNewReview /> */}
               </div>
             </div>
           </div>

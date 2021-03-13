@@ -32,7 +32,7 @@ app.get('/get', (req, res) => {
       res.send(data.data).end();
     })
     .catch(err => {
-      res.send(err).end();
+      res.status(500).send(err).end();
     });
 });
 

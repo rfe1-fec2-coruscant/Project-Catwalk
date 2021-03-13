@@ -26,7 +26,7 @@ class QuantityList extends React.Component {
       let options = [];
       for (var i = 1; i <= this.props.max; i++) {
         options.push(
-          <option value={i}>{i}</option>
+          <option key={'qty'+i} value={i}>{i}</option>
         );
       }
 

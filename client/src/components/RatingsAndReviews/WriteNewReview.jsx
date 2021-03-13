@@ -27,7 +27,7 @@ class WriteNewReview extends React.Component {
     this.setState({
       show: false
     });
-    alert('Some feilds are not completed. Please complete the required feilds and resubmit')
+    alert('Some fields are not completed. Please complete the required fields and resubmit');
   }
 
   render() {

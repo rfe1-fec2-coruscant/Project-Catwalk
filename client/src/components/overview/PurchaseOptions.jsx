@@ -25,7 +25,7 @@ class PurchaseOptions extends React.Component {
      // console.log(sizes[each]);
       if (sizes[each].quantity > 0) {
         returnOptions.push(
-          <SizeOption sku={sizes[each]} pickSize={this.sizeSelected}/>
+          <SizeOption sku={sizes[each]} key={each} pickSize={this.sizeSelected}/>
         );
       }
     }
@@ -57,11 +57,12 @@ class PurchaseOptions extends React.Component {
           required
           id="size-selector"
           value={this.state.selectedSize}
+          // defaultValue=""
           className="largeButton purchase-buttons"
           onChange={this.sizeSelected}>
             <option
             disabled
-            selected="selected"
+            // selected="selected"
             value=""
             className="dead-option">
               PICK A SIZE

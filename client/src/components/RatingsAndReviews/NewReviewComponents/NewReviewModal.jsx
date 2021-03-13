@@ -4,14 +4,16 @@ import Characteristics from './Characteristics.jsx'
 const NewReviewModal = ({ hideModal, shown }) => {
   const showHideClassName = shown ? "modal display-block" : "modal display-none";
 
+
+
   return (
 
     <div className={showHideClassName}>
       <a type="css" href="./modals.css"></a>
-      <form className="modal-main pop-up-modal">
+      <form onChange={() => {}} className="modal-main pop-up-modal">
 
         <div className="rev-modal-input1" id="rev-overall-rating" required>Overall Rating:
-          <input type="radio" className="star-rating" />Poor
+          <input type="radio" className="star-rating">Poor</input>
           <input type="radio" className="star-rating" />Fair
           <input type="radio" className="star-rating" />Average
           <input type="radio" className="star-rating" />Good

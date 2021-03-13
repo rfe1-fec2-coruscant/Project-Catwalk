@@ -21,26 +21,29 @@ class ReviewsList extends React.Component {
 
     this.count = 2;
     this.count1;
-    this.averageRating = 3
+    this.averageRating = 3;
     this.everyPostive = 0;
-    this.averageRecommendation
+    this.averageRecommendation;
     this.starRating;
 
-    this.boundRenderTwoMoreTiles = this.renderTwoMoreTiles.bind(this)
-    this.allReviewsCopy = this.props.curProductReviews.slice()
-    this.renderStars = this.renderStars.bind(this)
+    this.boundRenderTwoMoreTiles = this.renderTwoMoreTiles.bind(this);
+    // this.allReviewsCopy = this.props.curProductReviews.slice();
+    this.allReviewsCopy = this.props.curProductReviews ? this.props.curProductReviews.slice() : [];
+    this.renderStars = this.renderStars.bind(this);
   }
 
   componentDidMount() {
     let startingTwo = [];
     let i = 0
-    for (let review of this.props.curProductReviews) {
-      if (i === 2) {
-        break;
-      }
-      startingTwo.push(review);
-      i++;
+    if (this.props.curProductReviews) {
+      for (let review of this.props.curProductReviews) {
+        if (i === 2) {
+          break;
+        }
+        startingTwo.push(review);
+        i++;
 
+      }
     }
     this.setState({reviews: startingTwo})
   }
@@ -87,7 +90,7 @@ class ReviewsList extends React.Component {
     var stars = [];
     if (averageRating % 1 === 0) {
       for (let i = 0; i < averageRating; i++) {
-        stars.push(<span className="rev-star fa fa-star"></span>)
+        stars.push(<span key={i} className="rev-star fa fa-star"></span>)
       }
     }
     return stars

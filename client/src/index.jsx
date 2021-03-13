@@ -90,10 +90,10 @@ class App extends React.Component {
           <div className="widget-for-clicks widget" id="ModuleOverview">
             <header>
               <ProductList products={this.state.products} selectNewProduct={this.changeCurrentProduct} />
-              <div class="theme-switch-wrapper">
-                <label class="theme-switch" for="theme-toggle">
+              <div className="theme-switch-wrapper">
+                <label className="theme-switch" forhtml="theme-toggle">
                   <input onClick={this.switchTheme.bind(this)}type="checkbox" id="theme-toggle" />
-                  <div class="slider round"></div>
+                  <div className="slider round"></div>
                 </label>
               </div>
             </header>
